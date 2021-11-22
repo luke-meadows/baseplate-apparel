@@ -12,6 +12,16 @@ const Product = {
         displayMode: 'textarea',
       },
     },
+    photo: {
+      type: Relationship,
+      ref: 'ProductImage.product',
+      ui: {
+        displayMode: 'cards',
+        cardFields: ['image', 'altText'],
+        inlineCreate: { fields: ['image', 'altText'] },
+        inlineEdit: { fields: ['image', 'altText'] },
+      },
+    },
     status: {
       type: Select,
       options: [

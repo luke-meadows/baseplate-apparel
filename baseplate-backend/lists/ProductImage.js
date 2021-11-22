@@ -1,8 +1,10 @@
 const { Keystone } = require('@keystonejs/keystone');
 const { CloudinaryAdapter } = require('@keystonejs/file-adapters');
 const { CloudinaryImage } = require('@keystonejs/fields-cloudinary-image');
+const { Relationship } = require('@keystonejs/fields');
 const dotenv = require('dotenv').config();
-
+console.log('----------------------');
+console.log(process.env.CLOUDINARY_CLOUD_NAME);
 const fileAdapter = new CloudinaryAdapter({
   cloudName: process.env.CLOUDINARY_CLOUD_NAME,
   apiKey: process.env.CLOUDINARY_KEY,
@@ -13,6 +15,10 @@ const fileAdapter = new CloudinaryAdapter({
 const ProductImage = {
   fields: {
     image: { type: CloudinaryImage, adapter: fileAdapter },
+    product: {
+      type: Relationship,
+      ref: 'Product.photo',
+    },
   },
 };
 

@@ -8,12 +8,15 @@ const adapterConfig = {
   mongoUri: process.env.DATABASE_URL,
 };
 const ProductList = require('./lists/Product');
+const ProductImageList = require('./lists/ProductImage');
+
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   cookieSecret: process.env.COOKIE_SECRET,
 });
 
 keystone.createList('Product', ProductList);
+keystone.createList('ProductImage', ProductImageList);
 
 module.exports = {
   keystone,
