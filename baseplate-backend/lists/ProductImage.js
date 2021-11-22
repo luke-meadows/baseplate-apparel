@@ -1,32 +1,19 @@
-import { relationship, text } from '@keystone-next/fields';
-import { list } from '@keystone-next/keystone/schema';
-import { cloudinaryImage } from '@keystone-next/cloudinary';
-import 'dotenv/config';
+const { Keystone } = require('@keystonejs/keystone');
+const { CloudinaryAdapter } = require('@keystonejs/file-adapters');
+const { CloudinaryImage } = require('@keystonejs/fields-cloudinary-image');
+const dotenv = require('dotenv').config();
 
-export const cloudinary = {
+const fileAdapter = new CloudinaryAdapter({
   cloudName: process.env.CLOUDINARY_CLOUD_NAME,
   apiKey: process.env.CLOUDINARY_KEY,
   apiSecret: process.env.CLOUDINARY_SECRET,
-  folder: 'sickFits',
+  folder: 'baseplate',
+});
+
+const ProductImage = {
+  fields: {
+    image: { type: CloudinaryImage, adapter: fileAdapter },
+  },
 };
 
-export const ProductImage = list({
-  fields: {
-    image: cloudinaryImage({
-      cloudinary,
-      label: 'Source',
-    }),
-
-    altText: text(),
-
-    product: relationship({
-      ref: 'Product.photo',
-    }),
-  },
-
-  ui: {
-    listView: {
-      initialColumns: ['image', 'altText', 'product'],
-    },
-  },
-});
+module.exports = ProductImage;
