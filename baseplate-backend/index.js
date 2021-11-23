@@ -7,7 +7,9 @@ const dotenv = require('dotenv').config();
 const adapterConfig = {
   mongoUri: process.env.DATABASE_URL,
 };
+// Product Schema
 const ProductList = require('./lists/Product');
+// ProductImage Schema
 const ProductImageList = require('./lists/ProductImage');
 
 const keystone = new Keystone({
