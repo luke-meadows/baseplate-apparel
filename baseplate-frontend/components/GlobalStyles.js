@@ -4,14 +4,7 @@ export const GlobalStyles = createGlobalStyle`
   /* font-family: 'Caveat', cursive;
   font-family: 'Poppins', sans-serif;
   font-family: 'Roboto Mono', monospace; */
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@100;200;300;400;500&family=Roboto+Mono:wght@300;400&display=swap');
 
-  /* @font-face {
-    font-family: 'radnika_next';
-    src: url('../public/radnikanext-medium-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  } */
   html {
     --main-blue: #02e1f5;
     --large-screen-padding: 6rem;
@@ -28,9 +21,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'Poppins';
-    font-family: 'Caveat';
-    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-    /* font-family: 'radnika_next'; */
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
@@ -61,9 +51,7 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
 }
-p{
-  font-size: 3rem;
-}
+
 `;
 
 export const InnerStyles = styled.div`
