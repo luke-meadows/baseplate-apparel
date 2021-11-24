@@ -58,7 +58,6 @@ html {
 
 export const InnerStyles = styled.div`
   padding: var(--medium-screen-padding);
-  /* margin: 0 auto; */
 
   border: 1px solid blue;
 `;

@@ -1,6 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
 import { useQuery, gql } from '@apollo/client';
 
 const ALL_PRODUCTS_QUERY = gql`

@@ -3,7 +3,16 @@ import Page from '../components/Page';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/admin/api',
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          // TODO: We will add this together!
+          // allProducts: paginationField(),
+        },
+      },
+    },
+  }).restore(),
 });
 
 function MyApp({ Component, pageProps }) {
