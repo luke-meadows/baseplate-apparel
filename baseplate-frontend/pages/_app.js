@@ -1,15 +1,17 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import Page from '../components/Page';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/admin/api',
   cache: new InMemoryCache(),
 });
 
-function MyApp({ Component, pageProps, apollo }) {
-  console.log(apollo);
+function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <Page>
+        <Component {...pageProps} />
+      </Page>
     </ApolloProvider>
   );
 }
