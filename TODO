@@ -1,0 +1,6 @@
+1. Add loading state on home page. Before loading the imgs, nav items (i.e brands)** 
+   need to have been pulled from the api.
+
+** (i.e brands) need to think on how to create different categories in keystone for brands
+
+2. Create a hook to handle the nav hover, maybe use framer to hover subnav up and down

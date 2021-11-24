@@ -31,9 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--black);
     cursor: pointer;
   }
-  a:hover {
-    text-decoration: underline;
-  }
+
   button{
     border: none;
     font-size: 0.85rem;

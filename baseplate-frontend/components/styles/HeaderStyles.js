@@ -26,12 +26,67 @@ export const Logo = styled.div`
     font-size: 3rem;
     /* @media screen and (max-width: 1160px) {
     font-size: 2rem;
-  } */
   }
   /* @media screen and (max-width: 1160px) {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-} */
+  transform: translate(-50%, -50%);*/
+  }
+`;
+
+export const StyledNav = styled.nav`
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 4rem;
+
+  /* @media screen and (max-width: 1160px) {
+    flex-direction: column;
+    height: 70%;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1160px) {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    height: calc(100vh - 4rem);
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    background-color: white;
+  } */
+  svg {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+    transition: left 0.1s ease;
+  }
+  a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+    padding: 0 2rem;
+    color: white;
+    /* @media screen and (max-width: 1160px) {
+        text-align: left;
+        justify-content: flex-start;
+        font-size: 1.8rem;
+        font-weight: 300;
+        width: 10rem;
+        color: black;
+      } */
+  }
 `;
