@@ -12,7 +12,7 @@ const client = new ApolloClient({
         },
       },
     },
-  }).restore(),
+  }),
 });
 
 function MyApp({ Component, pageProps }) {

@@ -1,13 +1,18 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
- @font-face {
-    font-family: 'poppins';
-    src: url('public/fonts/Poppins-Regular.ttf') format('ttf');
+  /* font-family: 'Caveat', cursive;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto Mono', monospace; */
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@100;200;300;400;500&family=Roboto+Mono:wght@300;400&display=swap');
+
+  /* @font-face {
+    font-family: 'radnika_next';
+    src: url('../public/radnikanext-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-  }
-html {
+  } */
+  html {
     --main-blue: #02e1f5;
     --large-screen-padding: 6rem;
     --medium-screen-padding: 3rem;
@@ -15,7 +20,6 @@ html {
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     box-sizing: border-box;
     font-size: 62.5%;
-    font-family: poppins;
     padding: 0;
     margin: 0;
   }
@@ -23,7 +27,10 @@ html {
     box-sizing: inherit;
   }
   body {
-    font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins';
+    font-family: 'Caveat';
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    /* font-family: 'radnika_next'; */
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
@@ -54,10 +61,12 @@ html {
         cursor: pointer;
     }
 }
+p{
+  font-size: 3rem;
+}
 `;
 
 export const InnerStyles = styled.div`
   padding: var(--medium-screen-padding);
-
   border: 1px solid blue;
 `;
