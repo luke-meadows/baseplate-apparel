@@ -8,7 +8,11 @@ export const Nav = forwardRef((props, ref) => {
   const { handleMouseEnter, handleMouseLeave } = useContext(NavCtx);
 
   return (
-    <StyledNav ref={ref} onMouseEnter={handleMouseEnter}>
+    <StyledNav
+      ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link href="/">Brands</Link>
       <Link href="/">Shoes</Link>
       <Link href="/">Clothing</Link>
