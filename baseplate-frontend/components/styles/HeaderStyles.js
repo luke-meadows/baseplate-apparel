@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const StyledHeader = styled.header`
   width: 100%;
@@ -41,7 +42,8 @@ export const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   cursor: pointer;
-  height: 4rem;
+  height: 6rem;
+  border: 1px solid red;
 
   /* @media screen and (max-width: 1160px) {
     flex-direction: column;
@@ -89,4 +91,13 @@ export const StyledNav = styled.nav`
         color: black;
       } */
   }
+`;
+
+export const StyledSubNav = styled(motion.div)`
+  background: var(--main-blue);
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 6rem;
+  border: 1px solid red;
 `;

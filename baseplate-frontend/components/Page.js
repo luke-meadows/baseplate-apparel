@@ -2,6 +2,7 @@ import { GlobalStyles, InnerStyles } from './GlobalStyles';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Header from './Header';
+import { NavCtxProvider } from '../public/NavCtxProvider';
 export default function Page({ children }) {
   const router = useRouter();
   const [path, updatePath] = useState('/');
@@ -13,7 +14,10 @@ export default function Page({ children }) {
   return (
     <div className="page">
       <GlobalStyles />
-      <Header />
+      <NavCtxProvider>
+        <Header />
+      </NavCtxProvider>
+
       {path === '/' && ( // conditional render of home img slider
         <div>
           <p>home page slider</p>
