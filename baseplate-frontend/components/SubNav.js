@@ -14,9 +14,7 @@ export const SubNav = forwardRef((props, ref) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <motion.h1 layout>click</motion.h1>
       {subNavOptions.subNavOpen ? props.children : ''}
-      <div className="faq-line"></div>
     </StyledSubNav>
   );
 });

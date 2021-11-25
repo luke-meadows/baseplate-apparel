@@ -99,5 +99,4 @@ export const StyledSubNav = styled(motion.div)`
   position: absolute;
   left: 0;
   top: 6rem;
-  border: 1px solid red;
 `;

@@ -11,6 +11,7 @@ export default function Header() {
   const subNavRef = useRef();
   const navRef = useRef();
 
+  // Fetches the Rect for nav & subnav and stores them to be used in onMouseEnter calculations.
   useEffect(() => {
     const subRect = subNavRef?.current?.getBoundingClientRect();
     const navRect = navRef?.current?.getBoundingClientRect();
@@ -30,9 +31,15 @@ export default function Header() {
 
         <Nav ref={navRef} />
         <SubNav ref={subNavRef}>
-          <div>hello</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
         </SubNav>
-        <p>hello</p>
+        <p>Nav Buttons</p>
       </AnimateSharedLayout>
     </StyledHeader>
   );

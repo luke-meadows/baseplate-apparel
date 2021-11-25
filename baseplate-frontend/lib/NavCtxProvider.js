@@ -10,29 +10,26 @@ export const NavCtxProvider = ({ children }) => {
     subNavOpen: false,
   });
 
-  console.log(subNavOptions);
-
   function handleMouseLeave(e) {
-    //
     const pointerX = e.clientX;
     const pointerY = e.clientY;
     const navX = subNavOptions.navRect.x;
     const navY = subNavOptions.navRect.y;
     const navWidth = subNavOptions.navRect.width - 5;
     const subNavY = subNavOptions.subNavRect.y;
-    const subNavHeight = subNavOptions.subNavRect.height - 5;
 
-    // Areas of screen that should trigger the nav to close
+    // Areas of screen that should trigger the nav to close if hovered over.
     const isInBlock1 = pointerX < navX && pointerY < subNavY;
     const isInBlock2 = pointerX > navX + navWidth && pointerY < subNavY;
     const isInBlock3 = pointerY <= navY + 2;
-    const isInBlock4 = pointerY > subNavY + subNavHeight;
+    const isInBlock4 = pointerY > 100;
 
-    // true will close nav
+    // true will close nav.
     const shouldCloseNav = isInBlock1 || isInBlock2 || isInBlock3 || isInBlock4;
 
-    if (shouldCloseNav)
+    if (shouldCloseNav) {
       setSubNavOptions({ ...subNavOptions, subNavOpen: false });
+    }
     return;
   }
 
