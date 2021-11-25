@@ -1,20 +1,13 @@
 import Link from 'next/link';
-import { forwardRef, useContext, useEffect, useRef } from 'react';
+import { forwardRef, useContext } from 'react';
 import { NavCtx } from '../public/NavCtxProvider';
-import { wait } from './lib/wait';
 import { StyledNav } from './styles/HeaderStyles';
 
 export const Nav = forwardRef((props, ref) => {
-  // const navRef = useRef();
-  // const [subNavOptions, setSubNavOptions] = useContext(NavCtx);
-
-  // useEffect(() => {
-  //   const rect = navRef?.current?.getBoundingClientRect();
-  //   setSubNavOptions({ navRect: rect });
-  // }, []);
+  const { handleMouseEnter, handleMouseLeave } = useContext(NavCtx);
 
   return (
-    <StyledNav ref={ref}>
+    <StyledNav ref={ref} onMouseEnter={handleMouseEnter}>
       <Link href="/">Brands</Link>
       <Link href="/">Shoes</Link>
       <Link href="/">Clothing</Link>

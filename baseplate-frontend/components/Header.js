@@ -7,7 +7,7 @@ import { Logo, StyledHeader } from './styles/HeaderStyles';
 import { useContext, useEffect, useRef } from 'react';
 
 export default function Header() {
-  const [subNavOptions, setSubNavOptions] = useContext(NavCtx);
+  const { subNavOptions, setSubNavOptions } = useContext(NavCtx);
   const subNavRef = useRef();
   const navRef = useRef();
 
