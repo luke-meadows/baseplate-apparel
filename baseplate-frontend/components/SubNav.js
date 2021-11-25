@@ -1,7 +1,6 @@
 import { forwardRef, useContext, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { NavCtx } from '../public/NavCtxProvider';
-import { wait } from './lib/wait';
+import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledSubNav } from './styles/HeaderStyles';
 
 export const SubNav = forwardRef((props, ref) => {

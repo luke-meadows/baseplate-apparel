@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { forwardRef, useContext } from 'react';
-import { NavCtx } from '../public/NavCtxProvider';
+import { NavCtx } from '../lib/NavCtxProvider';
+
 import { StyledNav } from './styles/HeaderStyles';
 
 export const Nav = forwardRef((props, ref) => {

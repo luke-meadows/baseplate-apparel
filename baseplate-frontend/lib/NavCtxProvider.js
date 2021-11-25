@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { wait } from '../components/lib/wait';
+import { wait } from './wait';
 
 export const NavCtx = createContext();
 

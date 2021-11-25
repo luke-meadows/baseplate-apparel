@@ -1,4 +1,4 @@
-import { NavCtx, NavCtxProvider } from '../public/NavCtxProvider';
+import { NavCtx } from '../lib/NavCtxProvider';
 import Link from 'next/link';
 import { AnimateSharedLayout } from 'framer-motion';
 import { Nav } from './Nav';

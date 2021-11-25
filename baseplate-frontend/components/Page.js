@@ -2,7 +2,8 @@ import { GlobalStyles, InnerStyles } from './GlobalStyles';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Header from './Header';
-import { NavCtxProvider } from '../public/NavCtxProvider';
+import { NavCtxProvider } from '../lib/NavCtxProvider';
+
 export default function Page({ children }) {
   const router = useRouter();
   const [path, updatePath] = useState('/');
