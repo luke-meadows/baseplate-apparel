@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Header from './Header';
 import { NavCtxProvider } from '../lib/NavCtxProvider';
+import { ImageSlider } from './ImageSlider';
 
 export default function Page({ children }) {
   const router = useRouter();
@@ -20,9 +21,7 @@ export default function Page({ children }) {
       </NavCtxProvider>
 
       {path === '/' && ( // conditional render of home img slider
-        <div>
-          <p>home page slider</p>
-        </div>
+        <ImageSlider />
       )}
       <InnerStyles>{children}</InnerStyles>
     </div>

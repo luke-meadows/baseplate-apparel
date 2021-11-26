@@ -25,6 +25,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-size: 1.5rem;
     line-height:2;
+    
   }
   a {
     text-decoration: none;
@@ -49,7 +50,9 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
 }
-
+.swiper{
+      border: 5px solid blue;
+    }
 `;
 
 export const InnerStyles = styled.div`

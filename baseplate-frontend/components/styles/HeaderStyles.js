@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   z-index: 2;
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.88);
+  background-color: rgba(0, 0, 0, 0.8);
   height: 6rem;
   display: flex;
   align-items: center;
@@ -43,7 +43,6 @@ export const StyledNav = styled.nav`
   align-items: center;
   cursor: pointer;
   height: 6rem;
-  border: 1px solid red;
 
   /* @media screen and (max-width: 1160px) {
     flex-direction: column;

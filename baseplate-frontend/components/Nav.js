@@ -13,7 +13,7 @@ export const Nav = forwardRef((props, ref) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link href="/">Brands</Link>
+      <Link href="/products">Brands</Link>
       <Link href="/">Shoes</Link>
       <Link href="/">Clothing</Link>
       <Link href="/">Accessories</Link>

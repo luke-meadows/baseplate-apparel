@@ -24,12 +24,12 @@ export default function Header() {
 
   return (
     <StyledHeader>
-      <AnimateSharedLayout>
-        <Logo id="logo">
-          <Link href="/">Cobalt Apparel</Link>
-        </Logo>
+      <Logo id="logo">
+        <Link href="/">Baseplate</Link>
+      </Logo>
 
-        <Nav ref={navRef} />
+      <Nav ref={navRef} />
+      <AnimateSharedLayout>
         <SubNav ref={subNavRef}>
           <div>NavItem</div>
           <div>NavItem</div>
@@ -39,8 +39,8 @@ export default function Header() {
           <div>NavItem</div>
           <div>NavItem</div>
         </SubNav>
-        <p>Nav Buttons</p>
       </AnimateSharedLayout>
+      <p>Nav Buttons</p>
     </StyledHeader>
   );
 }

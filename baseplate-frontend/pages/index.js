@@ -24,7 +24,10 @@ export default function Home() {
   return (
     <div className="page">
       {data.allProducts.map((data) => (
-        <p key={data.id}>{data.id}</p>
+        <div key={data.id}>
+          <p>{data.id}</p>
+          <img src={data.photo.image.publicUrlTransformed} alt="" />
+        </div>
       ))}
     </div>
   );
