@@ -1,31 +1,55 @@
+import { DeliveryBanner } from '../components/DeliveryBanner';
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Pagination } from 'swiper';
+import { SwiperSlide } from 'swiper/react';
+import { HomepageSlider } from './styles/SwiperStyles';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+// Images
+import Image from 'next/image';
+import home1 from '../public/img/sliderimgs/homeSliderImg1L.jpg';
+import home2 from '../public/img/sliderimgs/homeSliderImg2L.jpg';
+import home3 from '../public/img/sliderimgs/homeSliderImg3L.jpg';
+import home4 from '../public/img/sliderimgs/homeSliderImg4L.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 export const ImageSlider = () => {
   return (
-    <Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={0}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-      style={{ marginTop: '10rem' }}
-    >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-    </Swiper>
+    <>
+      <HomepageSlider
+        // install Swiper modules
+        // TODO auto transition
+        modules={[Pagination]}
+        spaceBetween={0}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+      >
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={home1} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={home2} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={home3} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={home4} />
+          </div>
+        </SwiperSlide>
+      </HomepageSlider>
+      <DeliveryBanner />
+    </>
   );
 };

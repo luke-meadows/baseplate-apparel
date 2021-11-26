@@ -1,5 +1,4 @@
-import { forwardRef, useContext, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { forwardRef, useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledSubNav } from './styles/HeaderStyles';
 

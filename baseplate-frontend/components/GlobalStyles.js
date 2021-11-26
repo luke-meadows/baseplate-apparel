@@ -50,12 +50,9 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
 }
-.swiper{
-      border: 5px solid blue;
-    }
 `;
 
 export const InnerStyles = styled.div`
   padding: var(--medium-screen-padding);
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
