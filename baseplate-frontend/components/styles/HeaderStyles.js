@@ -78,8 +78,9 @@ export const StyledNav = styled.nav`
     ::after {
       content: '|';
       position: absolute;
-      color: black;
-      font-weight: 200;
+      color: rgb(45, 45, 45);
+
+      font-weight: 300;
       right: 0px;
     }
     /* @media screen and (max-width: 1160px) {
