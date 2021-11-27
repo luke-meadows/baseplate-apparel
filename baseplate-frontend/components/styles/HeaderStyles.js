@@ -17,13 +17,8 @@ export const StyledHeader = styled.header`
 `;
 
 export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
   a {
     font-family: 'Caveat';
-    color: white;
-    font-weight: 400;
     font-size: 3rem;
     /* @media screen and (max-width: 1160px) {
     font-size: 2rem;
@@ -37,13 +32,17 @@ export const Logo = styled.div`
 `;
 
 export const StyledNav = styled.nav`
-  overflow-x: hidden;
-  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
   height: 6rem;
-
+  > * {
+    &:nth-last-child(1) {
+      ::after {
+        content: '';
+      }
+    }
+  }
   /* @media screen and (max-width: 1160px) {
     flex-direction: column;
     height: 70%;
@@ -69,18 +68,20 @@ export const StyledNav = styled.nav`
     transition: left 0.1s ease;
   }
   a {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     height: 100%;
-    width: 100%;
-    padding: 0 2rem;
-    color: white;
+    padding: 0 3.5rem;
+    position: relative;
+    ::after {
+      content: '|';
+      position: absolute;
+      color: black;
+      font-weight: 200;
+      right: 0px;
+    }
     /* @media screen and (max-width: 1160px) {
         text-align: left;
         justify-content: flex-start;

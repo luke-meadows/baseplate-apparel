@@ -54,5 +54,4 @@ export const GlobalStyles = createGlobalStyle`
 
 export const InnerStyles = styled.div`
   padding: var(--medium-screen-padding);
-  /* border: 1px solid blue; */
 `;

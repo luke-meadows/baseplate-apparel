@@ -13,7 +13,15 @@ export const SubNav = forwardRef((props, ref) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {subNavOptions.subNavOpen ? props.children : ''}
+      {subNavOptions.subNavOpen && (
+        <div layout>
+          <div layout>NavItem</div>
+          <div layout>NavItem</div>
+          <div layout>NavItem</div>
+          <div layout>NavItem</div>
+          <div layout>NavItem</div>
+        </div>
+      )}
     </StyledSubNav>
   );
 });

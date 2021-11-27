@@ -30,15 +30,7 @@ export default function Header() {
 
       <Nav ref={navRef} />
       <AnimateSharedLayout>
-        <SubNav ref={subNavRef}>
-          <div>NavItem</div>
-          <div>NavItem</div>
-          <div>NavItem</div>
-          <div>NavItem</div>
-          <div>NavItem</div>
-          <div>NavItem</div>
-          <div>NavItem</div>
-        </SubNav>
+        <SubNav ref={subNavRef} />
       </AnimateSharedLayout>
       <p>Nav Buttons</p>
     </StyledHeader>

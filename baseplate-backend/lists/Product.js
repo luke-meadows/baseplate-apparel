@@ -6,12 +6,14 @@ const Product = {
       type: Text,
       isRequired: true,
     },
+
     description: {
       type: Text,
       ui: {
         displayMode: 'textarea',
       },
     },
+
     photo: {
       type: Relationship,
       ref: 'ProductImage.product',
@@ -22,6 +24,7 @@ const Product = {
         inlineEdit: { fields: ['image', 'altText'] },
       },
     },
+
     status: {
       type: Select,
       options: [
@@ -34,6 +37,11 @@ const Product = {
         displayMode: 'segmented-control',
       },
     },
+
+    // brand: {
+    //   type: Select,
+    // },
+
     price: {
       type: Integer,
     },
