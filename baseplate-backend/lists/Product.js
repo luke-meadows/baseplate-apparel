@@ -24,6 +24,13 @@ const Product = {
         inlineEdit: { fields: ['image', 'altText'] },
       },
     },
+    brand: {
+      type: Relationship,
+      ref: 'Brand',
+      ui: {
+        inlineCreate: { fields: ['brand'] },
+      },
+    },
 
     status: {
       type: Select,
