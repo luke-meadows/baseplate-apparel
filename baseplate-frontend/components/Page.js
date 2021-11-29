@@ -1,4 +1,4 @@
-import { GlobalStyles, InnerStyles } from './GlobalStyles';
+import { GlobalStyles, InnerStyles } from './styles/GlobalStyles';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Header from './Header';
@@ -16,9 +16,7 @@ export default function Page({ children }) {
   return (
     <div className="page">
       <GlobalStyles />
-      <NavCtxProvider>
-        <Header />
-      </NavCtxProvider>
+      <Header />
 
       {path === '/' && ( // conditional render of home img slider
         <ImageSlider />

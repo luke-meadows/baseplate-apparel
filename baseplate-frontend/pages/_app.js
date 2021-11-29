@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Page from '../components/Page';
+import { NavCtxProvider } from '../lib/NavCtxProvider';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/admin/api',
@@ -18,9 +19,11 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
+      <NavCtxProvider>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </NavCtxProvider>
     </ApolloProvider>
   );
 }

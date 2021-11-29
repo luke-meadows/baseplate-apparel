@@ -1,3 +1,5 @@
+import { useContext, useEffect } from 'react';
+import { NavCtx } from '../lib/NavCtxProvider';
 import { useQuery, gql } from '@apollo/client';
 
 const ALL_PRODUCTS_QUERY = gql`
@@ -14,13 +16,23 @@ const ALL_PRODUCTS_QUERY = gql`
         }
       }
     }
+    allBrands {
+      brand
+    }
   }
 `;
 
 export default function Home() {
+  const { setNavCategories } = useContext(NavCtx);
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
-  console.log({ data, error, loading });
+
+  useEffect(() => {
+    setNavCategories(data?.allBrands);
+  }, [data]);
+
   if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
+
+  console.log({ data, error, loading });
   return (
     <div className="page">
       {data.allProducts.map((data) => (

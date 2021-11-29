@@ -10,6 +10,8 @@ export const NavCtxProvider = ({ children }) => {
     activeNavHeading: 'brands',
   });
 
+  const [navCategories, setNavCategories] = useState([]); // a list the brands from the backend to populate subnav options
+
   function handleNavItemHover(e) {
     const value = e.target.textContent;
     setSubNavOptions({
@@ -49,6 +51,8 @@ export const NavCtxProvider = ({ children }) => {
         setSubNavOptions,
         handleMouseLeave,
         handleNavItemHover,
+        setNavCategories,
+        navCategories,
       }}
     >
       {children}

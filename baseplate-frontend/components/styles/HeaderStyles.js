@@ -71,7 +71,7 @@ export const StyledNav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     height: 100%;
     padding: 0 3.5rem;
     position: relative;
