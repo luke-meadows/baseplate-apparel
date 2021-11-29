@@ -3,16 +3,10 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledSubNav } from './styles/HeaderStyles';
 
 export const SubNav = forwardRef((props, ref) => {
-  const { subNavOptions, handleMouseEnter, handleMouseLeave } =
-    useContext(NavCtx);
+  const { subNavOptions, handleMouseLeave } = useContext(NavCtx);
 
   return (
-    <StyledSubNav
-      layout
-      ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <StyledSubNav layout ref={ref} onMouseLeave={handleMouseLeave}>
       {subNavOptions.subNavOpen && (
         <div layout="true">
           <h1>{subNavOptions.activeNavHeading}</h1>

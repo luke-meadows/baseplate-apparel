@@ -14,6 +14,7 @@ export const NavCtxProvider = ({ children }) => {
     const value = e.target.textContent;
     setSubNavOptions({
       ...subNavOptions,
+      subNavOpen: true,
       activeNavHeading: value.toLowerCase(),
     });
   }
@@ -23,13 +24,13 @@ export const NavCtxProvider = ({ children }) => {
     const pointerY = e.clientY;
     const navX = subNavOptions.navRect.x;
     const navY = subNavOptions.navRect.y;
-    const navWidth = subNavOptions.navRect.width - 5;
+    const navWidth = subNavOptions.navRect.width;
     const subNavY = subNavOptions.subNavRect.y;
 
     // Areas of screen that should trigger the nav to close if hovered over.
     const isInBlock1 = pointerX < navX && pointerY < subNavY;
     const isInBlock2 = pointerX > navX + navWidth && pointerY < subNavY;
-    const isInBlock3 = pointerY <= navY + 2;
+    const isInBlock3 = pointerY <= navY;
     const isInBlock4 = pointerY > 100;
 
     // true will close nav.
@@ -41,20 +42,12 @@ export const NavCtxProvider = ({ children }) => {
     return;
   }
 
-  function handleMouseEnter(e) {
-    if (subNavOptions.subNavOpen) return;
-    setSubNavOptions({
-      ...subNavOptions,
-      subNavOpen: true,
-    });
-  }
-
   return (
     <NavCtx.Provider
       value={{
         subNavOptions,
         setSubNavOptions,
-        handleMouseEnter,
+        // handleMouseEnter,
         handleMouseLeave,
         handleNavItemHover,
       }}
