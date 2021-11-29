@@ -31,6 +31,20 @@ const Product = {
         inlineCreate: { fields: ['brand'] },
       },
     },
+    brand: {
+      type: Relationship,
+      ref: 'Category',
+      ui: {
+        inlineCreate: { fields: ['category'] },
+      },
+    },
+    brand: {
+      type: Relationship,
+      ref: 'Type',
+      ui: {
+        inlineCreate: { fields: ['type'] },
+      },
+    },
 
     status: {
       type: Select,

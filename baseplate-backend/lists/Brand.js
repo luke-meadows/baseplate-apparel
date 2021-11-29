@@ -1,4 +1,4 @@
-const { Relationship, Select, Text } = require('@keystonejs/fields');
+const { Text } = require('@keystonejs/fields');
 
 const Brand = {
   fields: {
