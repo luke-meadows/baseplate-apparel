@@ -14,12 +14,12 @@ export const SubNav = forwardRef((props, ref) => {
       onMouseLeave={handleMouseLeave}
     >
       {subNavOptions.subNavOpen && (
-        <div layout>
-          <div layout>NavItem</div>
-          <div layout>NavItem</div>
-          <div layout>NavItem</div>
-          <div layout>NavItem</div>
-          <div layout>NavItem</div>
+        <div layout="true">
+          <h1>{subNavOptions.activeNavHeading}</h1>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
+          <div>NavItem</div>
         </div>
       )}
     </StyledSubNav>

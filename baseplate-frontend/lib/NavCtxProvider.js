@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-import { wait } from './wait';
 
 export const NavCtx = createContext();
 
@@ -8,7 +7,16 @@ export const NavCtxProvider = ({ children }) => {
     subNavRect: null,
     navRect: null,
     subNavOpen: false,
+    activeNavHeading: 'brands',
   });
+
+  function handleNavItemHover(e) {
+    const value = e.target.textContent;
+    setSubNavOptions({
+      ...subNavOptions,
+      activeNavHeading: value.toLowerCase(),
+    });
+  }
 
   function handleMouseLeave(e) {
     const pointerX = e.clientX;
@@ -33,7 +41,7 @@ export const NavCtxProvider = ({ children }) => {
     return;
   }
 
-  function handleMouseEnter() {
+  function handleMouseEnter(e) {
     if (subNavOptions.subNavOpen) return;
     setSubNavOptions({
       ...subNavOptions,
@@ -48,6 +56,7 @@ export const NavCtxProvider = ({ children }) => {
         setSubNavOptions,
         handleMouseEnter,
         handleMouseLeave,
+        handleNavItemHover,
       }}
     >
       {children}
