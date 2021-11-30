@@ -11,8 +11,7 @@ const adapterConfig = {
 const ProductList = require('./lists/Product');
 const ProductImageList = require('./lists/ProductImage');
 const BrandList = require('./lists/Brand');
-const CategoryList = require('./lists/Category');
-const TypeList = require('./lists/ProductType');
+const ProductTypeList = require('./lists/ProductType');
 
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
@@ -22,8 +21,7 @@ const keystone = new Keystone({
 keystone.createList('Product', ProductList);
 keystone.createList('ProductImage', ProductImageList);
 keystone.createList('Brand', BrandList);
-keystone.createList('Category', CategoryList);
-keystone.createList('Type', TypeList);
+keystone.createList('ProductType', ProductTypeList);
 
 module.exports = {
   keystone,

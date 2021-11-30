@@ -31,18 +31,26 @@ const Product = {
         inlineCreate: { fields: ['brand'] },
       },
     },
-    brand: {
-      type: Relationship,
-      ref: 'Category',
+
+    productCategory: {
+      type: Select,
+      options: [
+        { value: 'shoes', label: 'Shoes' },
+        { value: 'accessory', label: 'Accessory' },
+        { value: 'clothes', label: 'Clothes' },
+      ],
+      defaultValue: 'Shoes',
       ui: {
-        inlineCreate: { fields: ['category'] },
+        displayMode: 'segmented-control',
       },
+      labelField: 'productType',
     },
-    brand: {
+
+    productType: {
       type: Relationship,
-      ref: 'Type',
+      ref: 'ProductType',
       ui: {
-        inlineCreate: { fields: ['type'] },
+        inlineCreate: { fields: ['productType'] },
       },
     },
 
@@ -58,11 +66,6 @@ const Product = {
         displayMode: 'segmented-control',
       },
     },
-
-    // brand: {
-    //   type: Select,
-    // },
-
     price: {
       type: Integer,
     },

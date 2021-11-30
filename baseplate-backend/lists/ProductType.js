@@ -2,9 +2,12 @@ const { Text } = require('@keystonejs/fields');
 
 const ProductType = {
   fields: {
-    category: { type: { Text } },
+    productType: {
+      type: Text,
+      isRequired: true,
+    },
   },
-  labelField: 'category',
+  labelField: 'productType',
 };
 
 module.exports = ProductType;
