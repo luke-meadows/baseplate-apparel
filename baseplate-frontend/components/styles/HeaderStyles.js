@@ -20,14 +20,6 @@ export const Logo = styled.div`
   a {
     font-family: 'Caveat';
     font-size: 3rem;
-    /* @media screen and (max-width: 1160px) {
-    font-size: 2rem;
-  }
-  /* @media screen and (max-width: 1160px) {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);*/
   }
 `;
 
@@ -43,22 +35,6 @@ export const StyledNav = styled.nav`
       }
     }
   }
-  /* @media screen and (max-width: 1160px) {
-    flex-direction: column;
-    height: 70%;
-    width: 100%;
-  }
-
-  @media screen and (max-width: 1160px) {
-    position: absolute;
-    top: 4rem;
-    left: 0;
-    height: calc(100vh - 4rem);
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    background-color: white;
-  } */
   svg {
     position: absolute;
     bottom: 0;
@@ -78,19 +54,10 @@ export const StyledNav = styled.nav`
     ::after {
       content: '|';
       position: absolute;
-      color: rgb(45, 45, 45);
-
+      color: rgb(65, 65, 65);
       font-weight: 300;
       right: 0px;
     }
-    /* @media screen and (max-width: 1160px) {
-        text-align: left;
-        justify-content: flex-start;
-        font-size: 1.8rem;
-        font-weight: 300;
-        width: 10rem;
-        color: black;
-      } */
   }
 `;
 
@@ -100,4 +67,52 @@ export const StyledSubNav = styled(motion.div)`
   position: absolute;
   left: 0;
   top: 6rem;
+  color: black;
+  padding: 0 25vw;
+  box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
+  .bottom-header {
+    padding: 2rem 0;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    a {
+      color: rgba(0, 0, 0, 0.8);
+    }
+    a:hover {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+`;
+export const SubNavHeader = styled.h5`
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  padding: 2.5rem 0 1.8rem 0;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+`;
+export const SubNavList = styled.ul`
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 0;
+
+  li {
+    margin: 0.1rem 0.1rem 0.1rem 0;
+    a {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.8);
+      &:hover {
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
 `;

@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   html {
     --main-blue: #02e1f5;
     --large-screen-padding: 6rem;
-    --medium-screen-padding: 3rem;
+    --medium-screen-padding: 6em;
     --mobile-screen-padding: 1rem;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     box-sizing: border-box;
@@ -31,6 +31,9 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: var(--black);
     cursor: pointer;
+  }
+  li{
+    list-style: none;
   }
 
   button{

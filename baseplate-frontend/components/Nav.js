@@ -18,9 +18,9 @@ export const Nav = forwardRef((props, ref) => {
       <Link href="/">
         <a onMouseEnter={handleNavItemHover}>Clothing</a>
       </Link>
-      <Link href="/">
+      {/* <Link href="/">
         <a onMouseEnter={handleNavItemHover}>Accessories</a>
-      </Link>
+      </Link> */}
       <Link href="/">
         <a onMouseEnter={handleNavItemHover}>Sale</a>
       </Link>
