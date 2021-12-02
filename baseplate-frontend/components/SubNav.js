@@ -5,7 +5,7 @@ import { StyledSubNav, SubNavHeader, SubNavList } from './styles/HeaderStyles';
 
 export const SubNav = forwardRef((props, ref) => {
   const { subNavOptions, handleMouseLeave, navCategories } = useContext(NavCtx);
-  const activeOptions =
+  const activeOptions = // Gets the list of subnav data based on what nav item is hovered
     navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
   return (
     <StyledSubNav layout ref={ref} onMouseLeave={handleMouseLeave}>
@@ -13,15 +13,13 @@ export const SubNav = forwardRef((props, ref) => {
         <div layout="true">
           <SubNavHeader>{subNavOptions.activeNavHeading}</SubNavHeader>
           <SubNavList>
-            {activeOptions
-              .sort((a, b) => (a.brand > b.brand ? 1 : -1))
-              .map((navCategories) => {
-                return (
-                  <li>
-                    <Link href="/">{navCategories}</Link>
-                  </li>
-                );
-              })}
+            {activeOptions.sort().map((option) => {
+              return (
+                <li>
+                  <Link href="/">{option}</Link>
+                </li>
+              );
+            })}
           </SubNavList>
           <h5 className="bottom-header ">
             <Link href="/">View All</Link>

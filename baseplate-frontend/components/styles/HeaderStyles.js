@@ -71,9 +71,9 @@ export const StyledSubNav = styled(motion.div)`
   padding: 0 25vw;
   box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
   .bottom-header {
-    padding: 2rem 0;
+    padding: 1.8rem 0 2.5rem 0;
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 300;
     text-transform: uppercase;
     a {
