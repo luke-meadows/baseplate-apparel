@@ -10,7 +10,10 @@ export const NavCtxProvider = ({ children }) => {
     activeNavHeading: 'brands',
   });
 
-  const [navCategories, setNavCategories] = useState([]); // a list the brands from the backend to populate subnav options
+  const [navCategories, setNavCategories] = useState({
+    brands: [],
+    shoes: [],
+  }); // a list the brands from the backend to populate subnav options
 
   function handleNavItemHover(e) {
     const value = e.target.textContent;

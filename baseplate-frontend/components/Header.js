@@ -21,7 +21,7 @@ export default function Header() {
       navRect: navRect,
     });
   }, []);
-  console.log(subNavOptions);
+
   return (
     <StyledHeader>
       <Logo id="logo">
