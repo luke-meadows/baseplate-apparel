@@ -1,6 +1,7 @@
 import { DeliveryBanner } from '../components/DeliveryBanner';
 // import Swiper core and required modules
-import { Pagination } from 'swiper';
+
+import { Pagination, Autoplay, EffectFade } from 'swiper';
 import { SwiperSlide } from 'swiper/react';
 import { HomepageSlider } from './styles/SwiperStyles';
 
@@ -14,16 +15,18 @@ import home4 from '../public/img/sliderimgs/homeSliderImg4L.jpg';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 export const ImageSlider = () => {
   return (
     <>
       <HomepageSlider
-        // TODO auto transition
-        modules={[Pagination]}
+        modules={[Pagination, EffectFade, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
         pagination={{ clickable: true }}
+        autoplay={{ delay: 5000 }}
+        effect="fade"
       >
         <SwiperSlide>
           <div className="img-container">

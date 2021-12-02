@@ -27,7 +27,6 @@ export default function Header() {
       <Logo id="logo">
         <Link href="/">Baseplate</Link>
       </Logo>
-
       <Nav ref={navRef} />
       <AnimateSharedLayout>
         <SubNav ref={subNavRef} />
