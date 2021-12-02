@@ -5,6 +5,7 @@ const ProductType = {
     productType: {
       type: Text,
       isRequired: true,
+      isUnique: true,
     },
   },
   labelField: 'productType',
