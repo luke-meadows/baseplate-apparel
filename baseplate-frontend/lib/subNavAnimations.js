@@ -19,7 +19,4 @@ export const animateOptions = {
       delay: 0.3,
     },
   },
-  exit: {
-    opacity: 0,
-  },
 };
