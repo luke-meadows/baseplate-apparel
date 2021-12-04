@@ -11,6 +11,8 @@ import home1 from '../public/img/sliderimgs/homeSliderImg1L.jpg';
 import home2 from '../public/img/sliderimgs/homeSliderImg2L.jpg';
 import home3 from '../public/img/sliderimgs/homeSliderImg3L.jpg';
 import home4 from '../public/img/sliderimgs/homeSliderImg4L.jpg';
+import home5 from '../public/img/sliderimgs/homeSliderImg5L.jpg';
+import home6 from '../public/img/sliderimgs/homeSliderImg6L.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -46,6 +48,16 @@ export const ImageSlider = () => {
         <SwiperSlide>
           <div className="img-container">
             <Image src={home4} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={home5} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={home6} />
           </div>
         </SwiperSlide>
       </HomepageSlider>
