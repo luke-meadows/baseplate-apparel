@@ -38,10 +38,10 @@ export const GlobalStyles = createGlobalStyle`
 
   button{
     border: none;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     outline: none;
-    width: 8rem;
-    height: 2rem;
+    width: 10rem;
+    height: 3rem;
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;

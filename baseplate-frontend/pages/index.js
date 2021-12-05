@@ -32,6 +32,7 @@ export default function Home() {
   if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
 
   console.log({ data, error, loading });
+  console.log({ data, error, loading });
   return (
     <div className="page">
       {/* {data.allProducts.map((data) => (

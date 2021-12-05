@@ -18,11 +18,39 @@ export const HomepageSlider = styled(Swiper)`
   }
 
   img {
-    filter: brightness(60%);
+    filter: brightness(45%);
     @media screen and (max-width: 700px) {
       width: 100%;
       height: 50vh;
       object-fit: cover;
+    }
+  }
+  .slide-heading-and-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-shadow: 1px 1px #00000020;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: gainsboro;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      font-weight: 200;
+      color: gainsboro;
+    }
+    h2 {
+      margin: 2.5rem 0;
+      font-family: 'Lexend', sans-serif;
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 1.2;
+      &:hover {
+        color: #02e1f5;
+        cursor: pointer;
+      }
     }
   }
 `;
