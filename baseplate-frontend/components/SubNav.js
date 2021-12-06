@@ -18,6 +18,7 @@ export const SubNav = forwardRef((props, ref) => {
 
   const activeOptions = // Gets the list of subnav data based on what nav item is hovered
     navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
+  console.log(subNavOptions.activeNavHeading);
 
   return (
     <StyledSubNav

@@ -46,13 +46,19 @@ export default function Home() {
       ),
     ];
 
-    setNavCategories({ shoeBrands, allBrands, clothingTypes, accessoryTypes });
-    console.log(navCategories);
+    setNavCategories({
+      brands: allBrands,
+      shoes: shoeBrands,
+      clothing: clothingTypes,
+      accessories: accessoryTypes,
+    });
   }, [data]);
 
   if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
 
   console.log({ data, error, loading });
+  console.log(navCategories);
+
   return (
     <div className="page">
       {/* {data.allProducts.map((data) => (
