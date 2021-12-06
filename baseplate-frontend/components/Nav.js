@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { forwardRef, useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
+// import Triangle from '../public/img/navTriangle.svg';
 
 import { StyledNav } from './styles/HeaderStyles';
 
@@ -24,8 +25,6 @@ export const Nav = forwardRef((props, ref) => {
       <Link href="/">
         <a onMouseEnter={handleNavItemHover}>Sale</a>
       </Link>
-
-      {/* <NavTriangle className="triangle" ref={ref} /> */}
     </StyledNav>
   );
 });

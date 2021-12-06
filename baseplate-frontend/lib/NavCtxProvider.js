@@ -8,20 +8,28 @@ export const NavCtxProvider = ({ children }) => {
     navRect: null,
     subNavOpen: false,
     activeNavHeading: 'brands',
+    navTriangleCoords: '',
   });
 
   const [navCategories, setNavCategories] = useState({
     brands: [],
     shoes: [],
-  }); // a list the brands from the backend to populate subnav options
+    clothes: [],
+    accessories: [],
+  }); // data from the backend to populate subnav options
 
   function handleNavItemHover(e) {
     const value = e.target.textContent;
+    const navItemRect = e.target.getBoundingClientRect();
+    const { x, width } = navItemRect;
+    const navTriangleCoords = x + width / 2;
     setSubNavOptions({
       ...subNavOptions,
       subNavOpen: true,
       activeNavHeading: value.toLowerCase(),
+      navTriangleCoords,
     });
+    console.log(subNavOptions);
   }
 
   function handleMouseLeave(e) {
@@ -42,7 +50,11 @@ export const NavCtxProvider = ({ children }) => {
     const shouldCloseNav = isInBlock1 || isInBlock2 || isInBlock3 || isInBlock4;
 
     if (shouldCloseNav) {
-      setSubNavOptions({ ...subNavOptions, subNavOpen: false });
+      setSubNavOptions({
+        ...subNavOptions,
+        subNavOpen: false,
+        navTriangleCoords: {},
+      });
     }
     return;
   }

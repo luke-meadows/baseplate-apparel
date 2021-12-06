@@ -56,9 +56,6 @@ export default function Home() {
 
   if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
 
-  console.log({ data, error, loading });
-  console.log(navCategories);
-
   return (
     <div className="page">
       {/* {data.allProducts.map((data) => (
@@ -67,6 +64,15 @@ export default function Home() {
           <img src={data.photo.image.publicUrlTransformed} alt="" />
         </div>
       ))} */}
+      <svg
+        id="triangle"
+        width="1rem"
+        height="1rem"
+        fill="#02e1f5"
+        viewBox="0 0 100 100"
+      >
+        <polygon points="50 15, 100 100, 0 100" />
+      </svg>
     </div>
   );
 }

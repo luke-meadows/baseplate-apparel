@@ -13,6 +13,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  /* position: relative; */
   padding: 0 var(--medium-screen-padding);
 `;
 
@@ -84,6 +85,16 @@ export const StyledSubNav = styled(motion.div)`
       color: rgba(0, 0, 0, 0.5);
     }
   }
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -80%);
+    height: 2rem;
+    width: 2rem;
+    fill: #02e1f5;
+    opacity: 0.8;
+  }
 `;
 export const SubNavHeader = styled.h5`
   font-size: 1.8rem;
@@ -104,7 +115,7 @@ export const SubNavList = styled.ul`
   align-items: center;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0.5rem 0;
+  padding: 2rem 0;
 
   li {
     margin: 0.1rem 0.1rem 0.1rem 0;

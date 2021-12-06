@@ -27,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height:2;
     
   }
+  
   a {
     text-decoration: none;
     color: var(--black);

@@ -18,7 +18,6 @@ export const SubNav = forwardRef((props, ref) => {
 
   const activeOptions = // Gets the list of subnav data based on what nav item is hovered
     navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
-  console.log(subNavOptions.activeNavHeading);
 
   return (
     <StyledSubNav
@@ -41,7 +40,7 @@ export const SubNav = forwardRef((props, ref) => {
             <SubNavList>
               {activeOptions.sort().map((option) => {
                 return (
-                  <li>
+                  <li key={option}>
                     <Link href="/">{option}</Link>
                   </li>
                 );
@@ -50,6 +49,12 @@ export const SubNav = forwardRef((props, ref) => {
             <h5 className="bottom-header ">
               <Link href="/">View All</Link>
             </h5>
+            <svg
+              viewBox="0 0 100 100"
+              style={{ left: subNavOptions.navTriangleCoords || 0 }}
+            >
+              <polygon points="50 15, 100 100, 0 100" />
+            </svg>
           </div>
         )}
       </motion.div>
