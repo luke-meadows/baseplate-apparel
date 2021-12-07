@@ -73,9 +73,9 @@ export default function Home() {
   return (
     <div className="page">
       <h5>yo</h5>
-      {data.allProducts.map((product, i) => {
-        <ProductThumbnail product={product} key={i} />;
-      })}
+      {data.allProducts.map((product, i) => (
+        <ProductThumbnail product={product} key={product.key} />
+      ))}
     </div>
   );
 }

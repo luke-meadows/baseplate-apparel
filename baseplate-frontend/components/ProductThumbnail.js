@@ -2,30 +2,29 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-export const ProductThumbnail = () => {
-  // const [hover, updateHover] = useState(false);
-  // const handleHover = () => {
-  //   updateHover(!hover);
-  // };
+export const ProductThumbnail = ({ product }) => {
+  const [hover, updateHover] = useState(false);
+  const handleHover = () => {
+    updateHover(!hover);
+  };
   const sizes = Object.keys(JSON.parse(product.sizes));
   return (
-    // <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
-    //   <div className="img-container">
-    //     <img src={product.photo.image.publicUrlTransformed} alt="" />
-    //     <div className={hover ? 'show-sizes sizes' : 'sizes'}>
-    //       Sizes:
-    //       <br />
-    //       {sizes.map((size) => (
-    //         <span key={size}>{size}, </span>
-    //       ))}
-    //     </div>
-    //   </div>
-    //   <h5 className="description">
-    //     {product.name} <span>, {product.color}</span>{' '}
-    //   </h5>
-    //   <h5 className="price">£{product.price / 100}.00</h5>
-    // </Thumbnail>
-    <h1>hello</h1>
+    <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
+      <div className="img-container">
+        <img src={product.photo.image.publicUrlTransformed} alt="" />
+        <div className={hover ? 'show-sizes sizes' : 'sizes'}>
+          Sizes:
+          <br />
+          {sizes.map((size) => (
+            <span key={size}>{size}, </span>
+          ))}
+        </div>
+      </div>
+      <h5 className="description">
+        {product.name} <span>, {product.color}</span>{' '}
+      </h5>
+      <h5 className="price">£{product.price / 100}.00</h5>
+    </Thumbnail>
   );
 };
 
