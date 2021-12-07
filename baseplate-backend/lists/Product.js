@@ -7,21 +7,23 @@ const Product = {
       isRequired: true,
     },
 
+    color: {
+      type: Text,
+    },
     description: {
       type: Text,
       ui: {
         displayMode: 'textarea',
       },
     },
-
     photo: {
       type: Relationship,
       ref: 'ProductImage.product',
       ui: {
         displayMode: 'cards',
-        cardFields: ['image', 'altText'],
-        inlineCreate: { fields: ['image', 'altText'] },
-        inlineEdit: { fields: ['image', 'altText'] },
+        cardFields: ['photo', 'altText'],
+        inlineCreate: { fields: ['photo', 'altText'] },
+        inlineEdit: { fields: ['photo', 'altText'] },
       },
     },
     brand: {
@@ -68,6 +70,10 @@ const Product = {
     },
     price: {
       type: Integer,
+    },
+    sizes: {
+      // Sizes should be entered as a JSON object eg: '{"S":12,"M":23,"L":43}'
+      type: Text,
     },
   },
 };
