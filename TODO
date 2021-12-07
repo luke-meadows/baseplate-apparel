@@ -2,3 +2,7 @@
    need to have been pulled from the api.
    
 - figure out how to get multiple imgs for 1 product
+
+1. Sort out product card component
+2. arrange them in a container
+3. replace that container with swiper when on mobile 
