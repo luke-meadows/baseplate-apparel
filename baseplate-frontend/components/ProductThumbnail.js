@@ -2,36 +2,34 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const ProductThumbnail = ({ product }) => {
-  const [hover, updateHover] = useState(false);
-  const handleHover = () => {
-    updateHover(!hover);
-  };
+export const ProductThumbnail = () => {
+  // const [hover, updateHover] = useState(false);
+  // const handleHover = () => {
+  //   updateHover(!hover);
+  // };
+  const sizes = Object.keys(JSON.parse(product.sizes));
   return (
-    <Thumbnail
-      to={product.url}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleHover}
-    >
-      <div className="img-container">
-        <img src={product.img1} alt="" />
-        <div className={hover ? 'show-sizes sizes' : 'sizes'}>
-          Sizes:
-          <br />
-          {product.sizes.map((size) => (
-            <span key={size}>{size}, </span>
-          ))}
-        </div>
-      </div>
-      <h5 className="description">
-        {product.title} <span>, {product.style}</span>{' '}
-      </h5>
-      <h5 className="price">£{product.price / 100}.00</h5>
-    </Thumbnail>
+    // <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
+    //   <div className="img-container">
+    //     <img src={product.photo.image.publicUrlTransformed} alt="" />
+    //     <div className={hover ? 'show-sizes sizes' : 'sizes'}>
+    //       Sizes:
+    //       <br />
+    //       {sizes.map((size) => (
+    //         <span key={size}>{size}, </span>
+    //       ))}
+    //     </div>
+    //   </div>
+    //   <h5 className="description">
+    //     {product.name} <span>, {product.color}</span>{' '}
+    //   </h5>
+    //   <h5 className="price">£{product.price / 100}.00</h5>
+    // </Thumbnail>
+    <h1>hello</h1>
   );
 };
 
-const Thumbnail = styled(Link)`
+const Thumbnail = styled.div`
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.03);
   /* box-shadow: -1px -1px -1px 1px rgba(0, 0, 0, 0.05); */
@@ -61,16 +59,16 @@ const Thumbnail = styled(Link)`
     font-weight: 500;
     &:hover {
       color: #02e1f5;
-      @media screen and (max-width: 700px) {
+      /* @media screen and (max-width: 700px) {
         color: black;
-      }
+      } */
     }
     span {
       font-weight: 300;
       color: rgba(0, 0, 0, 0.7);
-      @media screen and (max-width: 700px) {
+      /* @media screen and (max-width: 700px) {
         display: none;
-      }
+      } */
     }
   }
   .price {
@@ -80,5 +78,3 @@ const Thumbnail = styled(Link)`
     color: rgba(0, 0, 0, 0.7);
   }
 `;
-
-export default ProductThumbnail;
