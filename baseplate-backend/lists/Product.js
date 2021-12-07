@@ -1,4 +1,10 @@
-const { Integer, Relationship, Select, Text } = require('@keystonejs/fields');
+const {
+  Integer,
+  Relationship,
+  Select,
+  Text,
+  Checkbox,
+} = require('@keystonejs/fields');
 
 const Product = {
   fields: {
@@ -6,7 +12,6 @@ const Product = {
       type: Text,
       isRequired: true,
     },
-
     color: {
       type: Text,
     },
@@ -74,6 +79,12 @@ const Product = {
     sizes: {
       // Sizes should be entered as a JSON object eg: '{"S":12,"M":23,"L":43}'
       type: Text,
+    },
+    new: {
+      type: Checkbox,
+    },
+    latest: {
+      type: Checkbox,
     },
   },
 };
