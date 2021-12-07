@@ -71,8 +71,7 @@ export default function Home() {
   if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
 
   return (
-    <div className="page">
-      <h5>yo</h5>
+    <div className="product-list">
       {data.allProducts.map((product, i) => (
         <ProductThumbnail product={product} key={product.key} />
       ))}
