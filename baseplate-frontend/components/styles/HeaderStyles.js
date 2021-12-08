@@ -13,8 +13,10 @@ export const StyledHeader = styled.header`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  /* position: relative; */
   padding: 0 var(--medium-screen-padding);
+  .box-shadow {
+    box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
+  }
 `;
 
 export const Logo = styled.div`
@@ -70,7 +72,7 @@ export const StyledSubNav = styled(motion.div)`
   top: 6rem;
   color: black;
   padding: 0 25vw;
-  box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
+
   .bottom-header {
     line-height: 0;
     padding: 3rem 0 3.3rem 0;

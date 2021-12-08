@@ -18,9 +18,9 @@ export const SubNav = forwardRef((props, ref) => {
 
   const activeOptions = // Gets the list of subnav data based on what nav item is hovered
     navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
-
   return (
     <StyledSubNav
+      className={subNavOptions.subNavOpen ? 'box-shadow' : ''}
       variants={animateSubNav}
       initial="initial"
       animate="animate"
@@ -28,12 +28,7 @@ export const SubNav = forwardRef((props, ref) => {
       ref={ref}
       onMouseLeave={handleMouseLeave}
     >
-      <motion.div
-        // layout
-        variants={animateOptions}
-        initial="initial"
-        animate={variant}
-      >
+      <motion.div variants={animateOptions} initial="initial" animate={variant}>
         {subNavOptions.subNavOpen && (
           <div layout="true">
             <SubNavHeader>{subNavOptions.activeNavHeading}</SubNavHeader>

@@ -10,50 +10,43 @@ export const ProductThumbnail = ({ product }) => {
   };
   const sizes = Object.keys(JSON.parse(product.sizes));
   return (
-    <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
-      <Link href="/products" style={{ background: 'blue' }}>
-        <>
-          <div className="img-container">
-            <>
-              <Image
-                layout="fill"
-                src={product.photo.image.publicUrlTransformed}
-                alt=""
-              />
-            </>
-            <div className={hover ? 'show-sizes sizes' : 'sizes'}>
-              Sizes:
-              <br />
-              {sizes.map((size) => (
-                <span key={size}>{size}, </span>
-              ))}
-            </div>
+    <Link href="/">
+      <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
+        <div className="img-container">
+          <img src={product.photo.image.publicUrlTransformed} alt="" />
+          <div className={hover ? 'show-sizes sizes' : 'sizes'}>
+            Sizes:
+            <br />
+            {sizes.map((size, i) => (
+              <span key={i}>
+                {size}
+                {i === sizes.length - 1 ? '' : ','}{' '}
+              </span>
+            ))}
           </div>
-          <h5 className="description">
-            {product.name} <span>, {product.color}</span>{' '}
-          </h5>
-          <h5 className="price">£{product.price / 100}.00</h5>
-        </>
-      </Link>
-    </Thumbnail>
+        </div>
+        <h5 className="description">
+          {product.name} <span>, {product.color}</span>
+        </h5>
+        <h5 className="price">£{product.price / 100}.00</h5>
+      </Thumbnail>
+    </Link>
   );
 };
 
-const Thumbnail = styled.div`
+const Thumbnail = styled.a`
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  line-height: 0;
+  line-height: 1.3;
   * {
     font-size: 1.1rem;
     width: 100%;
-    padding: 0;
   }
+
   .img-container {
-    margin: 0;
-    width: 100%;
     position: relative;
     overflow: hidden;
   }
+
   .sizes {
     width: 100%;
     position: absolute;
@@ -62,31 +55,22 @@ const Thumbnail = styled.div`
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-
     line-height: 2;
   }
   .show-sizes {
     transform: translateY(-100%);
   }
   .description {
-    /* line-height: 0; */
     font-weight: 500;
     &:hover {
       color: #02e1f5;
-      /* @media screen and (max-width: 700px) {
-        color: black;
-      } */
     }
     span {
       font-weight: 300;
       color: rgba(0, 0, 0, 0.7);
-      /* @media screen and (max-width: 700px) {
-        display: none;
-      } */
     }
   }
   .price {
-    padding: 0 0.5rem 0.25rem 0.5rem;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.7);
   }
