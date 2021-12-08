@@ -25,11 +25,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-size: 1.5rem;
     line-height:2;
-    .product-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 0.5rem;
-    }
   }
   
   a {

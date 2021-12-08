@@ -8,6 +8,7 @@ import { animateOptions, animateSubNav } from '../lib/subNavAnimations';
 export const SubNav = forwardRef((props, ref) => {
   const { subNavOptions, handleMouseLeave, navCategories } = useContext(NavCtx);
   const [variant, setVariant] = useState('hidden');
+
   useEffect(() => {
     if (subNavOptions.subNavOpen) {
       setVariant('animate');
@@ -45,6 +46,7 @@ export const SubNav = forwardRef((props, ref) => {
               <Link href="/">View All</Link>
             </h5>
             <svg
+              className="blue-triangle"
               viewBox="0 0 100 100"
               style={{ left: subNavOptions.navTriangleCoords || 0 }}
             >

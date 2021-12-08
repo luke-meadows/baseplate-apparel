@@ -1,9 +1,8 @@
 import { useContext, useEffect } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { useQuery, gql } from '@apollo/client';
-import { ProductThumbnail } from '../components/ProductThumbnail';
+import HomepageProducts from '../components/HomepageProducts';
 
-// I'm sure there is a better way to query this but I did this quick fix for the sake of progressing - I say quick it took me 4 hours lol
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {
     allBrands {
@@ -71,10 +70,9 @@ export default function Home() {
   if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
 
   return (
-    <div className="product-list">
-      {data.allProducts.map((product, i) => (
-        <ProductThumbnail product={product} key={product.key} />
-      ))}
-    </div>
+    <>
+      <HomepageProducts products={data.allProducts} heading="latest" />
+      <HomepageProducts products={data.allProducts} heading="recommended" />
+    </>
   );
 }

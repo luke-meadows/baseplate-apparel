@@ -6,3 +6,4 @@
 1. Sort out product card component
 2. arrange them in a container
 3. replace that container with swiper when on mobile 
+4. change subnav from h3 h4 to p
