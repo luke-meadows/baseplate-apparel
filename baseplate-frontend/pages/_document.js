@@ -18,7 +18,6 @@ export default class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Caveat&family=Lexend:wght@200;300&family=Poppins:wght@100;200;300;400;500&family=Roboto+Mono:wght@300;400&display=swap"
             rel="stylesheet"
-            rel="stylesheet"
           />
           <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons"

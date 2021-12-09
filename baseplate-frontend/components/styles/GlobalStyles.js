@@ -18,6 +18,8 @@ export const GlobalStyles = createGlobalStyle`
   }
   *, *:before, *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
   }
   body {
     font-family: 'Poppins';
@@ -57,4 +59,6 @@ export const GlobalStyles = createGlobalStyle`
 
 export const InnerStyles = styled.div`
   padding: var(--medium-screen-padding);
+  max-width: 1650px;
+  margin: auto;
 `;
