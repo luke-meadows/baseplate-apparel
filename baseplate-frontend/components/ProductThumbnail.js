@@ -10,7 +10,7 @@ export const ProductThumbnail = ({ product }) => {
   };
   const sizes = Object.keys(JSON.parse(product.sizes));
   return (
-    <Link href="/">
+    <Link href={`/product/${product.id}`}>
       <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
         <div className="img-container">
           <img src={product.photo.image.publicUrlTransformed} alt="" />
