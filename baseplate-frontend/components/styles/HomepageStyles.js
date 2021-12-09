@@ -9,4 +9,5 @@ export const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 0.5rem;
+  margin-bottom: 6rem;
 `;

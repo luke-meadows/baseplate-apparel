@@ -26,7 +26,8 @@ export const ProductThumbnail = ({ product }) => {
           </div>
         </div>
         <h5 className="description">
-          {product.name} <span>, {product.color}</span>
+          {product.name}
+          <span>, {product.color}</span>
         </h5>
         <h5 className="price">£{product.price / 100}.00</h5>
       </Thumbnail>
@@ -36,10 +37,10 @@ export const ProductThumbnail = ({ product }) => {
 
 const Thumbnail = styled.a`
   cursor: pointer;
-  line-height: 1.3;
   * {
     font-size: 1.1rem;
     width: 100%;
+    margin: 0;
   }
 
   .img-container {

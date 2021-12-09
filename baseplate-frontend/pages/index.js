@@ -9,6 +9,7 @@ const INITIAL_STATE_QUERY = gql`
       brand
     }
     allProducts {
+      id
       name
       new
       description
