@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled(motion.header)`
   width: 100%;
   color: white;
   z-index: 2;
@@ -107,7 +107,7 @@ export const SubNavHeader = styled.h5`
   margin: 0;
   color: rgba(0, 0, 0, 0.5);
 `;
-export const SubNavList = styled.ul`
+export const SubNavList = styled(motion.ul)`
   margin: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -118,7 +118,6 @@ export const SubNavList = styled.ul`
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 2rem 0;
-
   li {
     margin: 0.1rem 0.1rem 0.1rem 0;
     a {

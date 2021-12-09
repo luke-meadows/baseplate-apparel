@@ -23,15 +23,15 @@ export default function Header() {
   }, []);
 
   return (
-    <StyledHeader>
-      <Logo id="logo">
-        <Link href="/">Baseplate</Link>
-      </Logo>
-      <Nav ref={navRef} />
-      <AnimateSharedLayout>
+    <AnimateSharedLayout>
+      <StyledHeader>
+        <Logo id="logo">
+          <Link href="/">Baseplate</Link>
+        </Logo>
+        <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-      </AnimateSharedLayout>
-      <p>Nav Buttons</p>
-    </StyledHeader>
+        <p>Nav Buttons</p>
+      </StyledHeader>
+    </AnimateSharedLayout>
   );
 }

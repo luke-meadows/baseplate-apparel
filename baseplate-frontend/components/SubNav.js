@@ -29,10 +29,15 @@ export const SubNav = forwardRef((props, ref) => {
       ref={ref}
       onMouseLeave={handleMouseLeave}
     >
-      <motion.div variants={animateOptions} initial="initial" animate={variant}>
+      <motion.div
+        variants={animateOptions}
+        initial="initial"
+        animate={variant}
+        layout
+      >
         {subNavOptions.subNavOpen && (
-          <div layout="true">
-            <SubNavHeader>{subNavOptions.activeNavHeading}</SubNavHeader>
+          <motion.div layout>
+            <SubNavHeader layout>{subNavOptions.activeNavHeading}</SubNavHeader>
             <SubNavList>
               {activeOptions.sort().map((option) => {
                 return (
@@ -42,9 +47,9 @@ export const SubNav = forwardRef((props, ref) => {
                 );
               })}
             </SubNavList>
-            <h5 className="bottom-header ">
+            <motion.h5 className="bottom-header ">
               <Link href="/">View All</Link>
-            </h5>
+            </motion.h5>
             <svg
               className="blue-triangle"
               viewBox="0 0 100 100"
@@ -52,7 +57,7 @@ export const SubNav = forwardRef((props, ref) => {
             >
               <polygon points="50 15, 100 100, 0 100" />
             </svg>
-          </div>
+          </motion.div>
         )}
       </motion.div>
     </StyledSubNav>
