@@ -1,10 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import {
-  ProductsContainer,
-  ProductsHeading,
-} from '../../components/styles/HomepageStyles';
-import {
   Buttons,
   Description,
   ProductColor,

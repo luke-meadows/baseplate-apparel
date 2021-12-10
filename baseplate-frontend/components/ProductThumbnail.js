@@ -14,6 +14,7 @@ export const ProductThumbnail = ({ product }) => {
       <Thumbnail onMouseEnter={handleHover} onMouseLeave={handleHover}>
         <div className="img-container">
           <img src={product.photo.image.publicUrlTransformed} alt="" />
+
           <div className={hover ? 'show-sizes sizes' : 'sizes'}>
             Sizes:
             <br />
@@ -46,6 +47,9 @@ const Thumbnail = styled.a`
   .img-container {
     position: relative;
     overflow: hidden;
+  }
+  .image-container {
+    width: 10rem;
   }
 
   .sizes {

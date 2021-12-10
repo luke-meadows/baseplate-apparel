@@ -14,7 +14,7 @@ export const ProductPage = styled.div`
 
 export const ProductPageLeft = styled.div`
   width: 40%;
-  margin-right: 2rem;
+  margin-right: 4rem;
 `;
 export const ProductPageRight = styled.div`
   width: 60%;

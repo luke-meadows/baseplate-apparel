@@ -21,11 +21,9 @@ export const NavCtxProvider = ({ children }) => {
   const [searchActive, setSearchActive] = useState(false);
 
   function handleNavItemHover(e) {
-    console.log(e.currentTarget.offsetLeft);
     const value = e.target.textContent;
     const { offsetLeft, offsetWidth } = e.currentTarget;
     const navTriangleCoords = offsetLeft + offsetWidth / 2;
-    console.log({ navTriangleCoords });
     if (searchActive) return;
     setSubNavOptions({
       ...subNavOptions,
