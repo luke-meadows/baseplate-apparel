@@ -18,12 +18,12 @@ export const NavCtxProvider = ({ children }) => {
     accessories: [],
   }); // data from the backend to populate subnav options
 
-  const [isSearchActive, setIsSearchActive] = useState(true);
+  const [searchActive, setSearchActive] = useState(false);
 
   function handleNavItemHover(e) {
     const value = e.target.textContent;
     const navItemRect = e.target.getBoundingClientRect();
-    if (isSearchActive) return;
+    if (searchActive) return;
     const { x, width } = navItemRect;
     const navTriangleCoords = x + width / 2;
     setSubNavOptions({
@@ -71,7 +71,8 @@ export const NavCtxProvider = ({ children }) => {
         handleNavItemHover,
         setNavCategories,
         navCategories,
-        isSearchActive,
+        searchActive,
+        setSearchActive,
       }}
     >
       {children}

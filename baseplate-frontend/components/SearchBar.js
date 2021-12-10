@@ -1,11 +1,20 @@
 import styled from 'styled-components';
+import { NavCtx } from '../lib/NavCtxProvider';
+import { useContext, useEffect, useRef } from 'react';
 
 export default function SearchBar() {
+  const { searchbarActive } = useContext(NavCtx);
+  const searchbarRef = useRef();
+
+  useEffect(() => {
+    searchbarRef.current.focus();
+  }, [searchbarActive]);
+
   return (
     <Outer>
       <Bar>
         <span className="material-icons">search</span>
-        <input type="text" placeholder="search"></input>
+        <input ref={searchbarRef} type="text" placeholder="search"></input>
       </Bar>
     </Outer>
   );
@@ -20,7 +29,7 @@ const Bar = styled.div`
   border-radius: 1rem;
   width: 50rem;
   position: absolute;
-  top: 2rem;
+  top: 6rem;
   right: 50%;
   transform: translateX(50%);
   z-index: 2;

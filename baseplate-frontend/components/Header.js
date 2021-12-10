@@ -1,13 +1,15 @@
 import { NavCtx } from '../lib/NavCtxProvider';
+import { useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { AnimateSharedLayout } from 'framer-motion';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { Logo, StyledHeader } from './styles/HeaderStyles';
-import { useContext, useEffect, useRef } from 'react';
+import SearchBar from './SearchBar';
 
 export default function Header() {
-  const { subNavOptions, setSubNavOptions } = useContext(NavCtx);
+  const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
+    useContext(NavCtx);
   const subNavRef = useRef();
   const navRef = useRef();
 
@@ -34,6 +36,9 @@ export default function Header() {
           <span
             style={{ padding: '0 2rem', fontSize: '2rem', lineHeight: 2 }}
             className="material-icons"
+            onClick={() => {
+              setSearchActive(!searchActive);
+            }}
           >
             search
           </span>
@@ -45,6 +50,7 @@ export default function Header() {
           </span>
         </div>
       </StyledHeader>
+      {searchActive && <SearchBar />}
     </AnimateSharedLayout>
   );
 }

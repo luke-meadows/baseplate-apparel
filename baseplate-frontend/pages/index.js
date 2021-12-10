@@ -2,7 +2,6 @@ import { useContext, useEffect } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { useQuery, gql } from '@apollo/client';
 import HomepageProducts from '../components/HomepageProducts';
-import SearchBar from '../components/SearchBar';
 
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {

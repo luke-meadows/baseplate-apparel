@@ -18,7 +18,6 @@ export default function Page({ children }) {
     <div className="page">
       <GlobalStyles />
       <Header />
-      <SearchBar />
       {path === '/' && ( // conditional render of home img slider
         <ImageSlider />
       )}
