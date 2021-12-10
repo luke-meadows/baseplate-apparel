@@ -1,11 +1,11 @@
-import { NavCtx } from '../lib/NavCtxProvider';
 import { useContext, useEffect, useRef } from 'react';
+import { NavCtx } from '../lib/NavCtxProvider';
 import Link from 'next/link';
-import { AnimateSharedLayout } from 'framer-motion';
+import SearchBar from './SearchBar';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
+import { AnimateSharedLayout } from 'framer-motion';
 import { Logo, StyledHeader } from './styles/HeaderStyles';
-import SearchBar from './SearchBar';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =

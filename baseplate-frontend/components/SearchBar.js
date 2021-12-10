@@ -3,24 +3,35 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import { useContext, useEffect, useRef } from 'react';
 
 export default function SearchBar() {
-  const { searchbarActive } = useContext(NavCtx);
+  const { searchActive, setSearchActive } = useContext(NavCtx);
   const searchbarRef = useRef();
 
   useEffect(() => {
     searchbarRef.current.focus();
-  }, [searchbarActive]);
+  }, [searchActive]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.target.search.value);
+    setSearchActive(false);
+  }
 
   return (
     <Outer>
-      <Bar>
+      <Bar onSubmit={handleSubmit}>
         <span className="material-icons">search</span>
-        <input ref={searchbarRef} type="text" placeholder="search"></input>
+        <input
+          ref={searchbarRef}
+          name="search"
+          type="search"
+          placeholder="search"
+        ></input>
       </Bar>
     </Outer>
   );
 }
 
-const Bar = styled.div`
+const Bar = styled.form`
   color: white;
   background: var(--Transparent-black);
   display: flex;
@@ -41,6 +52,9 @@ const Bar = styled.div`
     color: white;
     padding-left: 1rem;
     font-family: 'Poppins';
+    ::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
   }
 `;
 
@@ -50,6 +64,5 @@ const Outer = styled.div`
   height: calc(100vh - 6rem);
   width: 100vw;
   top: 6rem;
-  background: #02e1f584;
   background: #02e1f5a3;
 `;
