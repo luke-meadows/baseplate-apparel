@@ -29,18 +29,24 @@ export const ProductPrice = styled.h3`
   font-weight: 400;
 `;
 export const ProductColor = styled.p`
-  font-size: 1.2rem;
-  color: rgb(60, 60, 60);
+  font-size: 1.3rem;
+  color: rgba(60, 60, 60, 0.8);
   padding: 1rem 0;
 `;
 export const Buttons = styled.div`
-  font-size: 1.2rem;
-  color: rgb(60, 60, 60);
   padding: 1rem 0;
-  div {
-    border: 1px solid black;
+  button {
+    font-size: 1.2rem;
+    display: block;
     margin: 1rem 0;
-    height: 5rem;
+    height: 4rem;
+    width: 100%;
+    background: var(--main-blue);
+  }
+  button:disabled {
+    background: #c8c8c8;
   }
 `;
-export const Description = styled.div``;
+export const Description = styled.div`
+  font-size: 1.2rem;
+`;

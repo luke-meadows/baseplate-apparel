@@ -46,8 +46,8 @@ export default function Product({ query }) {
         <ProductPrice>£75.00</ProductPrice>
         <ProductColor>Green, Blue</ProductColor>
         <Buttons>
-          <div>Pick a Size</div>
-          <div>Size</div>
+          <button disabled>Pick a Size</button>
+          <button>Size</button>
         </Buttons>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
