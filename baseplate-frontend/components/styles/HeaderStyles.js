@@ -13,7 +13,7 @@ export const StyledHeader = styled(motion.header)`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 8rem;
+  padding: 0 6rem;
   .box-shadow {
     box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
   }

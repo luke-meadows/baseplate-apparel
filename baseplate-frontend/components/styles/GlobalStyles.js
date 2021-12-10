@@ -59,7 +59,7 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const InnerStyles = styled.div`
-  padding: var(--medium-screen-padding);
-  max-width: 1650px;
+  padding: 12rem 6rem;
+  max-width: 1450px;
   margin: auto;
 `;

@@ -6,6 +6,7 @@ import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
 import { Logo, StyledHeader } from './styles/HeaderStyles';
+import disableScroll from 'disable-scroll';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
@@ -13,7 +14,7 @@ export default function Header() {
   const subNavRef = useRef();
   const navRef = useRef();
 
-  // Fetches the Rect for nav & subnav and stores them to be used in onMouseEnter calculations.
+  // fetches the Rect for nav & subnav and stores them to be used in onMouseEnter calculations.
   useEffect(() => {
     const subRect = subNavRef?.current?.getBoundingClientRect();
     const navRect = navRef?.current?.getBoundingClientRect();
@@ -23,6 +24,12 @@ export default function Header() {
       navRect: navRect,
     });
   }, []);
+
+  // disables scroll while search active
+  useEffect(() => {
+    if (searchActive) disableScroll.on();
+    if (!searchActive) disableScroll.off();
+  }, [searchActive]);
 
   return (
     <AnimateSharedLayout>
@@ -36,9 +43,7 @@ export default function Header() {
           <span
             style={{ padding: '0 2rem', fontSize: '2rem', lineHeight: 2 }}
             className="material-icons"
-            onClick={() => {
-              setSearchActive(!searchActive);
-            }}
+            onClick={() => setSearchActive(!searchActive)}
           >
             search
           </span>
