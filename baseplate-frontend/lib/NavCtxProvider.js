@@ -26,7 +26,7 @@ export const NavCtxProvider = ({ children }) => {
     const { offsetLeft, offsetWidth } = e.currentTarget;
     const navTriangleCoords = offsetLeft + offsetWidth / 2;
     console.log({ navTriangleCoords });
-    // if (searchActive) return;
+    if (searchActive) return;
     setSubNavOptions({
       ...subNavOptions,
       subNavOpen: true,

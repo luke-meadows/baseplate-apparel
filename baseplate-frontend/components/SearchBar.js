@@ -21,6 +21,7 @@ export default function SearchBar() {
       <Bar onSubmit={handleSubmit}>
         <span className="material-icons">search</span>
         <input
+          autoComplete="off"
           ref={searchbarRef}
           name="search"
           type="search"

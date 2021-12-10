@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import Link from 'next/link';
+import SearchBar from './SearchBar';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
@@ -49,7 +50,7 @@ export default function Header() {
           </span>
         </div>
       </StyledHeader>
-      {/* {searchActive && <SearchBar />} */}
+      {searchActive && <SearchBar />}
     </AnimateSharedLayout>
   );
 }
