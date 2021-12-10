@@ -4,6 +4,7 @@ export const ProductsHeading = styled.p`
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 300;
+  margin-bottom: 1rem;
 `;
 export const ProductsContainer = styled.div`
   display: grid;

@@ -21,18 +21,18 @@ export const NavCtxProvider = ({ children }) => {
   const [searchActive, setSearchActive] = useState(false);
 
   function handleNavItemHover(e) {
+    console.log(e.currentTarget.offsetLeft);
     const value = e.target.textContent;
-    const navItemRect = e.target.getBoundingClientRect();
-    if (searchActive) return;
-    const { x, width } = navItemRect;
-    const navTriangleCoords = x + width / 2;
+    const { offsetLeft, offsetWidth } = e.currentTarget;
+    const navTriangleCoords = offsetLeft + offsetWidth / 2;
+    console.log({ navTriangleCoords });
+    // if (searchActive) return;
     setSubNavOptions({
       ...subNavOptions,
       subNavOpen: true,
       activeNavHeading: value.toLowerCase(),
       navTriangleCoords,
     });
-    console.log(subNavOptions);
   }
 
   function handleMouseLeave(e) {

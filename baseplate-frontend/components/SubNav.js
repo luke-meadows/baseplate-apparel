@@ -4,6 +4,7 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledSubNav, SubNavHeader, SubNavList } from './styles/HeaderStyles';
 import { motion } from 'framer-motion';
 import { animateOptions, animateSubNav } from '../lib/subNavAnimations';
+import NavTriangle from './NavTriangle';
 
 export const SubNav = forwardRef((props, ref) => {
   const { subNavOptions, handleMouseLeave, navCategories } = useContext(NavCtx);
@@ -50,16 +51,12 @@ export const SubNav = forwardRef((props, ref) => {
             <motion.h5 className="bottom-header ">
               <Link href="/">View All</Link>
             </motion.h5>
-            <svg
-              className="blue-triangle"
-              viewBox="0 0 100 100"
-              style={{ left: subNavOptions.navTriangleCoords || 0 }}
-            >
-              <polygon points="50 15, 100 100, 0 100" />
-            </svg>
           </motion.div>
         )}
       </motion.div>
+      {subNavOptions.subNavOpen && (
+        <NavTriangle coords={subNavOptions.navTriangleCoords} />
+      )}
     </StyledSubNav>
   );
 });

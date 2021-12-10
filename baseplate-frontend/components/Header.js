@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import Link from 'next/link';
-import SearchBar from './SearchBar';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
@@ -32,7 +31,7 @@ export default function Header() {
         </Logo>
         <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-        <div style={{}}>
+        <div>
           <span
             style={{ padding: '0 2rem', fontSize: '2rem', lineHeight: 2 }}
             className="material-icons"
@@ -50,7 +49,7 @@ export default function Header() {
           </span>
         </div>
       </StyledHeader>
-      {searchActive && <SearchBar />}
+      {/* {searchActive && <SearchBar />} */}
     </AnimateSharedLayout>
   );
 }

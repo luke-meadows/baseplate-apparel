@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --main-blue: #02e1f5;
     --Transparent-black: rgba(0, 0, 0, 0.8);
     --large-screen-padding: 6rem;
-    --medium-screen-padding: 6em;
+    --medium-screen-padding: 6rem 8rem;
     --mobile-screen-padding: 1rem;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     box-sizing: border-box;

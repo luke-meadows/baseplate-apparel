@@ -13,7 +13,7 @@ export const StyledHeader = styled(motion.header)`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 var(--medium-screen-padding);
+  padding: 0 8rem;
   .box-shadow {
     box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
   }
@@ -31,6 +31,7 @@ export const StyledNav = styled.nav`
   align-items: center;
   cursor: pointer;
   height: 6rem;
+  overflow: hidden;
   > * {
     &:nth-last-child(1) {
       ::after {
