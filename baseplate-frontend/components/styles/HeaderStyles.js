@@ -7,7 +7,7 @@ export const StyledHeader = styled(motion.header)`
   z-index: 2;
   position: fixed;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--Transparent-black);
   height: 6rem;
   display: flex;
   align-items: center;

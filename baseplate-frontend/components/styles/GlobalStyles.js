@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     --main-blue: #02e1f5;
+    --Transparent-black: rgba(0, 0, 0, 0.8);
     --large-screen-padding: 6rem;
     --medium-screen-padding: 6em;
     --mobile-screen-padding: 1rem;

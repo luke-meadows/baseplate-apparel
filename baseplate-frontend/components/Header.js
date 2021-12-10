@@ -30,7 +30,20 @@ export default function Header() {
         </Logo>
         <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-        <p>Nav Buttons</p>
+        <div style={{}}>
+          <span
+            style={{ padding: '0 2rem', fontSize: '2rem', lineHeight: 2 }}
+            className="material-icons"
+          >
+            search
+          </span>
+          <span
+            style={{ fontSize: '2rem', lineHeight: 2 }}
+            className="material-icons"
+          >
+            shopping_cart
+          </span>
+        </div>
       </StyledHeader>
     </AnimateSharedLayout>
   );
