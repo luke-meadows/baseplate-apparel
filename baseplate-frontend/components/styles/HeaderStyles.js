@@ -120,9 +120,10 @@ export const SubNavList = styled(motion.ul)`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 2rem 0;
   li {
-    margin: 0.1rem 0.1rem 0.1rem 0;
+    padding: 0.5rem 0;
+    line-height: 1;
     a {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 400;
       color: rgba(0, 0, 0, 0.8);
       &:hover {
