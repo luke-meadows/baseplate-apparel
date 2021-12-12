@@ -4,7 +4,8 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledNav } from './styles/HeaderStyles';
 
 export const Nav = forwardRef((props, ref) => {
-  const { handleMouseLeave, handleNavItemHover } = useContext(NavCtx);
+  const { handleMouseLeave, handleNavItemHover, setSubNavOptions } =
+    useContext(NavCtx);
 
   return (
     <StyledNav ref={ref} onMouseLeave={handleMouseLeave}>
