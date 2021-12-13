@@ -39,8 +39,8 @@ export default function Product({ query }) {
     <ProductPage>
       <ProductPageLeft>
         <ProductHeading>{product.name}</ProductHeading>
-        <ProductPrice>£75.00</ProductPrice>
-        <ProductColor>Green, Blue</ProductColor>
+        <ProductPrice>{`£${product.price / 100}.00`}</ProductPrice>
+        <ProductColor>{product.color}</ProductColor>
         <Buttons>
           <button disabled>Pick a Size</button>
           <button>Size</button>
