@@ -4,11 +4,11 @@ import { useQuery, gql } from '@apollo/client';
 import HomepageProducts from '../components/HomepageProducts';
 
 const INITIAL_STATE_QUERY = gql`
-  query INITIAL_STATE_QUERY {
+  query INITIAL_STATE_QUERY($price: Int!) {
     allBrands {
       brand
     }
-    allProducts {
+    allProducts(where: { price: $price }) {
       id
       name
       new
@@ -42,7 +42,9 @@ const INITIAL_STATE_QUERY = gql`
 
 export default function Home() {
   const { setNavCategories, navCategories } = useContext(NavCtx);
-  const { data, error, loading } = useQuery(INITIAL_STATE_QUERY);
+  const { data, error, loading } = useQuery(INITIAL_STATE_QUERY, {
+    variables: { price: 5003450, name: 'blah' },
+  });
 
   useEffect(() => {
     const allBrands = data?.allBrands.map((brand) => brand.brand);
