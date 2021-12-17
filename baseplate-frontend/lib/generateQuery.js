@@ -3,8 +3,8 @@ import { gql } from '@apollo/client';
 export default function generateQuery() {
   const variables = {
     collection: 'allBrands',
-    brand: 'Nike SB',
-    productType: 'T-Shirt',
+    brand: '',
+    productType: '',
     // color: 'black',
     // size: 'M',
   };
