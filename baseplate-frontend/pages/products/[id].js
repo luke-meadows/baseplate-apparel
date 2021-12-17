@@ -1,27 +1,12 @@
-import { gql } from '@apollo/client';
-
-const slug =
-  'http://localhost:3000/products/search?brand=nike%20sb&color=black';
-
-const flatspot =
-  'https://www.flatspot.com/collections/clothing/brand_brixton+colour_brown+category_bucket-hats';
-
-const queries = {
-  brands: {
-    query: gql``,
-    params: { brand: 'all', size: 'all', color: 'all', category: 'all' },
-  },
-  shoes: { query: gql``, params: { brand: 'all', size: 'all', color: 'all' } },
-  clothing: {
-    query: gql``,
-    params: { brand: 'all', size: 'all', color: 'all' },
-  },
-  accessories: {
-    query: gql``,
-    params: { brand: 'all', size: 'all', color: 'all' },
-  },
-};
+import { gql, useQuery } from '@apollo/client';
+import generateQuery from '../../lib/generateQuery';
 
 export default function Products({ query }) {
+  const query2 = generateQuery();
+  const query3 = gql`
+    ${query2}
+  `;
+  const { data, error, loading } = useQuery(query3);
+  console.log({ data, error, loading });
   return <div>products {query.id}</div>;
 }

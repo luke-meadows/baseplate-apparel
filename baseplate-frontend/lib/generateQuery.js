@@ -1,28 +1,35 @@
 import { gql } from '@apollo/client';
-// brand: 'all', size: 'all', color: 'all', category: 'all'
-export default function genrateQuery() {
+
+export default function generateQuery() {
   const variables = {
-    collection: allBrands,
-    color: 'black',
-    productType: 'shoes',
-    size: 'M',
-    brand: 'Adidas',
+    collection: 'allBrands',
+    brand: 'Nike SB',
+    productType: 'T-Shirt',
+    // color: 'black',
+    // size: 'M',
   };
+
   const products = {
     allBrands: ``,
     shoes: `productCategory_i:"shoes",`,
-    clothes: `productCategory_i:"clothes"`,
-    accessories: `productCategory_i:"accessories"`,
+    clothes: `productCategory_i:"clothes",`,
+    accessories: `productCategory_i:"accessories",`,
   };
-  const brandQuery = variables[brand]
-    ? `brand: {brand:"${variables[brand]}",`
+  const brandQuery = variables.brand
+    ? `brand: {brand_i:"${variables.brand}"},`
+    : 'brand: {brand_not_contains:"~"},';
+
+  const typeQuery = variables.productType
+    ? `productType: {productType:"${variables.productType}"}`
     : '';
-  const typeQuery = variables[productType]
-    ? `productType: {productType:"${variables[productType]}",`
-    : '';
-  // const sizeQuery = variables[brand] ? `brand: {brand:"${variables[brand]}",` : '';
-  const query = ` query INITIAL_STATE_QUERY {
-    allProducts {
+
+  const querySlug = `${
+    products[variables.collection]
+  } ${brandQuery} ${typeQuery}`;
+  console.log(querySlug);
+
+  const query = `query DISPLAY_PRODUCTS_QUERY {
+    allProducts(where: { ${querySlug} }) {
       id
       name
       new
@@ -37,5 +44,7 @@ export default function genrateQuery() {
       }
     }
   }
-    `;
+  `;
+  console.log(query);
+  return query;
 }
