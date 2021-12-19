@@ -35,7 +35,8 @@ export const SubNav = forwardRef((props, ref) => {
       <div
         style={{
           opacity: 0,
-          height: '4px',
+          height: '1px',
+          // marginTop: '-1px',
           width: '100vw',
         }}
       >
