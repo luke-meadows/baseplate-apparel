@@ -8,7 +8,7 @@ import NavTriangle from './NavTriangle';
 
 export const SubNav = forwardRef((props, ref) => {
   const { subNavOptions, handleMouseLeave, navCategories } = useContext(NavCtx);
-  const [variant, setVariant] = useState('hidden');
+  const [variant, setVariant] = useState();
 
   useEffect(() => {
     if (subNavOptions.subNavOpen) {
@@ -17,9 +17,11 @@ export const SubNav = forwardRef((props, ref) => {
       setVariant('hidden');
     }
   }, [subNavOptions.subNavOpen]);
+  console.log(variant);
 
   const activeOptions = // Gets the list of subnav data based on what nav item is hovered
     navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
+
   return (
     <StyledSubNav
       className={subNavOptions.subNavOpen ? 'box-shadow' : ''}
@@ -30,6 +32,16 @@ export const SubNav = forwardRef((props, ref) => {
       ref={ref}
       onMouseLeave={handleMouseLeave}
     >
+      <div
+        style={{
+          opacity: 0,
+          background: 'black',
+          height: '1px',
+          width: '100vw',
+        }}
+      >
+        <br />
+      </div>
       <motion.div
         variants={animateOptions}
         initial="initial"
