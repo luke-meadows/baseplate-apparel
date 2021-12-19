@@ -27,7 +27,7 @@ export const SubNav = forwardRef((props, ref) => {
       className={subNavOptions.subNavOpen ? 'box-shadow' : ''}
       variants={animateSubNav}
       initial="initial"
-      animate="animate"
+      animate={variant}
       layout
       ref={ref}
       onMouseLeave={handleMouseLeave}
@@ -35,8 +35,7 @@ export const SubNav = forwardRef((props, ref) => {
       <div
         style={{
           opacity: 0,
-          background: 'black',
-          height: '1px',
+          height: '4px',
           width: '100vw',
         }}
       >
