@@ -5,7 +5,7 @@ export const HomepageSlider = styled(Swiper)`
   line-height: 0;
 
   .swiper-slide {
-    color: green;
+    width: 100vw;
   }
 
   .swiper-pagination-bullet {
@@ -34,7 +34,8 @@ export const HomepageSlider = styled(Swiper)`
     transform: translate(-50%, -50%);
     text-align: center;
     color: gainsboro;
-
+    width: 100%;
+    border: 1px solid blue;
     h3 {
       text-transform: uppercase;
       font-size: 1.2rem;
