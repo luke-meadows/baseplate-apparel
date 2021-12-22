@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const ProductPage = styled.div`
-  padding-top: 3rem;
-  width: 75vw;
+  margin: 6rem auto;
+  padding: var(--medium-screen-padding);
   max-width: 1050px;
   display: flex;
-  margin: auto;
   * {
     line-height: initial;
     margin: 0;

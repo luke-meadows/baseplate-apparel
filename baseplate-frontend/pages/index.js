@@ -2,80 +2,42 @@ import { useContext, useEffect } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { useQuery, gql } from '@apollo/client';
 import HomepageProducts from '../components/HomepageProducts';
-import { ImageSlider } from '../components/ImageSlider';
 
-// const INITIAL_STATE_QUERY = gql`
-//   query INITIAL_STATE_QUERY {
-//     allBrands {
-//       brand
-//     }
-//     allProducts {
-//       id
-//       name
-//       new
-//       description
-//       color
-//       price
-//       sizes
-//       photo {
-//         image {
-//           publicUrlTransformed
-//         }
-//       }
-//     }
-//     allShoeBrands: allProducts(where: { productCategory: shoes }) {
-//       brand {
-//         brand
-//       }
-//     }
-//     allClothingTypes: allProducts(where: { productCategory: clothes }) {
-//       productType {
-//         productType
-//       }
-//     }
-//     allAccessoryTypes: allProducts(where: { productCategory: accessory }) {
-//       productType {
-//         productType
-//       }
-//     }
-//   }
-// `;
-const query = `query INITIAL_STATE_QUERY {
-  allBrands {
-    brand
-  }
-  allProducts {
-    id
-    name
-    new
-    description
-    color
-    price
-    sizes
-    photo {
-      image {
-        publicUrlTransformed
+const INITIAL_STATE_QUERY = gql`
+  query INITIAL_STATE_QUERY {
+    allBrands {
+      brand
+    }
+    allProducts {
+      id
+      name
+      new
+      description
+      color
+      price
+      sizes
+      photo {
+        image {
+          publicUrlTransformed
+        }
+      }
+    }
+    allShoeBrands: allProducts(where: { productCategory: shoes }) {
+      brand {
+        brand
+      }
+    }
+    allClothingTypes: allProducts(where: { productCategory: clothes }) {
+      productType {
+        productType
+      }
+    }
+    allAccessoryTypes: allProducts(where: { productCategory: accessory }) {
+      productType {
+        productType
       }
     }
   }
-  allShoeBrands: allProducts(where: { productCategory: shoes }) {
-    brand {
-      brand
-    }
-  }
-  allClothingTypes: allProducts(where: { productCategory: clothes }) {
-    productType {
-      productType
-    }
-  }
-  allAccessoryTypes: allProducts(where: { productCategory: accessory }) {
-    productType {
-      productType
-    }
-  }
-}`;
-const INITIAL_STATE_QUERY = gql`
-  ${query}
 `;
 
 export default function Home() {

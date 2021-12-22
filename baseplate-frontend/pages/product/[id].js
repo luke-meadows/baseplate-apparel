@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
+import SizeDropdown from '../../components/SizeDropdown';
 import {
   Buttons,
   Description,
@@ -43,7 +44,7 @@ export default function Product({ query }) {
         <ProductColor>{product.color}</ProductColor>
         <Buttons>
           <button disabled>Pick a Size</button>
-          <button>Size</button>
+          <SizeDropdown />
         </Buttons>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
