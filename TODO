@@ -1,10 +1,13 @@
-- Add loading state on home page. Before loading the imgs, nav items (i.e brands)** 
-   need to have been pulled from the api.
-   
+- Add loading state on home page. Before loading the imgs, nav items (i.e brands)\*\*
+  need to have been pulled from the api.
 - figure out how to get multiple imgs for 1 product
 
 1. Sort out product card component
 2. arrange them in a container
-3. replace that container with swiper when on mobile 
+3. replace that container with swiper when on mobile
 4. change subnav from h3 h4 to p
-5. code useSale to put sale price in red and swap out the order putting actual price last. 
+5. code useSale to put sale price in red and swap out the order putting actual price last.
+
+Things to figure out:
+
+How to query subnav data and persist it. add it into header component
