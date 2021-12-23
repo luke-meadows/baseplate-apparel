@@ -3,12 +3,19 @@ import Link from 'next/link';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledSubNav, SubNavHeader, SubNavList } from './styles/HeaderStyles';
 import { motion } from 'framer-motion';
-import { animateOptions, animateSubNav } from '../lib/subNavAnimations';
+import { animateOptions } from '../lib/subNavAnimations';
 import NavTriangle from './NavTriangle';
 
 export const SubNav = forwardRef((props, ref) => {
   const { subNavOptions, handleMouseLeave, navCategories } = useContext(NavCtx);
   const [variant, setVariant] = useState();
+
+  const slugs = {
+    // these are the query parameters passed through to the product page to filter options
+    brands: `/products/brands?brand=`,
+    shoes: `/products/shoes?brand=`,
+    clothing: `/products/clothes?category=`,
+  };
 
   useEffect(() => {
     if (subNavOptions.subNavOpen) {
@@ -28,32 +35,19 @@ export const SubNav = forwardRef((props, ref) => {
       ref={ref}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        style={{
-          height: '1px',
-        }}
-      >
-        <br />
-      </div>
-      <motion.div
-        variants={animateOptions}
-        initial="initial"
-        animate={variant}
-        layout
-      >
+      <motion.div variants={animateOptions} initial="initial" animate={variant}>
         {subNavOptions.subNavOpen && (
-          <motion.div
-            variants={animateSubNav}
-            initial="initial"
-            animate={variant}
-            layout
-          >
-            <SubNavHeader layout>{subNavOptions.activeNavHeading}</SubNavHeader>
+          <motion.div>
+            <SubNavHeader>{subNavOptions.activeNavHeading}</SubNavHeader>
             <SubNavList>
               {activeOptions.sort().map((option) => {
                 return (
                   <li key={option}>
-                    <Link href="/">{option}</Link>
+                    <Link
+                      href={`${slugs[subNavOptions.activeNavHeading]}${option}`}
+                    >
+                      {option}
+                    </Link>
                   </li>
                 );
               })}

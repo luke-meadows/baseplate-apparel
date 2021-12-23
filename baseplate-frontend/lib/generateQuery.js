@@ -1,6 +1,6 @@
 export default function generateQuery(variables) {
   const products = {
-    allBrands: ``,
+    brands: ``,
     shoes: `productCategory:shoes,`,
     clothes: `productCategory:clothes,`,
     accessories: `productCategory:accessories,`,

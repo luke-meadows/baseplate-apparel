@@ -8,9 +8,9 @@ import generateQuery from '../../lib/generateQuery';
 export default function Products({ query }) {
   const [queryVariables, setQueryVariables] = useState({
     collection: query.id,
-    brand: '',
-    category: '',
-    color: '',
+    brand: query.brand || '',
+    category: query.category || '',
+    color: query.color || '',
     // size: 'M',
   });
 
@@ -28,20 +28,18 @@ export default function Products({ query }) {
       <h4>{query.id}</h4>
       <form
         onChange={(e) => {
+          e.preventDefault();
           if (!e.target.value) return;
           const [variable, value] = e.target.value.split('_');
           setQueryVariables({ ...queryVariables, [variable]: value });
-          console.log(queryVariables);
         }}
       >
-        <select name="category" id="category" placeholder="category">
-          <option value="">Category</option>
+        <select name="category" id="category">
           <option value="category_T-Shirt">T-Shirt</option>
           <option value="category_Jeans">Jeans</option>
           <option value="category_Shirt">Shirt</option>
         </select>
-        <select name="brand" id="brand" placeholder="category">
-          <option value="">Brand</option>
+        <select name="brand" id="brand">
           <option value="brand_adidas">Adidas</option>
           <option value="brand_nike sb">Nike SB</option>
           <option value="brand_parlez">Parlez</option>

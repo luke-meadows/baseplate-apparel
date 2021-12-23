@@ -17,7 +17,7 @@ export const Nav = forwardRef((props, ref) => {
 
   return (
     <StyledNav ref={ref} onMouseLeave={handleMouseLeave}>
-      <Link href="/products/allBrands">
+      <Link href="/products/brands">
         <a onMouseEnter={handleNavItemHover} onClick={handleClick}>
           Brands
         </a>
@@ -32,7 +32,7 @@ export const Nav = forwardRef((props, ref) => {
           Clothing
         </a>
       </Link>
-      <Link href="/products/accessories">
+      {/* <Link href="/products/accessories">
         <a onMouseEnter={handleNavItemHover} onClick={handleClick}>
           Accessories
         </a>
@@ -41,7 +41,7 @@ export const Nav = forwardRef((props, ref) => {
         <a onMouseEnter={handleNavItemHover} onClick={handleClick}>
           Sale
         </a>
-      </Link>
+      </Link> */}
     </StyledNav>
   );
 });
