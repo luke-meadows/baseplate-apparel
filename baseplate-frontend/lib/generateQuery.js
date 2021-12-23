@@ -1,12 +1,4 @@
 export default function generateQuery(variables) {
-  // const variables = {
-  //   collection: 'clothes',
-  //   brand: '',
-  //   productType: '',
-  //   color: 'black',
-  //   // size: 'M',
-  // };
-
   const products = {
     allBrands: ``,
     shoes: `productCategory:shoes,`,
@@ -17,8 +9,8 @@ export default function generateQuery(variables) {
     ? `brand: {brand_i:"${variables.brand}"},`
     : 'brand: {brand_not_contains:"~"},';
 
-  const typeQuery = variables.productType
-    ? `productType: {productType:"${variables.productType}"}, `
+  const categoryQuery = variables.category
+    ? `productType: {productType:"${variables.category}"}, `
     : '';
   const colorQuery = variables.color
     ? `color_contains_i: "${variables.color}"`
@@ -26,7 +18,7 @@ export default function generateQuery(variables) {
 
   const querySlug = `${
     products[variables.collection]
-  } ${brandQuery} ${typeQuery} ${colorQuery}`;
+  } ${brandQuery} ${categoryQuery} ${colorQuery}`;
   console.log({ querySlug });
 
   const query = `query DISPLAY_PRODUCTS_QUERY {
