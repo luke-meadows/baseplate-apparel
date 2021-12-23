@@ -1,27 +1,35 @@
-export default function generateQuery(variables) {
+import { useState } from 'react';
+
+export default function generateQuery(query) {
+  const [queryVariables, setQueryVariables] = useState({
+    collection: query.id,
+    brand: query.brand || '',
+    category: query.category || '',
+    color: query.color || '',
+  });
   const products = {
     brands: ``,
     shoes: `productCategory:shoes,`,
     clothes: `productCategory:clothes,`,
     accessories: `productCategory:accessories,`,
   };
-  const brandQuery = variables.brand
-    ? `brand: {brand_i:"${variables.brand}"},`
+  const brandQuery = queryVariables.brand
+    ? `brand: {brand_i:"${queryVariables.brand}"},`
     : 'brand: {brand_not_contains:"~"},';
 
-  const categoryQuery = variables.category
-    ? `productType: {productType:"${variables.category}"}, `
+  const categoryQuery = queryVariables.category
+    ? `productType: {productType:"${queryVariables.category}"}, `
     : '';
-  const colorQuery = variables.color
-    ? `color_contains_i: "${variables.color}"`
+  const colorQuery = queryVariables.color
+    ? `color_contains_i: "${queryVariables.color}"`
     : '';
 
   const querySlug = `${
-    products[variables.collection]
+    products[queryVariables.collection]
   } ${brandQuery} ${categoryQuery} ${colorQuery}`;
   console.log({ querySlug });
 
-  const query = `query DISPLAY_PRODUCTS_QUERY {
+  return `query DISPLAY_PRODUCTS_QUERY {
     allProducts(where: { ${querySlug} }) {
       id
       name
@@ -38,5 +46,4 @@ export default function generateQuery(variables) {
     }
   }
   `;
-  return query;
 }

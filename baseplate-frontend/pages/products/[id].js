@@ -1,26 +1,15 @@
 import { gql, useQuery } from '@apollo/client';
-import { useEffect, useState } from 'react';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import { ProductsPage } from '../../components/styles/ProductsPageStyles';
 import generateQuery from '../../lib/generateQuery';
 
 export default function Products({ query }) {
-  const [queryVariables, setQueryVariables] = useState({
-    collection: query.id,
-    brand: query.brand || '',
-    category: query.category || '',
-    color: query.color || '',
-    // size: 'M',
-  });
-
   const PRODUCTS_PAGE_QUERY = gql`
-    ${generateQuery(queryVariables)}
+    ${generateQuery(query)}
   `;
 
   const { data, error, loading } = useQuery(PRODUCTS_PAGE_QUERY);
-  const res = useQuery(PRODUCTS_PAGE_QUERY);
-  console.log(res);
 
   if (loading) return <div>Loading...</div>;
   return (
@@ -31,7 +20,7 @@ export default function Products({ query }) {
           e.preventDefault();
           if (!e.target.value) return;
           const [variable, value] = e.target.value.split('_');
-          setQueryVariables({ ...queryVariables, [variable]: value });
+          // setQueryVariables({ ...queryVariables, [variable]: value });
         }}
       >
         <select name="category" id="category">
