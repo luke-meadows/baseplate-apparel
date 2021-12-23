@@ -42,7 +42,7 @@ const INITIAL_STATE_QUERY = gql`
 `;
 
 export default function Home() {
-  const { setNavCategories, navCategories } = useContext(NavCtx);
+  const { setNavCategories } = useContext(NavCtx);
   const { data, error, loading } = useQuery(INITIAL_STATE_QUERY);
 
   useEffect(() => {
