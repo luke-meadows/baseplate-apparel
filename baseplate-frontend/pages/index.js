@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { useQuery, gql } from '@apollo/client';
 import HomepageProducts from '../components/HomepageProducts';
+import { ImageSlider } from '../components/ImageSlider';
 
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {
@@ -41,7 +42,7 @@ const INITIAL_STATE_QUERY = gql`
 `;
 
 export default function Home() {
-  const { setNavCategories, navCategories } = useContext(NavCtx);
+  const { setNavCategories } = useContext(NavCtx);
   const { data, error, loading } = useQuery(INITIAL_STATE_QUERY);
 
   useEffect(() => {
@@ -72,6 +73,7 @@ export default function Home() {
 
   return (
     <>
+      <ImageSlider />
       <HomepageProducts products={data.allProducts} heading="latest" />
       <HomepageProducts products={data.allProducts} heading="recommended" />
     </>

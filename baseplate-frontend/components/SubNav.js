@@ -24,9 +24,6 @@ export const SubNav = forwardRef((props, ref) => {
   return (
     <StyledSubNav
       className={subNavOptions.subNavOpen ? 'box-shadow' : ''}
-      variants={animateSubNav}
-      initial="initial"
-      animate={variant}
       layout
       ref={ref}
       onMouseLeave={handleMouseLeave}
@@ -45,7 +42,12 @@ export const SubNav = forwardRef((props, ref) => {
         layout
       >
         {subNavOptions.subNavOpen && (
-          <motion.div layout>
+          <motion.div
+            variants={animateSubNav}
+            initial="initial"
+            animate={variant}
+            layout
+          >
             <SubNavHeader layout>{subNavOptions.activeNavHeading}</SubNavHeader>
             <SubNavList>
               {activeOptions.sort().map((option) => {
