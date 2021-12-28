@@ -4,11 +4,8 @@ import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import { ProductsPage } from '../../components/styles/ProductsPageStyles';
 import generateQuery from '../../lib/generateQuery';
-import { useRouter } from 'next/router';
 
 export default function Products({ query }) {
-  const router = useRouter();
-  console.log(router);
   const [queryVariables, setQueryVariables] = useState({ ...query });
 
   useEffect(() => {

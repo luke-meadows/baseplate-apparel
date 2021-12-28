@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { useContext, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 export default function SearchBar() {
   const { searchActive, setSearchActive } = useContext(NavCtx);
   const searchbarRef = useRef();
-
+  const router = useRouter();
   useEffect(() => {
     searchbarRef.current.focus();
   }, [searchActive]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target.search.value);
+    const { value } = e.target.search;
     setSearchActive(false);
+    router.push(`/search/${value}`);
   }
 
   return (
