@@ -7,10 +7,34 @@ import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
 import { Logo, StyledHeader } from './styles/HeaderStyles';
 import disableScroll from 'disable-scroll';
+import { useQuery, gql } from '@apollo/client';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
     useContext(NavCtx);
+  const NAV_DATA_QUERY = gql`
+    query NAV_DATA_QUERY {
+      allShoeBrands: allProducts(where: { productCategory: shoes }) {
+        brand {
+          brand
+        }
+      }
+      allClothingTypes: allProducts(where: { productCategory: clothes }) {
+        productType {
+          productType
+        }
+      }
+      allAccessoryTypes: allProducts(where: { productCategory: accessory }) {
+        productType {
+          productType
+        }
+      }
+      allBrands {
+        brand
+      }
+    }
+  `;
+
   const subNavRef = useRef();
   const navRef = useRef();
 
@@ -31,6 +55,32 @@ export default function Header() {
     if (!searchActive) disableScroll.off();
   }, [searchActive]);
 
+  // fetches nav options from backend
+  const { setNavCategories } = useContext(NavCtx);
+  const { data, error, loading } = useQuery(NAV_DATA_QUERY);
+  useEffect(() => {
+    const allBrands = data?.allBrands.map((brand) => brand.brand);
+    const shoeBrands = [
+      ...new Set(data?.allShoeBrands.map((brand) => brand.brand.brand)),
+    ];
+    const clothingTypes = [
+      ...new Set(
+        data?.allClothingTypes.map((type) => type.productType.productType)
+      ),
+    ];
+    const accessoryTypes = [
+      ...new Set(
+        data?.allAccessoryTypes.map((type) => type.productType.productType)
+      ),
+    ];
+
+    setNavCategories({
+      brands: allBrands,
+      shoes: shoeBrands,
+      clothing: clothingTypes,
+      accessories: accessoryTypes,
+    });
+  }, [data]);
   return (
     <AnimateSharedLayout>
       <StyledHeader>
