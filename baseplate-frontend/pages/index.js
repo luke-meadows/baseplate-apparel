@@ -3,6 +3,7 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import { useQuery, gql } from '@apollo/client';
 import HomepageProducts from '../components/HomepageProducts';
 import { ImageSlider } from '../components/ImageSlider';
+import Loading from '../components/Loading';
 
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {
@@ -69,7 +70,7 @@ export default function Home() {
     });
   }, [data]);
 
-  if (loading) return <h1 style={{ color: 'red' }}>Loading</h1>;
+  if (loading) return <Loading />;
 
   return (
     <>

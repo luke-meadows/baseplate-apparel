@@ -5,9 +5,5 @@ export default function Loading() {
     NProgress.start();
     return NProgress.done();
   }, []);
-  return (
-    <div>
-      <h1>loading</h1>
-    </div>
-  );
+  return <div />;
 }

@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
+import Loading from '../../components/Loading';
 import SizeDropdown from '../../components/SizeDropdown';
 import {
   Buttons,
@@ -35,7 +36,7 @@ export default function Product({ query }) {
     variables: { id: query.id },
   });
   const product = data?.Product;
-  if (loading) return <p>Loading....</p>;
+  if (loading) return <Loading />;
   return (
     <ProductPage>
       <ProductPageLeft>
