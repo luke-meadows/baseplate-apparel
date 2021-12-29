@@ -1,6 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
+import Loading from '../../components/Loading';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
+import { ProductsPage } from '../../components/styles/ProductsPageStyles';
 export default function Search({ query }) {
   const SEARCH_QUERY = gql`
     query SEARCH_QUERY($searchTerm: String!) {
@@ -31,16 +33,15 @@ export default function Search({ query }) {
   const { data, loading, error } = useQuery(SEARCH_QUERY, {
     variables: { searchTerm: query.id },
   });
-  if (loading) return <h1>Loading....</h1>;
-  if (data) console.log(data);
+  if (loading) return <Loading />;
   return (
-    <div className="search">
-      <h1>Search Results: '{query.id}'</h1>
+    <ProductsPage>
+      <h4>Search Results: '{query.id}'</h4>
       <ProductsContainer>
         {data.searchResults.map((product) => (
           <ProductThumbnail product={product} key={product.id} />
         ))}
       </ProductsContainer>
-    </div>
+    </ProductsPage>
   );
 }

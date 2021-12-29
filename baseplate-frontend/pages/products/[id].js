@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
+import Loading from '../../components/Loading';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import { ProductsPage } from '../../components/styles/ProductsPageStyles';
@@ -17,7 +18,7 @@ export default function Products({ query }) {
   `;
   const { data, error, loading } = useQuery(PRODUCTS_PAGE_QUERY);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
 
   return (
     <ProductsPage>
