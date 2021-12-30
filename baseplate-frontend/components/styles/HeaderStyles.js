@@ -132,3 +132,15 @@ export const SubNavList = styled(motion.ul)`
     }
   }
 `;
+
+export const SearchBar = styled.div`
+  input {
+    color: white;
+    background: var(--Transparent-black);
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 2px solid grey;
+    font-size: 1.2rem;
+  }
+`;

@@ -1,11 +1,11 @@
 import { useContext, useEffect, useRef } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import Link from 'next/link';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
-import { Logo, StyledHeader } from './styles/HeaderStyles';
+import { Logo, SearchBar, StyledHeader } from './styles/HeaderStyles';
 import disableScroll from 'disable-scroll';
 import { useQuery, gql } from '@apollo/client';
 
@@ -89,23 +89,41 @@ export default function Header() {
         </Logo>
         <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-        <div>
-          <span
-            style={{ padding: '0 2rem', fontSize: '2rem', lineHeight: 2 }}
-            className="material-icons"
-            onClick={() => setSearchActive(!searchActive)}
+        <div style={{ display: 'flex' }}>
+          <div
+            className="search"
+            style={{
+              border: '1px solid red',
+              display: 'flex',
+              alignItems: 'center',
+            }}
           >
-            search
-          </span>
-          <span
-            style={{ fontSize: '2rem', lineHeight: 2 }}
-            className="material-icons"
-          >
-            shopping_cart
-          </span>
+            <span
+              style={{
+                fontSize: '2rem',
+                // lineHeight: 2,
+                border: '1px solid blue',
+              }}
+              className="material-icons"
+              onClick={() => setSearchActive(!searchActive)}
+            >
+              search
+            </span>
+            <SearchBar>
+              <input type="search" style={{ lineHeight: 2 }} />
+            </SearchBar>
+          </div>
+          <div className="cart">
+            <span
+              style={{ fontSize: '2rem', lineHeight: 2 }}
+              className="material-icons"
+            >
+              shopping_cart
+            </span>
+          </div>
         </div>
       </StyledHeader>
-      {searchActive && <SearchBar />}
+      {/* {searchActive && <SearchBar />} */}
     </AnimateSharedLayout>
   );
 }
