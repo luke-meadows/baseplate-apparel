@@ -93,7 +93,6 @@ export default function Header() {
           <div
             className="search"
             style={{
-              border: '1px solid red',
               display: 'flex',
               alignItems: 'center',
             }}
@@ -101,17 +100,13 @@ export default function Header() {
             <span
               style={{
                 fontSize: '2rem',
-                // lineHeight: 2,
-                border: '1px solid blue',
               }}
               className="material-icons"
               onClick={() => setSearchActive(!searchActive)}
             >
               search
             </span>
-            <SearchBar>
-              <input type="search" style={{ lineHeight: 2 }} />
-            </SearchBar>
+            <SearchBar>{searchActive && <input type="search" />}</SearchBar>
           </div>
           <div className="cart">
             <span
@@ -123,7 +118,6 @@ export default function Header() {
           </div>
         </div>
       </StyledHeader>
-      {/* {searchActive && <SearchBar />} */}
     </AnimateSharedLayout>
   );
 }

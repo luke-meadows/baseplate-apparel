@@ -141,6 +141,8 @@ export const SearchBar = styled.div`
     align-items: center;
     border-radius: 0.5rem;
     border: 2px solid grey;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    outline: none;
+    padding: 0.5rem 1rem;
   }
 `;

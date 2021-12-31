@@ -57,6 +57,12 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
 }
+.search, .cart{
+  span{
+
+    margin: 0 1rem;
+  }
+}
 #nprogress {
   pointer-events: none;
 }
@@ -64,7 +70,6 @@ export const GlobalStyles = createGlobalStyle`
 #nprogress .bar {
  display: none;
 }
-
 
 /* Remove these to get rid of the spinner */
 #nprogress .spinner {
