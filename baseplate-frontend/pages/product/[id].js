@@ -45,7 +45,7 @@ export default function Product({ query }) {
         <ProductColor>{product.color}</ProductColor>
         <Buttons>
           <button disabled>Pick a Size</button>
-          <SizeDropdown />
+          <SizeDropdown sizes={Object.keys(JSON.parse(data.Product.sizes))} />
         </Buttons>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi

@@ -1,9 +1,15 @@
 import styled from 'styled-components';
-export default function SizeDropdown() {
+export default function SizeDropdown({ sizes }) {
   return (
     <Dropdown>
-      <span class="material-icons-outlined">expand_more</span>
-      <option>Dropdown</option>
+      <option value="" disabled selected>
+        Size
+      </option>
+      {sizes.map((size) => (
+        <option value={size} key={size}>
+          {size}
+        </option>
+      ))}
     </Dropdown>
   );
 }
