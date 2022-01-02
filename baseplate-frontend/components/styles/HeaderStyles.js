@@ -133,7 +133,7 @@ export const SubNavList = styled(motion.ul)`
   }
 `;
 
-export const SearchBar = styled.div`
+export const SearchBar = styled.form`
   input {
     color: white;
     background: var(--Transparent-black);

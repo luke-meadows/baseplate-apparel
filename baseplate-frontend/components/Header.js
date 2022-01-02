@@ -8,6 +8,7 @@ import { AnimateSharedLayout } from 'framer-motion';
 import { Logo, SearchBar, StyledHeader } from './styles/HeaderStyles';
 import disableScroll from 'disable-scroll';
 import { useQuery, gql } from '@apollo/client';
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
@@ -81,6 +82,19 @@ export default function Header() {
       accessories: accessoryTypes,
     });
   }, [data]);
+
+  const searchbarRef = useRef();
+  const router = useRouter();
+  useEffect(() => {
+    searchbarRef.current?.focus();
+  }, [searchActive]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const { value } = e.target.search;
+    setSearchActive(false);
+    router.push(`/search/${value}`);
+  }
   return (
     <AnimateSharedLayout>
       <StyledHeader>
@@ -106,7 +120,18 @@ export default function Header() {
             >
               search
             </span>
-            <SearchBar>{searchActive && <input type="search" />}</SearchBar>
+            <SearchBar onSubmit={(e) => handleSubmit(e)}>
+              {searchActive && (
+                <input
+                  autoComplete="off"
+                  ref={searchbarRef}
+                  name="search"
+                  type="search"
+                  placeholder="search"
+                  type="search"
+                />
+              )}
+            </SearchBar>
           </div>
           <div className="cart">
             <span
