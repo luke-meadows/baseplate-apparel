@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 export default function SizeDropdown({ sizes }) {
   return (
-    <Dropdown>
-      <option value="" disabled selected>
+    <Dropdown defaultValue={'default'}>
+      <option value="default" disabled>
         Size
       </option>
       {sizes.map((size) => (
