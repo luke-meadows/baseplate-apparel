@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Loading from '../../components/Loading';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
+import { ProductPageHeading } from '../../components/styles/ProductPageStyles';
 import { ProductsPage } from '../../components/styles/ProductsPageStyles';
 import generateQuery from '../../lib/generateQuery';
 
@@ -22,7 +23,7 @@ export default function Products({ query }) {
 
   return (
     <ProductsPage>
-      <h4>{query.id}</h4>
+      <ProductPageHeading>{query.id}</ProductPageHeading>
       <ProductsContainer>
         {data.allProducts.map((product) => (
           <ProductThumbnail product={product} key={product.id} />

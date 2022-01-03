@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import Loading from '../../components/Loading';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
+import { ProductPageHeading } from '../../components/styles/ProductPageStyles';
 import { ProductsPage } from '../../components/styles/ProductsPageStyles';
 export default function Search({ query }) {
   const SEARCH_QUERY = gql`
@@ -36,7 +37,7 @@ export default function Search({ query }) {
   if (loading) return <Loading />;
   return (
     <ProductsPage>
-      <h4>Search Results: '{query.id}'</h4>
+      <ProductPageHeading>Search Results: '{query.id}'</ProductPageHeading>
       <ProductsContainer>
         {data.searchResults.map((product) => (
           <ProductThumbnail product={product} key={product.id} />

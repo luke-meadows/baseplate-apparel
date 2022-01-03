@@ -11,6 +11,10 @@ export const ProductPage = styled.div`
   }
 `;
 
+export const ProductPageHeading = styled.h4`
+  margin-bottom: 2rem;
+`;
+
 export const ProductPageLeft = styled.div`
   width: 40%;
   margin-right: 4rem;
