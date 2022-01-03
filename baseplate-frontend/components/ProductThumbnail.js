@@ -36,7 +36,7 @@ export const ProductThumbnail = ({ product }) => {
   );
 };
 
-const Thumbnail = styled.a`
+const Thumbnail = styled.div`
   cursor: pointer;
   * {
     font-size: 1.1rem;
@@ -45,17 +45,17 @@ const Thumbnail = styled.a`
   }
 
   .img-container {
+    line-height: 0;
     position: relative;
     overflow: hidden;
-  }
-  .image-container {
-    width: 10rem;
+    img {
+      height: 100%;
+    }
   }
 
   .sizes {
     width: 100%;
     position: absolute;
-    transform: translateY(0);
     transition: all 0.5s ease;
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.8);
