@@ -10,7 +10,7 @@ const INITIAL_STATE_QUERY = gql`
     allProducts {
       id
       name
-      new
+      latest
       description
       color
       price
@@ -28,7 +28,7 @@ export default function Home() {
   const { data, error, loading } = useQuery(INITIAL_STATE_QUERY);
 
   if (loading) return <Loading />;
-
+  console.log(data);
   return (
     <>
       <ImageSlider />
