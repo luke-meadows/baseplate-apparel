@@ -80,7 +80,7 @@ const Product = {
       // Sizes should be entered as a JSON object eg: '{"S":12,"M":23,"L":43}'
       type: Text,
     },
-    new: {
+    recommended: {
       type: Checkbox,
     },
     latest: {
