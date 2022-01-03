@@ -6,7 +6,6 @@ import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
 import { Logo, SearchBar, StyledHeader } from './styles/HeaderStyles';
-import disableScroll from 'disable-scroll';
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
 
@@ -49,12 +48,6 @@ export default function Header() {
       navRect: navRect,
     });
   }, []);
-
-  // disables scroll while search active
-  useEffect(() => {
-    if (searchActive) disableScroll.on();
-    if (!searchActive) disableScroll.off();
-  }, [searchActive]);
 
   // fetches nav options from backend
   const { setNavCategories } = useContext(NavCtx);
@@ -103,7 +96,13 @@ export default function Header() {
         </Logo>
         <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-        <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            display: 'flex',
+            position: 'absolute',
+            right: '6rem',
+          }}
+        >
           <div
             className="search"
             style={{
@@ -120,7 +119,7 @@ export default function Header() {
             >
               search
             </span>
-            <SearchBar onSubmit={(e) => handleSubmit(e)}>
+            <SearchBar layout onSubmit={(e) => handleSubmit(e)}>
               {searchActive && (
                 <input
                   autoComplete="off"
@@ -142,6 +141,8 @@ export default function Header() {
             </span>
           </div>
         </div>
+        {/* {to make the nav centered using the flex} */}
+        <div style={{ width: '10rem' }} />
       </StyledHeader>
     </AnimateSharedLayout>
   );

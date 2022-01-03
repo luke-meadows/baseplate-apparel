@@ -32,16 +32,6 @@ export const Nav = forwardRef((props, ref) => {
           Clothing
         </a>
       </Link>
-      {/* <Link href="/products/accessories">
-        <a onMouseEnter={handleNavItemHover} onClick={handleClick}>
-          Accessories
-        </a>
-      </Link>
-      <Link href="/">
-        <a onMouseEnter={handleNavItemHover} onClick={handleClick}>
-          Sale
-        </a>
-      </Link> */}
     </StyledNav>
   );
 });
