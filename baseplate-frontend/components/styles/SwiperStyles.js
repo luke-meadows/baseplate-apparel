@@ -5,7 +5,7 @@ export const HomepageSlider = styled(Swiper)`
   line-height: 0;
 
   .swiper-slide {
-    width: 100vw;
+    width: 100%;
   }
 
   .swiper-pagination-bullet {

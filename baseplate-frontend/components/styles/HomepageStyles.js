@@ -5,6 +5,7 @@ export const ProductsHeading = styled.p`
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 1rem;
+  max-width: 1550px;
 `;
 export const ProductsContainer = styled.div`
   display: grid;
