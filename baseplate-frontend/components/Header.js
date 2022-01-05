@@ -53,7 +53,7 @@ export default function Header() {
 
   // fetches nav options from backend
   const { setNavCategories } = useContext(NavCtx);
-  const { data, error, loading } = useQuery(NAV_DATA_QUERY);
+  const { data } = useQuery(NAV_DATA_QUERY);
   useEffect(() => {
     const allBrands = [
       ...new Set(data?.allBrands.map((brand) => brand.brand.brand)),

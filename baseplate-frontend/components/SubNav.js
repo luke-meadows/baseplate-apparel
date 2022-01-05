@@ -7,7 +7,8 @@ import { animateOptions } from '../lib/subNavAnimations';
 import NavTriangle from './NavTriangle';
 
 export const SubNav = forwardRef((props, ref) => {
-  const { subNavOptions, handleMouseLeave, navCategories } = useContext(NavCtx);
+  const { subNavOptions, handleMouseLeave, navCategories, setSubNavOptions } =
+    useContext(NavCtx);
   const [variant, setVariant] = useState();
 
   const slugs = {
@@ -24,6 +25,10 @@ export const SubNav = forwardRef((props, ref) => {
       setVariant('hidden');
     }
   }, [subNavOptions.subNavOpen]);
+
+  function handleClick() {
+    setSubNavOptions({ ...subNavOptions, subNavOpen: false });
+  }
 
   const activeOptions = // Gets the list of subnav data based on what nav item is hovered
     navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
@@ -45,6 +50,7 @@ export const SubNav = forwardRef((props, ref) => {
                   <li key={option}>
                     <Link
                       href={`${slugs[subNavOptions.activeNavHeading]}${option}`}
+                      onClick={handleClick}
                     >
                       {option}
                     </Link>
