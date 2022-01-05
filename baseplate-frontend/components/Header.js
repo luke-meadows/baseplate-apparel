@@ -29,8 +29,10 @@ export default function Header() {
           productType
         }
       }
-      allBrands {
-        brand
+      allBrands: allProducts {
+        brand {
+          brand
+        }
       }
     }
   `;
@@ -53,7 +55,7 @@ export default function Header() {
   const { setNavCategories } = useContext(NavCtx);
   const { data, error, loading } = useQuery(NAV_DATA_QUERY);
   useEffect(() => {
-    const allBrands = data?.allBrands.map((brand) => brand.brand);
+    const allBrands = data?.allBrands.map((brand) => brand.brand.brand);
     const shoeBrands = [
       ...new Set(data?.allShoeBrands.map((brand) => brand.brand.brand)),
     ];

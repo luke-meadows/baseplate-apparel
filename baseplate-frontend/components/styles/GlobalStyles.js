@@ -124,6 +124,5 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const InnerStyles = styled.div`
-  max-width: 1450px;
   margin: auto;
 `;

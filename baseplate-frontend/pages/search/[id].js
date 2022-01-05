@@ -4,6 +4,7 @@ import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import { ProductPageHeading } from '../../components/styles/ProductPageStyles';
 import { ProductsPage } from '../../components/styles/ProductsPageStyles';
+
 export default function Search({ query }) {
   const SEARCH_QUERY = gql`
     query SEARCH_QUERY($searchTerm: String!) {
@@ -18,7 +19,6 @@ export default function Search({ query }) {
       ) {
         id
         name
-        new
         description
         color
         price
@@ -39,7 +39,7 @@ export default function Search({ query }) {
     <ProductsPage>
       <ProductPageHeading>Search Results: '{query.id}'</ProductPageHeading>
       <ProductsContainer>
-        {data.searchResults.map((product) => (
+        {data?.searchResults.map((product) => (
           <ProductThumbnail product={product} key={product.id} />
         ))}
       </ProductsContainer>

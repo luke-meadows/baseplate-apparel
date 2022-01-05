@@ -7,10 +7,11 @@ import Loading from '../components/Loading';
 
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {
-    allProducts {
+    allProducts(where: { OR: [{ recommended: true }, { latest: true }] }) {
       id
       name
       latest
+      recommended
       description
       color
       price
@@ -32,8 +33,14 @@ export default function Home() {
   return (
     <>
       <ImageSlider />
-      <HomepageProducts products={data.allProducts} heading="latest" />
-      <HomepageProducts products={data.allProducts} heading="recommended" />
+      <HomepageProducts
+        products={data.allProducts.filter((product) => product.latest)}
+        heading="latest"
+      />
+      <HomepageProducts
+        products={data.allProducts.filter((product) => product.recommended)}
+        heading="recommended"
+      />
     </>
   );
 }

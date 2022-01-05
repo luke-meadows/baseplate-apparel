@@ -24,7 +24,6 @@ export default function generateQuery(variables) {
     allProducts(where: { ${querySlug} }) {
       id
       name
-      new
       description
       color
       price

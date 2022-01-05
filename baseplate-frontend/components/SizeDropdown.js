@@ -14,8 +14,6 @@ export default function SizeDropdown({ sizes }) {
   );
 }
 
-console.log(size);
-
 const Dropdown = styled.select`
   position: relative;
   font-size: 1.2rem;
