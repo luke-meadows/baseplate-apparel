@@ -17,10 +17,10 @@ export default function Page({ children }) {
 }
 
 const StyledPage = styled.div`
-  /* min-height: 100vh; */
-  /* display: flex;
+  min-height: 100vh;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; */
+  justify-content: space-between;
 `;
 const InnerStyles = styled.div`
   margin: auto;

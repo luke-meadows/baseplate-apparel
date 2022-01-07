@@ -8,6 +8,7 @@ export const StyledHeader = styled(motion.header)`
   position: fixed;
   top: 0;
   background-color: var(--Transparent-black);
+  background-color: black;
   height: 6rem;
   display: flex;
   align-items: center;
@@ -77,7 +78,7 @@ export const StyledSubNav = styled(motion.div)`
   top: 6rem;
   color: black;
   padding: 0 20vw;
-
+  z-index: -1;
   .bottom-header {
     line-height: 0;
     padding: 3rem 0 3.3rem 0;
