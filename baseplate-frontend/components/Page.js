@@ -1,12 +1,19 @@
+import styled from 'styled-components';
 import { GlobalStyles, InnerStyles } from './styles/GlobalStyles';
 import Header from './Header';
+import Footer from './Footer';
 
 export default function Page({ children }) {
   return (
-    <div className="page">
+    <StyledPage>
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
-    </div>
+      <Footer />
+    </StyledPage>
   );
 }
+
+const StyledPage = styled.div`
+  min-height: 100vh;
+`;

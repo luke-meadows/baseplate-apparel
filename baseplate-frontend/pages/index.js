@@ -41,7 +41,6 @@ export default function Home() {
       />
       <SubscribeBanner />
       <DeliveryBanner />
-      <Footer />
     </>
   );
 }
