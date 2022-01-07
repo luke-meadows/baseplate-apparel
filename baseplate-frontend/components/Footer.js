@@ -5,9 +5,9 @@ export default function Footer() {
     <StyledFooter>
       <FooterTop>
         <IconContainer>
-          <i class="footer-icon icon-twitter"></i>
-          <i class="footer-icon icon-facebook"></i>
-          <i class="footer-icon icon-instagram"></i>
+          <i className="footer-icon icon-twitter"></i>
+          <i className="footer-icon icon-facebook"></i>
+          <i className="footer-icon icon-instagram"></i>
         </IconContainer>
         <form style={{ display: 'flex' }}>
           <FooterInput

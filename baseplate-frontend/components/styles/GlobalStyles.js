@@ -4,16 +4,7 @@ export const GlobalStyles = createGlobalStyle`
   /* font-family: 'Caveat', cursive;
   font-family: 'Poppins', sans-serif;
   font-family: 'Roboto Mono', monospace; */
-  @font-face {
-      font-family: 'fontello';
-      src: url('../../public/fontello/font/fontello.eot?54140063');
-      src: url('../../public/fontellofont/fontello.eot?54140063#iefix') format('embedded-opentype'),
-           url('../../public/fontellofont/fontello.woff?54140063') format('woff'),
-           url('../../public/fontellofont/fontello.ttf?54140063') format('truetype'),
-           url('../../public/fontellofont/fontello.svg?54140063#fontello') format('svg');
-      font-weight: normal;
-      font-style: normal;
-    }
+
   html {
     --main-blue: #02e1f5;
     --Transparent-black: rgba(0, 0, 0, 0.8);

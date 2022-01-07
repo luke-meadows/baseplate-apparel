@@ -24,6 +24,7 @@ export const SubNav = forwardRef((props, ref) => {
     } else {
       setVariant('hidden');
     }
+    console.log(subNavOptions.subNavOpen);
   }, [subNavOptions.subNavOpen]);
 
   function handleClick() {
@@ -47,7 +48,7 @@ export const SubNav = forwardRef((props, ref) => {
             <SubNavList>
               {activeOptions.sort().map((option) => {
                 return (
-                  <li key={option} onClick={handleClick}>
+                  <li key={option}>
                     <Link
                       href={`${slugs[subNavOptions.activeNavHeading]}${option}`}
                     >
