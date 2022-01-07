@@ -11,7 +11,7 @@ export default function SubscribeBanner() {
             Subscribe to our newsletter for 15% off your first order
           </label>
           <div>
-            <input name="email" type="email" />
+            <StyledInput name="email" placeholder="Email" type="email" />
             <button type="submit">Submit</button>
           </div>
         </StyledForm>
@@ -43,16 +43,17 @@ const StyledForm = styled.form`
     color: white;
     font-size: 1.4rem;
   }
-  input {
-    height: 3rem;
-    line-height: 0;
-    outline: none;
-    border: none;
-    display: block;
-    margin-right: 1px;
-    width: 29.4rem;
-    font-size: 1.5rem;
-    outline: none;
-    padding: 0.5rem 1rem;
-  }
+`;
+
+const StyledInput = styled.input`
+  height: 3rem;
+  line-height: 0;
+  outline: none;
+  border: none;
+  display: block;
+  margin-right: 1px;
+  width: 29.4rem;
+  font-size: 1.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
 `;

@@ -2,6 +2,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Page from '../components/Page';
 import { NavCtxProvider } from '../lib/NavCtxProvider';
 
+import '../public/fontello/css/fontello.css';
+
 const client = new ApolloClient({
   uri: 'http://localhost:5000/admin/api',
   cache: new InMemoryCache({
