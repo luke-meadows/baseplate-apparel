@@ -131,7 +131,3 @@ export const GlobalStyles = createGlobalStyle`
   }
 }
 `;
-
-export const InnerStyles = styled.div`
-  margin: auto;
-`;

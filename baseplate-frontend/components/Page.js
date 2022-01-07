@@ -1,14 +1,16 @@
 import styled from 'styled-components';
-import { GlobalStyles, InnerStyles } from './styles/GlobalStyles';
+import { GlobalStyles } from './styles/GlobalStyles';
 import Header from './Header';
 import Footer from './Footer';
 
 export default function Page({ children }) {
   return (
     <StyledPage>
-      <GlobalStyles />
-      <Header />
-      <InnerStyles>{children}</InnerStyles>
+      <div>
+        <GlobalStyles />
+        <Header />
+        <InnerStyles>{children}</InnerStyles>
+      </div>
       <Footer />
     </StyledPage>
   );
@@ -16,4 +18,10 @@ export default function Page({ children }) {
 
 const StyledPage = styled.div`
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+const InnerStyles = styled.div`
+  margin: auto;
 `;

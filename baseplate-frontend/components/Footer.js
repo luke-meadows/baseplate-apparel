@@ -39,12 +39,12 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-  padding: var(--medium-screen-padding);
-  margin-bottom: 6rem;
+  padding: 4rem 6rem;
+  border-top: 1px solid #51515187;
   p {
     font-size: 1rem;
     text-align: center;
-    margin-top: 6rem;
+    margin-top: 4rem;
   }
   .link {
     cursor: pointer;
@@ -56,7 +56,7 @@ const StyledFooter = styled.footer`
 
 const FooterTop = styled.div`
   width: fit-content;
-  margin: 0 auto 6rem auto;
+  margin: 0 auto 4rem auto;
   display: flex;
   align-items: center;
   button {
@@ -69,6 +69,8 @@ const FooterInput = styled(StyledInput)`
   height: 4rem;
 `;
 const FooterBottom = styled.div`
+  max-width: 1200px;
+  margin: auto;
   ul {
     display: flex;
     justify-content: space-between;
