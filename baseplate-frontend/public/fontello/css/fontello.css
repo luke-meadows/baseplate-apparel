@@ -58,6 +58,7 @@
   color: #515151;
   cursor: pointer;
   font-size: 2rem;
+  margin: 0 0.5rem;
 }
 .footer-icon:hover {
   color: var(--main-blue);

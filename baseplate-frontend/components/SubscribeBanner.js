@@ -8,7 +8,7 @@ export default function SubscribeBanner() {
       <FormContainer>
         <StyledForm>
           <label htmlFor="email">
-            Subscribe to our newsletter for 15% off your first order
+            Sign Up to our newsletter for 15% off your first order
           </label>
           <div>
             <StyledInput name="email" placeholder="Email" type="email" />
@@ -22,7 +22,8 @@ export default function SubscribeBanner() {
 
 const StyledBanner = styled.div`
   position: relative;
-  padding: 6rem 0;
+  margin: 6rem 0 -1rem 0;
+
   img {
     width: 100%;
   }
@@ -41,11 +42,11 @@ const StyledForm = styled.form`
   }
   label {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 `;
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   height: 3rem;
   line-height: 0;
   outline: none;
