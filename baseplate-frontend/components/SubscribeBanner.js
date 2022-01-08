@@ -23,7 +23,6 @@ export default function SubscribeBanner() {
 const StyledBanner = styled.div`
   position: relative;
   margin: 6rem 0 -1rem 0;
-
   img {
     width: 100%;
   }
@@ -44,16 +43,19 @@ const StyledForm = styled.form`
     color: white;
     font-size: 1.5rem;
   }
+  button {
+    height: 4rem;
+  }
 `;
 
 export const StyledInput = styled.input`
-  height: 3rem;
+  height: 4rem;
   line-height: 0;
   outline: none;
   border: none;
   display: block;
-  margin-right: 1px;
-  width: 29.4rem;
+
+  width: 27.41rem;
   font-size: 1.5rem;
   outline: none;
   padding: 0.5rem 1rem;

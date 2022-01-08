@@ -9,7 +9,7 @@ export default function Footer() {
           <i className="footer-icon icon-facebook"></i>
           <i className="footer-icon icon-instagram"></i>
         </IconContainer>
-        <form style={{ display: 'flex' }}>
+        <form>
           <FooterInput
             name="email"
             placeholder="Sign Up to our newsletter"
@@ -39,7 +39,7 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-  padding: 4rem 6rem;
+  padding: 4rem 18rem;
   border-top: 1px solid #51515187;
   p {
     font-size: 1rem;
@@ -61,11 +61,17 @@ const FooterTop = styled.div`
   align-items: center;
   button {
     height: 4rem;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+  }
+  form {
+    border: 1px solid #515151;
+    display: flex;
+    align-items: center;
+    height: 4.2rem;
+    padding: 1px 0;
   }
 `;
 const FooterInput = styled(StyledInput)`
-  border: 1px solid #515151;
   height: 4rem;
 `;
 const FooterBottom = styled.div`

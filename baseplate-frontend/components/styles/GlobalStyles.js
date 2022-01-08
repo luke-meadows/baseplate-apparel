@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     --mobile-screen-padding: 1rem;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
     box-sizing: border-box;
-    font-size: 62.5%;
+    font-size: 70.5%;
     padding: 0;
     margin: 0;
   }
