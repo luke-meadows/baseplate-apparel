@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const ProductThumbnail = ({ product }) => {
   const [hover, updateHover] = useState(false);
@@ -28,7 +27,7 @@ export const ProductThumbnail = ({ product }) => {
         </div>
         <h5 className="description">
           {product.name}
-          <span>, {product.color}</span>
+          <p className="color">{product.color}</p>
         </h5>
         <h5 className="price">£{product.price / 100}.00</h5>
       </Thumbnail>
@@ -72,7 +71,7 @@ const Thumbnail = styled.div`
     &:hover {
       color: #02e1f5;
     }
-    span {
+    .color {
       font-weight: 300;
       color: rgba(0, 0, 0, 0.7);
     }

@@ -26,7 +26,7 @@ export const SubNav = forwardRef((props, ref) => {
     }
   }, [subNavOptions.subNavOpen]);
 
-  function handleClick() {
+  function closeSubnav() {
     setSubNavOptions({ ...subNavOptions, subNavOpen: false });
   }
 
@@ -47,7 +47,7 @@ export const SubNav = forwardRef((props, ref) => {
             <SubNavList>
               {activeOptions.sort().map((option) => {
                 return (
-                  <li key={option} onClick={handleClick}>
+                  <li key={option} onClick={closeSubnav}>
                     <Link
                       href={`${slugs[subNavOptions.activeNavHeading]}${option}`}
                     >
@@ -57,8 +57,10 @@ export const SubNav = forwardRef((props, ref) => {
                 );
               })}
             </SubNavList>
-            <motion.h5 className="bottom-header ">
-              <Link href="/">View All</Link>
+            <motion.h5 className="bottom-header" onClick={closeSubnav}>
+              <Link href={`/products/${subNavOptions.activeNavHeading}`}>
+                View All
+              </Link>
             </motion.h5>
           </motion.div>
         )}
