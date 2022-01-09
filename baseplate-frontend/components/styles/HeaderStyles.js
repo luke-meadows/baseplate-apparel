@@ -31,6 +31,9 @@ export const Logo = styled.div`
     font-family: 'Caveat';
     font-size: 3rem;
   }
+  a:hover {
+    color: var(--main-blue);
+  }
 `;
 
 export const StyledNav = styled.nav`
