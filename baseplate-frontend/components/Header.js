@@ -114,17 +114,6 @@ export default function Header() {
               alignItems: 'center',
             }}
           >
-            <span
-              style={{
-                fontSize: '2rem',
-              }}
-              onClick={() => setSearchActive(!searchActive)}
-              className={
-                searchActive ? 'blue material-icons' : 'material-icons'
-              }
-            >
-              search
-            </span>
             <SearchBar layout onSubmit={(e) => handleSubmit(e)}>
               {searchActive && (
                 <input
@@ -137,6 +126,17 @@ export default function Header() {
                 />
               )}
             </SearchBar>
+            <span
+              style={{
+                fontSize: '2rem',
+              }}
+              onClick={() => setSearchActive(!searchActive)}
+              className={
+                searchActive ? 'blue material-icons' : 'material-icons'
+              }
+            >
+              search
+            </span>
           </div>
           <div className="cart">
             <span
