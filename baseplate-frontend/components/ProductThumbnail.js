@@ -38,7 +38,6 @@ export const ProductThumbnail = ({ product }) => {
 
 const Thumbnail = styled.div`
   cursor: pointer;
-  border: 1px solid blue;
   * {
     font-size: 1.1rem;
     width: 100%;
