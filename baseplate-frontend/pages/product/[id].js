@@ -1,5 +1,4 @@
 import { gql, useQuery } from '@apollo/client';
-import { ProductThumbnail } from '../../components/ProductThumbnail';
 import Loading from '../../components/Loading';
 import SizeDropdown from '../../components/SizeDropdown';
 import Image from 'next/image';
@@ -12,7 +11,9 @@ import {
   ProductPageLeft,
   ProductPageRight,
   ProductPrice,
+  Dropdown,
 } from '../../components/styles/ProductPageStyles';
+import { useState } from 'react';
 
 const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
@@ -31,12 +32,22 @@ const PRODUCT_QUERY = gql`
     }
   }
 `;
-
 export default function Product({ query }) {
   const { data, error, loading } = useQuery(PRODUCT_QUERY, {
     variables: { id: query.id },
   });
   const product = data?.Product;
+  const [size, changeSize] = useState(true);
+
+  function handleSizeSelected(e) {
+    const { value } = e.target;
+    if (value === 'default') {
+      changeSize(null);
+      return;
+    }
+    changeSize(false);
+    e.target.blur();
+  }
   if (loading) return <Loading />;
   return (
     <ProductPage>
@@ -45,8 +56,17 @@ export default function Product({ query }) {
         <ProductPrice>{`£${product.price / 100}.00`}</ProductPrice>
         <ProductColor>{product.color}</ProductColor>
         <Buttons>
-          <SizeDropdown sizes={Object.keys(JSON.parse(data.Product.sizes))} />
-          <button disabled>Pick a Size</button>
+          <Dropdown onChange={handleSizeSelected} defaultValue={'default'}>
+            <option value="default" disabled>
+              Size
+            </option>
+            {Object.keys(JSON.parse(data.Product.sizes)).map((size) => (
+              <option value={size} key={size}>
+                {size}
+              </option>
+            ))}
+          </Dropdown>
+          <button disabled={size}>Pick a Size</button>
         </Buttons>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
@@ -63,6 +83,8 @@ export default function Product({ query }) {
       </ProductPageLeft>
       <ProductPageRight>
         <Image
+          placeholder="blur"
+          blurDataURL={data.Product.photo.image.publicUrlTransformed}
           layout="fill"
           src={data.Product.photo.image.publicUrlTransformed}
         />
