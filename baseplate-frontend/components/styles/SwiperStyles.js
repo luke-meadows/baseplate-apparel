@@ -17,6 +17,10 @@ export const HomepageSlider = styled(Swiper)`
     color: rgba(0, 0, 0, 0.666);
   }
 
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--main-blue);
+  }
   img {
     filter: brightness(45%);
     @media screen and (max-width: 700px) {
@@ -34,7 +38,6 @@ export const HomepageSlider = styled(Swiper)`
     transform: translate(-50%, -50%);
     text-align: center;
     color: gainsboro;
-    width: 100%;
 
     h3 {
       text-transform: uppercase;
@@ -46,7 +49,7 @@ export const HomepageSlider = styled(Swiper)`
       margin: 2.5rem 0;
       font-family: 'Lexend', sans-serif;
       font-size: 4rem;
-      font-weight: 400;
+      font-weight: 200;
       line-height: 1.2;
       &:hover {
         color: #02e1f5;

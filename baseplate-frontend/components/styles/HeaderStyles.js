@@ -8,7 +8,7 @@ export const StyledHeader = styled(motion.header)`
   position: fixed;
   top: 0;
   background-color: var(--Transparent-black);
-  background-color: black;
+
   height: 6rem;
   display: flex;
   align-items: center;
@@ -20,6 +20,9 @@ export const StyledHeader = styled(motion.header)`
   }
   span {
     cursor: pointer;
+  }
+  .blue {
+    color: var(--main-blue);
   }
 `;
 

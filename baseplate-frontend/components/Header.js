@@ -118,8 +118,10 @@ export default function Header() {
               style={{
                 fontSize: '2rem',
               }}
-              className="material-icons"
               onClick={() => setSearchActive(!searchActive)}
+              className={
+                searchActive ? 'blue material-icons' : 'material-icons'
+              }
             >
               search
             </span>
