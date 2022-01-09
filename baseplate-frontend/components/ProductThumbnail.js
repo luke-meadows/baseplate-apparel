@@ -21,7 +21,7 @@ export const ProductThumbnail = ({ product }) => {
             {sizes.map((size, i) => (
               <span key={i}>
                 {size}
-                {i === sizes.length - 1 ? '' : ','}
+                {i === sizes.length - 1 ? '' : ','}{' '}
               </span>
             ))}
           </div>
@@ -38,6 +38,7 @@ export const ProductThumbnail = ({ product }) => {
 
 const Thumbnail = styled.div`
   cursor: pointer;
+  border: 1px solid blue;
   * {
     font-size: 1.1rem;
     width: 100%;
@@ -50,6 +51,7 @@ const Thumbnail = styled.div`
     overflow: hidden;
     img {
       height: 100%;
+      object-fit: fill;
     }
   }
 
@@ -67,6 +69,7 @@ const Thumbnail = styled.div`
   }
   .description {
     font-weight: 500;
+    /* line-height: initial; */
     &:hover {
       color: #02e1f5;
     }

@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { DeliveryBanner } from '../components/DeliveryBanner';
 // import Swiper core and required modules
-
 import { Pagination, Autoplay, EffectFade, Navigation } from 'swiper';
 import { SwiperSlide } from 'swiper/react';
 import { HomepageSlider } from './styles/SwiperStyles';
@@ -36,12 +36,16 @@ export const ImageSlider = () => {
               <Image src={home2} />
             </div>
             <figcaption className="slide-heading-and-button">
-              <h2>
-                Nike SB
-                <br />
-                Blazer 2022 Collection
-              </h2>
-              <button type="button">Shop Now</button>
+              <Link href="/search/Nike%20SB%20Blazer%20Mid%20Premium%20Shoes">
+                <h2>
+                  Nike SB
+                  <br />
+                  Blazer 2022 Collection
+                </h2>
+              </Link>
+              <Link href="/search/Nike%20SB%20Blazer%20Mid%20Premium%20Shoes">
+                <button type="button">Shop Now</button>
+              </Link>
             </figcaption>
           </div>
         </SwiperSlide>
@@ -51,8 +55,12 @@ export const ImageSlider = () => {
               <Image src={home1} />
             </div>
             <figcaption className="slide-heading-and-button">
-              <h2>All Brands</h2>
-              <button type="button">Shop Now</button>
+              <Link href="/products/brands">
+                <h2>All Brands</h2>
+              </Link>
+              <Link href="/products/brands">
+                <button type="button">Shop Now</button>
+              </Link>
             </figcaption>
           </div>
         </SwiperSlide>
@@ -62,11 +70,12 @@ export const ImageSlider = () => {
               <Image src={home4} />
             </div>
             <figcaption className="slide-heading-and-button">
-              <h2>
-                Adidas Shoes
-                <br />
-              </h2>
-              <button type="button">Shop Now</button>
+              <Link href="/products/shoes?brand=Adidas">
+                <h2>Adidas Shoes</h2>
+              </Link>
+              <Link href="/products/shoes?brand=Adidas">
+                <button type="button">Shop Now</button>
+              </Link>
             </figcaption>
           </div>
         </SwiperSlide>
@@ -77,11 +86,12 @@ export const ImageSlider = () => {
               <Image src={home6} />
             </div>
             <figcaption className="slide-heading-and-button">
-              <h2>
-                Stüssy
-                <br />
-              </h2>
-              <button type="button">Shop Now</button>
+              <Link href="/products/brands?brand=Stüssy">
+                <h2>Stüssy</h2>
+              </Link>
+              <Link href="/products/brands?brand=Stüssy">
+                <button type="button">Shop Now</button>
+              </Link>
             </figcaption>
           </div>
         </SwiperSlide>
