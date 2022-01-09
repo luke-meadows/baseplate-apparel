@@ -21,6 +21,10 @@ export const ProductPageLeft = styled.div`
 `;
 export const ProductPageRight = styled.div`
   width: 60%;
+  position: relative;
+  img {
+    object-fit: cover;
+  }
 `;
 
 export const ProductHeading = styled.h3`

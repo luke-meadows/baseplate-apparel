@@ -5,7 +5,12 @@ export const ProductsPage = styled.div`
   max-width: 1550px;
 `;
 export const ProductsPageHeading = styled.h4`
-  margin: auto;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  line-height: 0;
+  padding: 3.3rem 0 3rem 0;
+  margin: 0;
+  color: black;
   max-width: 1550px;
 `;

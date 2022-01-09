@@ -21,7 +21,7 @@ export const ProductThumbnail = ({ product }) => {
             {sizes.map((size, i) => (
               <span key={i}>
                 {size}
-                {i === sizes.length - 1 ? '' : ','}{' '}
+                {i === sizes.length - 1 ? '' : ','}
               </span>
             ))}
           </div>
