@@ -37,15 +37,15 @@ export default function Product({ query }) {
     variables: { id: query.id },
   });
   const product = data?.Product;
-  const [size, changeSize] = useState(true);
+  const [sizeDisabled, changeSizeDisabled] = useState(true);
 
   function handleSizeSelected(e) {
     const { value } = e.target;
     if (value === 'default') {
-      changeSize(null);
+      changeSizeDisabled(true);
       return;
     }
-    changeSize(false);
+    changeSizeDisabled(false);
     e.target.blur();
   }
   if (loading) return <Loading />;
@@ -66,7 +66,9 @@ export default function Product({ query }) {
               </option>
             ))}
           </Dropdown>
-          <button disabled={size}>Pick a Size</button>
+          <button disabled={sizeDisabled}>
+            {sizeDisabled ? 'Pick a Size' : 'Add to Cart'}
+          </button>
         </Buttons>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
