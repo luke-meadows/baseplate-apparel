@@ -29,16 +29,21 @@ export default function Products({ query }) {
     },
   });
   if (loading) return <Loading />;
+  console.log(query);
   return (
     <ProductsPage>
       <ProductsPageHeading>
-        <h4>{query.id}</h4>
-
-        <Pagination
-          totalPages={Math.ceil(data.productCount.count / perPage)}
-          currentPage={currentPage}
-          updateCurrentPage={updateCurrentPage}
-        />
+        <h4>
+          {query.id}
+          {Object.keys(query)
+            .filter((key) => key != 'id')
+            .map((key) => (
+              <span key={key}>
+                {' '}
+                <span className="slash">/</span> {query[key]}{' '}
+              </span>
+            ))}
+        </h4>
       </ProductsPageHeading>
       <ProductsContainer>
         {data.allProducts.map((product) => (

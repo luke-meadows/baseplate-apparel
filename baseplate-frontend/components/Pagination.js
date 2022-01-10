@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 export default function Pagination({
   totalPages,
@@ -21,6 +22,11 @@ export default function Pagination({
 
   return (
     <PaginationStyles>
+      <Head>
+        <title>
+          Baseplate - Page {currentPage} of {totalPages}
+        </title>
+      </Head>
       <button type="button" onClick={handlePrev}>
         &#8592; Prev
       </button>
@@ -39,6 +45,7 @@ const PaginationStyles = styled.div`
   border-radius: 0.5rem;
   color: rgba(0, 0, 0, 0.7);
   align-items: center;
+  justify-content: center;
   * {
     font-size: 1rem;
   }

@@ -27,7 +27,7 @@ export const ProductThumbnail = ({ product }) => {
         </div>
         <h5 className="description">
           {product.name}
-          <p className="color">{product.color}</p>
+          <span>, {product.color}</span>
         </h5>
         <h5 className="price">£{product.price / 100}.00</h5>
       </Thumbnail>
@@ -49,7 +49,7 @@ const Thumbnail = styled.div`
     overflow: hidden;
     img {
       height: 100%;
-      /* object-fit: fill; */
+      object-fit: fill;
     }
   }
 
@@ -67,11 +67,12 @@ const Thumbnail = styled.div`
   }
   .description {
     font-weight: 500;
-    /* line-height: initial; */
+    line-height: initial;
+    margin-top: 5px;
     &:hover {
       color: #02e1f5;
     }
-    .color {
+    span {
       font-weight: 300;
       color: rgba(0, 0, 0, 0.7);
     }

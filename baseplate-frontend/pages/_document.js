@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
           />
-          <title>Baseplate Apparel</title>
+          <title>Baseplate</title>
         </Head>
         <body>
           <Main />
