@@ -1,4 +1,5 @@
-export default function generateQuery(variables) {
+import { perPage } from '../config';
+export default function generateQuery(variables, currentPage = 1) {
   const products = {
     brands: ``,
     shoes: `productCategory:shoes,`,

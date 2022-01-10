@@ -12,13 +12,14 @@ import generateQuery from '../../lib/generateQuery';
 
 export default function Products({ query }) {
   const [queryVariables, setQueryVariables] = useState({ ...query });
+  const [currentPage, updateCurrentPage] = useState(1);
 
   useEffect(() => {
     setQueryVariables({ ...query });
   }, [query]);
 
   const PRODUCTS_PAGE_QUERY = gql`
-    ${generateQuery(queryVariables)}
+    ${generateQuery(queryVariables, currentPage)}
   `;
   const { data, error, loading } = useQuery(PRODUCTS_PAGE_QUERY);
 
@@ -28,7 +29,11 @@ export default function Products({ query }) {
     <ProductsPage>
       <ProductsPageHeading>
         <h4>{query.id}</h4>
-        <Pagination totalPages={7} currentPage={1} />
+        <Pagination
+          totalPages={7}
+          currentPage={currentPage}
+          updateCurrentPage={updateCurrentPage}
+        />
       </ProductsPageHeading>
       <ProductsContainer>
         {data.allProducts.map((product) => (
