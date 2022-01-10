@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
 import Loading from '../../components/Loading';
+import Pagination from '../../components/Pagination';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import {
@@ -25,7 +26,10 @@ export default function Products({ query }) {
 
   return (
     <ProductsPage>
-      <ProductsPageHeading>{query.id}</ProductsPageHeading>
+      <ProductsPageHeading>
+        <h4>{query.id}</h4>
+        <Pagination totalPages={7} currentPage={1} />
+      </ProductsPageHeading>
       <ProductsContainer>
         {data.allProducts.map((product) => (
           <ProductThumbnail product={product} key={product.id} />

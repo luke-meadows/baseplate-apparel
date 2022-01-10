@@ -4,7 +4,11 @@ import SubscribeImage from '../public/img/assets/pexels-mbardo-8976456.jpg';
 export default function SubscribeBanner() {
   return (
     <StyledBanner>
-      <Image src={SubscribeImage} />
+      <Image
+        placeholder="blur"
+        blurDataURL={SubscribeImage}
+        src={SubscribeImage}
+      />
       <FormContainer>
         <StyledForm>
           <label htmlFor="email">

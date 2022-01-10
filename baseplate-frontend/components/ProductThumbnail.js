@@ -49,7 +49,7 @@ const Thumbnail = styled.div`
     overflow: hidden;
     img {
       height: 100%;
-      object-fit: fill;
+      /* object-fit: fill; */
     }
   }
 
