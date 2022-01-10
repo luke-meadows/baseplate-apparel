@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const ProductsPage = styled.div`
-  margin: 6rem auto;
+  margin: 6rem auto 0rem auto;
   padding: var(--medium-screen-padding);
   max-width: 1550px;
 `;
@@ -16,4 +16,10 @@ export const ProductsPageHeading = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const BottomPagination = styled.div`
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
 `;

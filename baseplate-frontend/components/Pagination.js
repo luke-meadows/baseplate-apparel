@@ -1,13 +1,35 @@
 import styled from 'styled-components';
-import Link from 'next/link';
-export default function Pagination({ totalPages, currentPage }) {
+export default function Pagination({
+  totalPages,
+  currentPage,
+  updateCurrentPage,
+}) {
+  function handleNext(e) {
+    e.preventDefault();
+    if (currentPage === totalPages) return;
+    updateCurrentPage(currentPage + 1);
+    e.target.blur();
+    return;
+  }
+  function handlePrev(e) {
+    e.preventDefault();
+    if (currentPage <= 1) return;
+    updateCurrentPage(currentPage - 1);
+    e.target.blur();
+    return;
+  }
+
   return (
     <PaginationStyles>
-      <Link href="/">&#8592; Prev</Link>
+      <button type="button" onClick={handlePrev}>
+        &#8592; Prev
+      </button>
       <figcaption>
         Page {currentPage} of {totalPages}
       </figcaption>
-      <Link href="/">Next &#8594;</Link>
+      <button type="button" onClick={handleNext}>
+        Next &#8594;
+      </button>
     </PaginationStyles>
   );
 }
@@ -16,14 +38,20 @@ const PaginationStyles = styled.div`
   display: flex;
   border-radius: 0.5rem;
   color: rgba(0, 0, 0, 0.7);
-  font-size: 1rem;
+  align-items: center;
   * {
-    padding: 0 1rem;
+    font-size: 1rem;
   }
-  *:first-child,
-  *:last-child {
-    :hover {
+
+  button {
+    text-transform: capitalize;
+    background: none;
+    color: rgba(0, 0, 0, 0.7);
+
+    &:hover,
+    &:focus {
       color: var(--main-blue);
+      background: none;
     }
   }
 `;

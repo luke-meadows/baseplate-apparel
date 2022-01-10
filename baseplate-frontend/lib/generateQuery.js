@@ -21,8 +21,8 @@ export default function generateQuery(variables, currentPage = 1) {
     products[variables.id]
   } ${brandQuery} ${categoryQuery} ${colorQuery}`;
 
-  return `query DISPLAY_PRODUCTS_QUERY {
-    allProducts(where: { ${querySlug} }) {
+  return `query DISPLAY_PRODUCTS_QUERY($skip: Int = 0, $first: Int) {
+    allProducts(where: { ${querySlug} }, first: $first, skip: $skip) {
       id
       name
       description
@@ -34,6 +34,9 @@ export default function generateQuery(variables, currentPage = 1) {
           publicUrlTransformed
         }
       }
+    }
+    productCount:_allProductsMeta(where:{${querySlug}}){
+      count
     }
   }
   `;
