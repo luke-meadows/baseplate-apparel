@@ -33,6 +33,7 @@ export default function Products({ query }) {
     <ProductsPage>
       <ProductsPageHeading>
         <h4>{query.id}</h4>
+
         <Pagination
           totalPages={Math.ceil(data.productCount.count / perPage)}
           currentPage={currentPage}

@@ -5,17 +5,17 @@ export default function Pagination({
   updateCurrentPage,
 }) {
   function handleNext(e) {
+    e.currentTarget.blur();
     e.preventDefault();
     if (currentPage === totalPages) return;
     updateCurrentPage(currentPage + 1);
-    e.target.blur();
     return;
   }
   function handlePrev(e) {
+    e.currentTarget.blur();
     e.preventDefault();
     if (currentPage <= 1) return;
     updateCurrentPage(currentPage - 1);
-    e.target.blur();
     return;
   }
 
