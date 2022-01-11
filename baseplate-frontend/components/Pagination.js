@@ -23,9 +23,7 @@ export default function Pagination({
   return (
     <PaginationStyles>
       <Head>
-        <title>
-          Baseplate - Page {currentPage} of {totalPages}
-        </title>
+        <title>Baseplate | Page {currentPage}</title>
       </Head>
       <button type="button" onClick={handlePrev}>
         &#8592; Prev

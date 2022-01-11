@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import { DeliveryBanner } from '../components/DeliveryBanner';
-import Footer from '../components/Footer';
+import Head from 'next/head';
 import HomepageProducts from '../components/HomepageProducts';
 import { ImageSlider } from '../components/ImageSlider';
 import Loading from '../components/Loading';
@@ -30,6 +30,9 @@ export default function Home() {
   if (loading) return <Loading />;
   return (
     <>
+      <Head>
+        <title>Baseplate | Home</title>
+      </Head>
       <ImageSlider />
       <HomepageProducts
         products={data.allProducts.filter((product) => product.latest)}
