@@ -25,13 +25,17 @@ export default function Pagination({
       <Head>
         <title>Baseplate | Page {currentPage}</title>
       </Head>
-      <button type="button" onClick={handlePrev}>
+      <button type="button" onClick={handlePrev} disabled={currentPage === 1}>
         &#8592; Prev
       </button>
       <figcaption>
         Page {currentPage} of {totalPages}
       </figcaption>
-      <button type="button" onClick={handleNext}>
+      <button
+        type="button"
+        onClick={handleNext}
+        disabled={currentPage === totalPages}
+      >
         Next &#8594;
       </button>
     </PaginationStyles>
@@ -43,9 +47,9 @@ const PaginationStyles = styled.div`
   border-radius: 0.5rem;
   color: rgba(0, 0, 0, 0.7);
   align-items: center;
-  justify-content: center;
+
   * {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   button {
@@ -57,6 +61,9 @@ const PaginationStyles = styled.div`
     &:focus {
       color: var(--main-blue);
       background: none;
+    }
+    &:disabled {
+      color: rgba(0, 0, 0, 0.2);
     }
   }
 `;
