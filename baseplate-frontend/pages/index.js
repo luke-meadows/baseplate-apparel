@@ -30,16 +30,13 @@ export default function Home() {
   if (loading) return <Loading />;
   return (
     <>
-      <Head>
-        <title>Baseplate | Home</title>
-      </Head>
       <ImageSlider />
       <HomepageProducts
-        products={data.allProducts.filter((product) => product.latest)}
+        products={data?.allProducts.filter((product) => product.latest)}
         heading="latest"
       />
       <HomepageProducts
-        products={data.allProducts.filter((product) => product.recommended)}
+        products={data?.allProducts.filter((product) => product.recommended)}
         heading="recommended"
       />
       <SubscribeBanner />

@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 import Loading from '../../components/Loading';
-import SizeDropdown from '../../components/SizeDropdown';
+
 import Image from 'next/image';
 import {
-  Buttons,
+  AddToCartForm,
   Description,
   ProductColor,
   ProductPage,
@@ -48,6 +48,29 @@ export default function Product({ query }) {
     changeSizeDisabled(false);
     e.target.blur();
   }
+  function addToCart(e) {
+    e.preventDefault();
+    const existingCartItems = JSON.parse(localStorage.getItem('cart'));
+    const cartItem = {
+      id: e.target.dataset.product_id,
+      size: e.target.size.value,
+      quantity: 1,
+    };
+    const cartItems = existingCartItems || [];
+    // Changes quantity of product in cart if id & size already exist.
+    const itemAlreadyExists = cartItems.findIndex(
+      (existingItem) =>
+        existingItem.id === cartItem.id && existingItem.size === cartItem.size
+    );
+    if (itemAlreadyExists > -1) {
+      cartItems[itemAlreadyExists].quantity =
+        cartItems[itemAlreadyExists].quantity + 1;
+    } else {
+      cartItems.push(cartItem);
+    }
+    console.log({ existingCartItems, cartItem });
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }
   if (loading) return <Loading />;
   return (
     <ProductPage>
@@ -55,8 +78,12 @@ export default function Product({ query }) {
         <ProductHeading>{product.name}</ProductHeading>
         <ProductPrice>{`£${product.price / 100}.00`}</ProductPrice>
         <ProductColor>{product.color}</ProductColor>
-        <Buttons>
-          <Dropdown onChange={handleSizeSelected} defaultValue={'default'}>
+        <AddToCartForm data-product_id={product.id} onSubmit={addToCart}>
+          <Dropdown
+            name="size"
+            onChange={handleSizeSelected}
+            defaultValue={'default'}
+          >
             <option value="default" disabled>
               Size
             </option>
@@ -66,10 +93,10 @@ export default function Product({ query }) {
               </option>
             ))}
           </Dropdown>
-          <button disabled={sizeDisabled}>
+          <button type="submit" disabled={sizeDisabled}>
             {sizeDisabled ? 'Pick a Size' : 'Add to Cart'}
           </button>
-        </Buttons>
+        </AddToCartForm>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
           corrupti laborum blanditiis labore sequi pariatur, cumque itaque

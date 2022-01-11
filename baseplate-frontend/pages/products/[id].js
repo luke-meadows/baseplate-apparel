@@ -29,7 +29,7 @@ export default function Products({ query }) {
     },
   });
   if (loading) return <Loading />;
-  console.log(query);
+
   return (
     <ProductsPage>
       <ProductsPageHeading>

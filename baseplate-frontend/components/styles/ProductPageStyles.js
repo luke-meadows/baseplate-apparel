@@ -40,7 +40,7 @@ export const ProductColor = styled.p`
   color: rgba(60, 60, 60, 0.8);
   padding: 1rem 0;
 `;
-export const Buttons = styled.div`
+export const AddToCartForm = styled.form`
   padding: 1rem 0;
   button {
     font-size: 1.2rem;
