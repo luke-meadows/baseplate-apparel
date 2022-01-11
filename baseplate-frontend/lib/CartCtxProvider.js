@@ -25,18 +25,18 @@ export const CartCtxProvider = ({ children }) => {
       return;
     }
     // Changes quantity of product in cart if id & size already exist.
-    const currentCartItems = cartItems;
-    const itemAlreadyExists = currentCartItems.findIndex(
+    const itemAlreadyExists = cartItems.findIndex(
       (existingItem) =>
         existingItem.id === cartItem.id && existingItem.size === cartItem.size
     );
     if (itemAlreadyExists > -1) {
-      currentCartItems[itemAlreadyExists].quantity + 1,
-        updateCartItems([currentCartItems]);
+      updateCartItems([
+        ...cartItems,
+        (cartItems[itemAlreadyExists].quantity += 1),
+      ]);
     } else {
       updateCartItems([...cartItems, cartItem]);
     }
-    console.log({ cartItems });
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }
 
