@@ -1,6 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
-
 export const CartCtx = createContext();
+
+// TODO:
+// - add delete cart item.
+// - hook up nav active.
 
 export const CartCtxProvider = ({ children }) => {
   const [isCartActive, updateIsCartActive] = useState(false);
