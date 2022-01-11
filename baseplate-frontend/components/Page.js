@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import Header from './Header';
 import Footer from './Footer';
+import { CartCtxProvider } from '../lib/CartCtxProvider';
+import Cart from './Cart';
 
 export default function Page({ children }) {
   return (
     <StyledPage>
       <div>
         <GlobalStyles />
-        <Header />
-        <InnerStyles>{children}</InnerStyles>
+        <CartCtxProvider>
+          <Header />
+          <Cart />
+          <InnerStyles>{children}</InnerStyles>
+        </CartCtxProvider>
       </div>
       <Footer />
     </StyledPage>

@@ -11,6 +11,7 @@ import {
 } from '../../components/styles/ProductsPageStyles';
 import generateQuery from '../../lib/generateQuery';
 import { perPage } from '../../config';
+
 export default function Products({ query }) {
   const [queryVariables, setQueryVariables] = useState({ ...query });
   const [currentPage, updateCurrentPage] = useState(1);

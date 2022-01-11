@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import Loading from '../../components/Loading';
-
+import { CartCtx } from '../../lib/CartCtxProvider';
 import Image from 'next/image';
 import {
   AddToCartForm,
@@ -13,7 +13,7 @@ import {
   ProductPrice,
   Dropdown,
 } from '../../components/styles/ProductPageStyles';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
@@ -48,29 +48,8 @@ export default function Product({ query }) {
     changeSizeDisabled(false);
     e.target.blur();
   }
-  function addToCart(e) {
-    e.preventDefault();
-    const existingCartItems = JSON.parse(localStorage.getItem('cart'));
-    const cartItem = {
-      id: e.target.dataset.product_id,
-      size: e.target.size.value,
-      quantity: 1,
-    };
-    const cartItems = existingCartItems || [];
-    // Changes quantity of product in cart if id & size already exist.
-    const itemAlreadyExists = cartItems.findIndex(
-      (existingItem) =>
-        existingItem.id === cartItem.id && existingItem.size === cartItem.size
-    );
-    if (itemAlreadyExists > -1) {
-      cartItems[itemAlreadyExists].quantity =
-        cartItems[itemAlreadyExists].quantity + 1;
-    } else {
-      cartItems.push(cartItem);
-    }
-    console.log({ existingCartItems, cartItem });
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  }
+  const { addToCart } = useContext(CartCtx);
+
   if (loading) return <Loading />;
   return (
     <ProductPage>
