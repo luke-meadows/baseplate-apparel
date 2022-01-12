@@ -26,8 +26,7 @@ export default function ScrollContainer({ children }) {
 }
 
 const StyledScrollContainer = styled.div`
-  &[aria-selected='true'] {
-    background: blue;
+  &[aria-disabled='true'] {
     filter: blur(20px);
   }
 `;
