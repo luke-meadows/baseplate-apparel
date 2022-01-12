@@ -30,6 +30,9 @@ export default function Home() {
   if (loading) return <Loading />;
   return (
     <>
+      <Head>
+        <title>Baseplate</title>
+      </Head>
       <ImageSlider />
       <HomepageProducts
         products={data?.allProducts.filter((product) => product.latest)}

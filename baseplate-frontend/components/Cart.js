@@ -6,12 +6,16 @@ export default function Cart() {
   const { updateCartItems, cartItems } = useContext(CartCtx);
   if (!cartItems) return <p>No items in cart</p>;
   console.log(cartItems);
+
   return (
     <StyledCart>
       {cartItems.map((item) => (
-        <p key={item.id + item.size}>
+        <div key={item.id + item.size}>
           {item.id} {item.size} {item.quantity}
-        </p>
+          <span>
+            <button type="button">remove</button>
+          </span>
+        </div>
       ))}
     </StyledCart>
   );
@@ -19,4 +23,5 @@ export default function Cart() {
 
 const StyledCart = styled.div`
   margin-top: 6rem;
+  border: 1px solid blue;
 `;

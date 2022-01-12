@@ -7,11 +7,12 @@ export const CartCtx = createContext();
 
 export const CartCtxProvider = ({ children }) => {
   const [isCartActive, updateIsCartActive] = useState(false);
-  const [cartItems, updateCartItems] = useState(null);
   // retrieves cart items from local storage if they are there
+  const [cartItems, updateCartItems] = useState(null);
   useEffect(() => {
     const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
-    if (cartItemsInLocalStorage) {
+    if (cartItemsInLocalStorage && !cartItems) {
+      // Only runs on page reload if cart items exist in local storage
       updateCartItems(cartItemsInLocalStorage);
     }
   }, []);
@@ -24,6 +25,7 @@ export const CartCtxProvider = ({ children }) => {
       quantity: 1,
     };
     if (!cartItems) {
+      localStorage.setItem('cart', JSON.stringify([cartItem]));
       updateCartItems([cartItem]);
       return;
     }
@@ -33,14 +35,14 @@ export const CartCtxProvider = ({ children }) => {
         existingItem.id === cartItem.id && existingItem.size === cartItem.size
     );
     if (itemAlreadyExists > -1) {
-      updateCartItems([
-        ...cartItems,
-        (cartItems[itemAlreadyExists].quantity += 1),
-      ]);
+      const newCartItems = JSON.parse(localStorage.getItem('cart'));
+      newCartItems[itemAlreadyExists].quantity += 1;
+      localStorage.setItem('cart', JSON.stringify(newCartItems));
+      updateCartItems(newCartItems);
     } else {
       updateCartItems([...cartItems, cartItem]);
+      localStorage.setItem('cart', JSON.stringify([...cartItems, cartItem]));
     }
-    localStorage.setItem('cart', JSON.stringify(cartItems));
   }
 
   return (
