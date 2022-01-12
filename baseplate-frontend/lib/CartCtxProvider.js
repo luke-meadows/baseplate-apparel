@@ -38,7 +38,6 @@ export const CartCtxProvider = ({ children }) => {
         existingItem.size == cartItem.size
     );
 
-    console.log(itemAlreadyExists);
     if (itemAlreadyExists > -1) {
       const newCartItems = JSON.parse(localStorage.getItem('cart'));
       newCartItems[itemAlreadyExists].quantity += 1;

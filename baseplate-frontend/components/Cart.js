@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export default function Cart() {
   const { updateCartItems, cartItems, removeCartItem } = useContext(CartCtx);
   if (!cartItems) return <p>No items in cart</p>;
-  console.log(cartItems);
   return (
     <StyledCart>
       {cartItems.map((item) => (

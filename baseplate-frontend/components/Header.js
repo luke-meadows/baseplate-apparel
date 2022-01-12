@@ -13,8 +13,13 @@ import { CartCtx } from '../lib/CartCtxProvider';
 import Cart from './Cart';
 
 export default function Header() {
-  const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
-    useContext(NavCtx);
+  const {
+    subNavOptions,
+    setSubNavOptions,
+    searchActive,
+    setSearchActive,
+    setScrollTop,
+  } = useContext(NavCtx);
   const { cartActive, setCartActive } = useContext(CartCtx);
 
   const NAV_DATA_QUERY = gql`
