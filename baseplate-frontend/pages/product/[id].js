@@ -57,7 +57,10 @@ export default function Product({ query }) {
         <ProductHeading>{product.name}</ProductHeading>
         <ProductPrice>{`£${product.price / 100}.00`}</ProductPrice>
         <ProductColor>{product.color}</ProductColor>
-        <AddToCartForm data-product_id={product.id} onSubmit={addToCart}>
+        <AddToCartForm
+          data-product={JSON.stringify(product)}
+          onSubmit={addToCart}
+        >
           <Dropdown
             name="size"
             onChange={handleSizeSelected}

@@ -7,9 +7,13 @@ export const CartCtx = createContext();
 
 export const CartCtxProvider = ({ children }) => {
   const [isCartActive, updateIsCartActive] = useState(false);
-  // retrieves cart items from local storage if they are there
+  function toggleCart() {
+    updateIsCartActive(!isCartActive);
+  }
+
   const [cartItems, updateCartItems] = useState(null);
   useEffect(() => {
+    // retrieves cart items from local storage if they are there
     const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
     if (cartItemsInLocalStorage && !cartItems) {
       // Only runs on page reload if cart items exist in local storage
@@ -20,10 +24,11 @@ export const CartCtxProvider = ({ children }) => {
   function addToCart(e) {
     e.preventDefault();
     const cartItem = {
-      id: e.target.dataset.product_id,
+      product: JSON.parse(e.target.dataset.product),
       size: e.target.size.value,
       quantity: 1,
     };
+
     if (!cartItems) {
       localStorage.setItem('cart', JSON.stringify([cartItem]));
       updateCartItems([cartItem]);
@@ -32,8 +37,10 @@ export const CartCtxProvider = ({ children }) => {
     // Changes quantity of product in cart if id & size already exist.
     const itemAlreadyExists = cartItems.findIndex(
       (existingItem) =>
-        existingItem.id === cartItem.id && existingItem.size === cartItem.size
+        existingItem.product.id === cartItem.id &&
+        existingItem.size === cartItem.size
     );
+
     if (itemAlreadyExists > -1) {
       const newCartItems = JSON.parse(localStorage.getItem('cart'));
       newCartItems[itemAlreadyExists].quantity += 1;
@@ -43,6 +50,24 @@ export const CartCtxProvider = ({ children }) => {
       updateCartItems([...cartItems, cartItem]);
       localStorage.setItem('cart', JSON.stringify([...cartItems, cartItem]));
     }
+    return;
+  }
+
+  function removeCartItem(e) {
+    const { id, size } = e.target.dataset;
+    const index = cartItems.findIndex(
+      (item) => item.product.id === id && item.size === size
+    );
+    const newCartItems = JSON.parse(localStorage.getItem('cart'));
+    newCartItems.splice(index, 1);
+
+    if (newCartItems.length < 1) {
+      localStorage.removeItem('cart');
+      updateCartItems(null);
+      return;
+    }
+    localStorage.setItem('cart', JSON.stringify(newCartItems));
+    updateCartItems(newCartItems);
   }
 
   return (
@@ -51,6 +76,9 @@ export const CartCtxProvider = ({ children }) => {
         updateCartItems,
         cartItems,
         addToCart,
+        removeCartItem,
+        toggleCart,
+        isCartActive,
       }}
     >
       {children}
