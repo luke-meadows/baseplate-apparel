@@ -2,7 +2,6 @@ import { createContext, useState } from 'react';
 
 export const NavCtx = createContext();
 export const NavCtxProvider = ({ children }) => {
-  const [scrollTop, setScrollTop] = useState(0);
   const [stopScrolling, setStopScrolling] = useState(false);
   const [subNavOptions, setSubNavOptions] = useState({
     subNavRect: null,
@@ -72,8 +71,6 @@ export const NavCtxProvider = ({ children }) => {
         navCategories,
         searchActive,
         setSearchActive,
-        scrollTop,
-        setScrollTop,
         stopScrolling,
         setStopScrolling,
       }}

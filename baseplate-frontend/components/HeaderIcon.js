@@ -6,11 +6,6 @@ export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
   return (
     <Icon
       onClick={(e) => {
-        if (!iconActive) {
-          const rect = e.pageY - e.target.scrollHeight;
-          console.log(typeof rect);
-          setScrollTop(rect);
-        }
         setIconActive(!iconActive);
         setStopScrolling(!stopScrolling);
       }}
@@ -25,7 +20,6 @@ export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
 const Icon = styled.div`
   display: flex;
   align-items: center;
-  border: 1px solid blue;
   height: 6rem;
   span {
     fontsize: 2rem;
