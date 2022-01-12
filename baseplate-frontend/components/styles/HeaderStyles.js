@@ -8,7 +8,6 @@ export const StyledHeader = styled(motion.header)`
   position: fixed;
   top: 0;
   background-color: var(--Transparent-black);
-
   height: 6rem;
   display: flex;
   align-items: center;
@@ -17,12 +16,6 @@ export const StyledHeader = styled(motion.header)`
   padding: 0 6rem;
   .box-shadow {
     box-shadow: 0 6px 5px 1px rgba(11, 11, 11, 0.323);
-  }
-  span {
-    cursor: pointer;
-  }
-  .blue {
-    color: var(--main-blue);
   }
 `;
 
@@ -74,6 +67,13 @@ export const StyledNav = styled.nav`
       right: 0px;
     }
   }
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  position: absolute;
+  align-items: center;
+  right: 6rem;
 `;
 
 export const StyledSubNav = styled(motion.div)`
@@ -141,19 +141,5 @@ export const SubNavList = styled(motion.ul)`
         color: rgba(0, 0, 0, 0.5);
       }
     }
-  }
-`;
-
-export const SearchBar = styled(motion.form)`
-  input {
-    color: white;
-    background: var(--Transparent-black);
-    display: flex;
-    align-items: center;
-    border-radius: 0.5rem;
-    border: 2px solid grey;
-    font-size: 1.5rem;
-    outline: none;
-    padding: 0.5rem 1rem;
   }
 `;

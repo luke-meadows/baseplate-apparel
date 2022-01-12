@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
-import { Logo, SearchBar, StyledHeader } from './styles/HeaderStyles';
+import { IconContainer, Logo, StyledHeader } from './styles/HeaderStyles';
 import { useQuery, gql } from '@apollo/client';
-import { useRouter } from 'next/router';
+import SearchBar from './SearchBar';
+import HeaderIcon from './HeaderIcon';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
@@ -80,18 +81,6 @@ export default function Header() {
     });
   }, [data]);
 
-  const searchbarRef = useRef();
-  const router = useRouter();
-  useEffect(() => {
-    searchbarRef.current?.focus();
-  }, [searchActive]);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const { value } = e.target.search;
-    setSearchActive(false);
-    router.push(`/search/${value}`);
-  }
   return (
     <AnimateSharedLayout>
       <StyledHeader>
@@ -100,55 +89,28 @@ export default function Header() {
         </Logo>
         <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-        <div
-          style={{
-            display: 'flex',
-            position: 'absolute',
-            right: '6rem',
-          }}
-        >
-          <div
-            className="search"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <SearchBar layout onSubmit={(e) => handleSubmit(e)}>
-              {searchActive && (
-                <input
-                  autoComplete="off"
-                  ref={searchbarRef}
-                  name="search"
-                  type="search"
-                  placeholder="search"
-                  type="search"
-                />
-              )}
-            </SearchBar>
-            <span
-              style={{
-                fontSize: '2rem',
-              }}
-              onClick={() => setSearchActive(!searchActive)}
-              className={
-                searchActive ? 'blue material-icons' : 'material-icons'
-              }
-            >
-              search
-            </span>
-          </div>
-          <div className="cart">
-            <span
-              style={{ fontSize: '2rem', lineHeight: 2 }}
-              className="material-icons"
-            >
-              shopping_cart
-            </span>
-          </div>
-        </div>
+        <IconContainer>
+          {searchActive && (
+            <SearchBar
+              searchActive={searchActive}
+              setSearchActive={setSearchActive}
+            />
+          )}
+          <HeaderIcon
+            iconName="search"
+            iconActive={searchActive}
+            setIconActive={setSearchActive}
+          />
+
+          <HeaderIcon
+            iconName="shopping_cart"
+            iconActive={searchActive}
+            setIconActive={setSearchActive}
+          />
+        </IconContainer>
+
         {/* {to make the nav centered using the flex} */}
-        <div style={{ width: '10rem' }} />
+        <div style={{ width: '9rem' }} />
       </StyledHeader>
     </AnimateSharedLayout>
   );

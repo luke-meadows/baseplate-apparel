@@ -57,12 +57,7 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
 }
-.search, .cart{
-  span{
 
-    margin: 0 1rem;
-  }
-}
 #nprogress {
   pointer-events: none;
 }
