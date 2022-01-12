@@ -18,7 +18,7 @@ export default function SearchBar({ searchActive, setSearchActive }) {
     router.push(`/search/${value}`);
   }
   return (
-    <StyledSearchBar layout onSubmit={(e) => handleSubmit(e)}>
+    <StyledSearchBar onSubmit={(e) => handleSubmit(e)}>
       <input
         autoComplete="off"
         ref={searchbarRef}

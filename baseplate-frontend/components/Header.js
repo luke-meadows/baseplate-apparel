@@ -9,10 +9,13 @@ import { IconContainer, Logo, StyledHeader } from './styles/HeaderStyles';
 import { useQuery, gql } from '@apollo/client';
 import SearchBar from './SearchBar';
 import HeaderIcon from './HeaderIcon';
+import { CartCtx } from '../lib/CartCtxProvider';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
     useContext(NavCtx);
+  const { cartActive, setCartActive } = useContext(CartCtx);
+
   const NAV_DATA_QUERY = gql`
     query NAV_DATA_QUERY {
       allShoeBrands: allProducts(where: { productCategory: shoes }) {
@@ -104,8 +107,8 @@ export default function Header() {
 
           <HeaderIcon
             iconName="shopping_cart"
-            iconActive={searchActive}
-            setIconActive={setSearchActive}
+            iconActive={cartActive}
+            setIconActive={setCartActive}
           />
         </IconContainer>
 

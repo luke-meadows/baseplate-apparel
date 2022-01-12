@@ -6,10 +6,7 @@ export const CartCtx = createContext();
 // - hook up nav active.
 
 export const CartCtxProvider = ({ children }) => {
-  const [isCartActive, updateIsCartActive] = useState(false);
-  function toggleCart() {
-    updateIsCartActive(!isCartActive);
-  }
+  const [cartActive, setCartActive] = useState(false);
 
   const [cartItems, updateCartItems] = useState(null);
   useEffect(() => {
@@ -77,8 +74,8 @@ export const CartCtxProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeCartItem,
-        toggleCart,
-        isCartActive,
+        cartActive,
+        setCartActive,
       }}
     >
       {children}
