@@ -9,16 +9,14 @@ import ScrollContainer from './ScrollContainer';
 export default function Page({ children }) {
   return (
     <StyledPage>
-      <div>
-        <GlobalStyles />
-        <CartCtxProvider>
-          <Header />
-          <ScrollContainer>
-            <InnerStyles>{children}</InnerStyles>
-          </ScrollContainer>
-        </CartCtxProvider>
-      </div>
-      <Footer />
+      <GlobalStyles />
+      <CartCtxProvider>
+        <Header />
+        <ScrollContainer>
+          {children}
+          <Footer />
+        </ScrollContainer>
+      </CartCtxProvider>
     </StyledPage>
   );
 }
@@ -28,7 +26,4 @@ const StyledPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-const InnerStyles = styled.div`
-  margin: auto;
 `;

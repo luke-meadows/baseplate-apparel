@@ -5,12 +5,13 @@ import { useState } from 'react/cjs/react.development';
 
 export default function ScrollContainer({ children }) {
   const containerRef = useRef();
-  const { stopScrolling, scrollTop } = useContext(NavCtx);
+  const { stopScrolling } = useContext(NavCtx);
   const [scrollTo, updateScrollTo] = useState(0);
+
   useEffect(() => {
     const scrollY = window.scrollY;
+    updateScrollTo(scrollY);
     if (stopScrolling) {
-      updateScrollTo(scrollY);
       containerRef.current.style = `position: fixed;
           width: 100vw; top: -${scrollY}px;`;
     } else {
@@ -18,15 +19,15 @@ export default function ScrollContainer({ children }) {
       window.scrollTo(0, scrollTo);
     }
   }, [stopScrolling]);
+
   return (
-    <StyledScrollContainer ref={containerRef} aria-disabled={stopScrolling}>
-      <>{children}</>
+    <StyledScrollContainer
+      ref={containerRef}
+      className={stopScrolling ? 'disabled' : ''}
+    >
+      {children}
     </StyledScrollContainer>
   );
 }
 
-const StyledScrollContainer = styled.div`
-  &[aria-disabled='true'] {
-    filter: blur(10px);
-  }
-`;
+const StyledScrollContainer = styled.div``;

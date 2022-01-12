@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import { NavCtx } from '../lib/NavCtxProvider';
 export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
-  const { setScrollTop, setStopScrolling, stopScrolling } = useContext(NavCtx);
+  const { setStopScrolling, stopScrolling } = useContext(NavCtx);
   return (
     <Icon
       onClick={(e) => {

@@ -57,6 +57,10 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
 }
+.disabled {
+    filter: blur(10px);
+    pointer-events: none;
+  }
 
 #nprogress {
   pointer-events: none;
