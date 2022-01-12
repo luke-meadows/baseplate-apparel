@@ -34,10 +34,11 @@ export const CartCtxProvider = ({ children }) => {
     // Changes quantity of product in cart if id & size already exist.
     const itemAlreadyExists = cartItems.findIndex(
       (existingItem) =>
-        existingItem.product.id === cartItem.id &&
-        existingItem.size === cartItem.size
+        existingItem.product.id === cartItem.product.id &&
+        existingItem.size == cartItem.size
     );
 
+    console.log(itemAlreadyExists);
     if (itemAlreadyExists > -1) {
       const newCartItems = JSON.parse(localStorage.getItem('cart'));
       newCartItems[itemAlreadyExists].quantity += 1;

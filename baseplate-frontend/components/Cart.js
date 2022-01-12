@@ -9,7 +9,7 @@ export default function Cart() {
   return (
     <StyledCart>
       {cartItems.map((item) => (
-        <div key={item.id + item.size}>
+        <div key={item.product.id + item.size * Math.random()}>
           {item.product.id} {item.size} {item.quantity}
           <span>
             <button
@@ -18,7 +18,7 @@ export default function Cart() {
               type="button"
               onClick={removeCartItem}
             >
-              remove
+              &#215;
             </button>
           </span>
         </div>
@@ -28,6 +28,21 @@ export default function Cart() {
 }
 
 const StyledCart = styled.div`
-  margin-top: 6rem;
-  border: 1px solid blue;
+  color: black;
+  background: white;
+  position: fixed;
+  top: 6rem;
+  right: 0;
+  height: 30rem;
+  box-shadow: -6px 6px 5px 1px rgba(11, 11, 11, 0.323);
+  padding: 3rem 6rem;
+  button {
+    width: 3rem;
+    font-size: 2rem;
+    background: none;
+    :hover {
+      color: var(--main-blue);
+      background: none;
+    }
+  }
 `;

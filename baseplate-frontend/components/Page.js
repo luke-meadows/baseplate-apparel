@@ -3,7 +3,6 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import Header from './Header';
 import Footer from './Footer';
 import { CartCtxProvider } from '../lib/CartCtxProvider';
-import Cart from './Cart';
 
 export default function Page({ children }) {
   return (
@@ -12,7 +11,6 @@ export default function Page({ children }) {
         <GlobalStyles />
         <CartCtxProvider>
           <Header />
-          <Cart />
           <InnerStyles>{children}</InnerStyles>
         </CartCtxProvider>
       </div>

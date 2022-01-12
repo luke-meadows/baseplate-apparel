@@ -10,6 +10,7 @@ import { useQuery, gql } from '@apollo/client';
 import SearchBar from './SearchBar';
 import HeaderIcon from './HeaderIcon';
 import { CartCtx } from '../lib/CartCtxProvider';
+import Cart from './Cart';
 
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
@@ -104,14 +105,13 @@ export default function Header() {
             iconActive={searchActive}
             setIconActive={setSearchActive}
           />
-
+          <Cart />
           <HeaderIcon
             iconName="shopping_cart"
             iconActive={cartActive}
             setIconActive={setCartActive}
           />
         </IconContainer>
-
         {/* {to make the nav centered using the flex} */}
         <div style={{ width: '9rem' }} />
       </StyledHeader>

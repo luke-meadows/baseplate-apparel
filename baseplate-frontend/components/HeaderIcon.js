@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-export default function HeaderIcon({
-  children,
-  iconName,
-  iconActive,
-  setIconActive,
-}) {
+export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
   return (
     <Icon>
       <span
