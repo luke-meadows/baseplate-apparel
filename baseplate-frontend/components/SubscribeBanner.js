@@ -39,7 +39,7 @@ const FormContainer = styled.div`
 const StyledForm = styled.form`
   div {
     display: flex;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   label {
     color: white;
@@ -56,7 +56,6 @@ export const StyledInput = styled.input`
   outline: none;
   border: none;
   display: block;
-
   width: 27.41rem;
   font-size: 1.5rem;
   outline: none;

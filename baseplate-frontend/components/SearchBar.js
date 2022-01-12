@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { NavCtx } from '../lib/NavCtxProvider';
 
 export default function SearchBar({ searchActive, setSearchActive }) {
-  //   const { searchActive, setSearchActive } = useContext(NavCtx);
+  const { setStopScrolling } = useContext(NavCtx);
   const searchbarRef = useRef();
   const router = useRouter();
   useEffect(() => {
@@ -15,6 +16,7 @@ export default function SearchBar({ searchActive, setSearchActive }) {
     e.preventDefault();
     const { value } = e.target.search;
     setSearchActive(false);
+    setStopScrolling(false);
     router.push(`/search/${value}`);
   }
   return (

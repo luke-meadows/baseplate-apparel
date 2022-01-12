@@ -83,7 +83,7 @@ export const StyledSubNav = styled(motion.div)`
   left: 0;
   top: 6rem;
   color: black;
-  padding: 0 20vw;
+  padding: 0 25vw;
   z-index: -1;
   .bottom-header {
     line-height: 0;

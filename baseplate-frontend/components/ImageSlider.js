@@ -36,14 +36,14 @@ export const ImageSlider = () => {
               <Image src={home2} />
             </div>
             <figcaption className="slide-heading-and-button">
-              <Link href="/search/Nike%20SB%20Blazer%20Mid%20Premium%20Shoes">
+              <Link href="/search/Nike%20SB%20Blazer">
                 <h2>
                   Nike SB
                   <br />
                   Blazer 2022 Collection
                 </h2>
               </Link>
-              <Link href="/search/Nike%20SB%20Blazer%20Mid%20Premium%20Shoes">
+              <Link href="/search/Nike%20SB%20Blazer">
                 <button type="button">Shop Now</button>
               </Link>
             </figcaption>
