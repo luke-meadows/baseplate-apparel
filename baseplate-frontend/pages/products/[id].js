@@ -12,7 +12,7 @@ import {
 import generateQuery from '../../lib/generateQuery';
 import { perPage } from '../../config';
 import { DeliveryBanner } from '../../components/DeliveryBanner';
-
+import ProductsFilter from '../../components/ProductsFilter';
 export default function Products({ query }) {
   const [queryVariables, setQueryVariables] = useState({ ...query });
   const [currentPage, updateCurrentPage] = useState(1);
@@ -34,6 +34,7 @@ export default function Products({ query }) {
 
   return (
     <ProductsPage>
+      <ProductsFilter query={query} filterOptions={data.filterQuery} />
       <ProductsPageHeading>
         <h4>
           {query.id}

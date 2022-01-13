@@ -38,6 +38,15 @@ export default function generateQuery(variables, currentPage = 1) {
     productCount:_allProductsMeta(where:{${querySlug}}){
       count
     }
+    filterQuery:allProducts(where: { ${querySlug} }) {
+      color
+      brand {
+        brand
+      }
+      productType {
+        productType
+      }
+    }
   }
   `;
 }

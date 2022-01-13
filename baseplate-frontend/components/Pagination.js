@@ -47,7 +47,6 @@ const PaginationStyles = styled.div`
   border-radius: 0.5rem;
   color: rgba(0, 0, 0, 0.7);
   align-items: center;
-
   * {
     font-size: 1.1rem;
   }

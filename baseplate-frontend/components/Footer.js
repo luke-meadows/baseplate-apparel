@@ -84,6 +84,7 @@ const FooterBottom = styled.div`
       font-size: 1.3rem;
       color: #515151;
       cursor: pointer;
+      font-weight: 300;
     }
     li:hover {
       color: var(--main-blue);

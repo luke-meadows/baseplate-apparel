@@ -79,7 +79,7 @@ const Thumbnail = styled.div`
     }
   }
   .price {
-    font-weight: 400;
+    font-weight: 300;
     color: rgba(0, 0, 0, 0.7);
   }
 `;
