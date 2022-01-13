@@ -5,5 +5,5 @@ export default function Loading() {
     NProgress.start();
     return NProgress.done();
   }, []);
-  return <div />;
+  return <div style={{ minHeight: '100vh' }} />;
 }

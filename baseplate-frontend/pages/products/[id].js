@@ -11,6 +11,7 @@ import {
 } from '../../components/styles/ProductsPageStyles';
 import generateQuery from '../../lib/generateQuery';
 import { perPage } from '../../config';
+import { DeliveryBanner } from '../../components/DeliveryBanner';
 
 export default function Products({ query }) {
   const [queryVariables, setQueryVariables] = useState({ ...query });
@@ -46,6 +47,7 @@ export default function Products({ query }) {
             ))}
         </h4>
       </ProductsPageHeading>
+      <DeliveryBanner />
       <ProductsContainer>
         {data.allProducts.map((product) => (
           <ProductThumbnail product={product} key={product.id} />

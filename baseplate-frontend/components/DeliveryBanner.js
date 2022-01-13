@@ -13,7 +13,7 @@ export const DeliveryBanner = () => {
 
 const StyledDeliveryBanner = styled.div`
   width: 100%;
-  background: #ebebe6;
+  background: #eeeeee;
   height: 4rem;
   display: flex;
   align-items: center;

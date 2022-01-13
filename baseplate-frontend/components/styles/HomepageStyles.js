@@ -13,6 +13,7 @@ export const ProductsContainer = styled.div`
   grid-gap: 0.5rem;
   max-width: 1650px;
   margin: auto;
+  margin-top: 0.5rem;
 `;
 export const HomepageProductsContainer = styled.div`
   padding: var(--medium-screen-padding);

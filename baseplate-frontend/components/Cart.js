@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 export default function Cart() {
   const { updateCartItems, cartItems, removeCartItem } = useContext(CartCtx);
-  if (!cartItems) return <NoCartItems>You have no items in cart</NoCartItems>;
+  if (!cartItems)
+    return <NoCartItems>You have no items in your cart</NoCartItems>;
   const [totalCost, updateTotalCost] = useState(0);
   useEffect(() => {
     const total = cartItems.reduce((total, item) => {
@@ -62,8 +63,8 @@ const StyledCart = styled.div`
   position: fixed;
   top: 6rem;
   right: 0;
-  box-shadow: -6px 6px 5px 1px rgba(11, 11, 11, 0.323);
-  padding: 1.5rem 3rem;
+  box-shadow: -2px 2px 10px 1px rgba(11, 11, 11, 0.323);
+  padding: 3rem 3rem;
   font-weight: 300;
   h3 {
     font-weight: 300;

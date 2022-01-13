@@ -58,7 +58,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 }
 .page-disabled {
-    filter: blur(10px);
+    filter: blur(5px);
     pointer-events: none;
   }
 `;

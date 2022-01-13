@@ -5,7 +5,7 @@ export const HomepageSlider = styled(Swiper)`
   line-height: 0;
 
   .swiper-slide {
-    width: 100%;
+    min-width: 100vw !important;
   }
 
   .swiper-pagination-bullet {
@@ -20,6 +20,9 @@ export const HomepageSlider = styled(Swiper)`
   .swiper-button-prev,
   .swiper-button-next {
     color: var(--main-blue);
+    margin: 0rem 2rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
   img {
     filter: brightness(45%);

@@ -3,6 +3,7 @@ export const ProductsPage = styled.div`
   margin: 6rem auto 0rem auto;
   padding: var(--medium-screen-padding);
   max-width: 1550px;
+
   .slash {
     color: rgba(0, 0, 0, 0.5);
     font-weight: 200;

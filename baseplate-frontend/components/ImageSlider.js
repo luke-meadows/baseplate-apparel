@@ -16,8 +16,10 @@ import home1 from '../public/img/sliderimgs/homeSliderImg6L.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import { useState } from 'react';
 
 export const ImageSlider = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <>
       <HomepageSlider
@@ -33,20 +35,22 @@ export const ImageSlider = () => {
         <SwiperSlide>
           <div className="slide-container-for-header">
             <div className="img-container" style={{ width: '100%' }}>
-              <Image src={home2} />
+              <Image onLoad={() => setImageLoaded(true)} src={home2} />
             </div>
-            <figcaption className="slide-heading-and-button">
-              <Link href="/search/Nike%20SB%20Blazer">
-                <h2>
-                  Nike SB
-                  <br />
-                  Blazer 2022 Collection
-                </h2>
-              </Link>
-              <Link href="/search/Nike%20SB%20Blazer">
-                <button type="button">Shop Now</button>
-              </Link>
-            </figcaption>
+            {imageLoaded && (
+              <figcaption className="slide-heading-and-button">
+                <Link href="/search/Nike%20SB%20Blazer">
+                  <h2>
+                    Nike SB
+                    <br />
+                    Blazer 2022 Collection
+                  </h2>
+                </Link>
+                <Link href="/search/Nike%20SB%20Blazer">
+                  <button type="button">Shop Now</button>
+                </Link>
+              </figcaption>
+            )}
           </div>
         </SwiperSlide>
         <SwiperSlide>
