@@ -10,8 +10,8 @@ export default function generateQuery(variables, currentPage = 1) {
     ? `brand: {brand_i:"${variables.brand}"},`
     : 'brand: {brand_not_contains:"~"},';
 
-  const categoryQuery = variables.category
-    ? `productType: {productType:"${variables.category}"}, `
+  const categoryQuery = variables.type
+    ? `productType: {productType:"${variables.type}"}, `
     : '';
   const colorQuery = variables.color
     ? `color_contains_i: "${variables.color}"`

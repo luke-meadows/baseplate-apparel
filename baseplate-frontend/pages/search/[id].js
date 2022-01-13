@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import { useState } from 'react';
 import Loading from '../../components/Loading';
 import Pagination from '../../components/Pagination';
+import ProductsFilter from '../../components/ProductsFilter';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import {

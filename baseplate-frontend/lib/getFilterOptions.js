@@ -1,29 +1,15 @@
 export default function getFilterOptions(options) {
-  return options.reduce((obj, item) => {
-    if (!obj.brands) {
-      obj.brands = [item.brand.brand];
-    }
-    if (obj.brands.includes(item.brand.brand)) {
-      return obj;
-    }
-    obj.brands.push(item.brand.brand);
-
-    if (!obj.colors) {
-      obj.colors = [...item.color.split(', ')];
-    }
-    if (obj.colors.includes(item.color.split(', '))) {
-      return obj;
-    }
-    obj.colors.push(...item.color.split(', '));
-
-    if (!obj.types) {
-      obj.types = [item.productType.productType];
-    }
-    if (obj.types.includes(item.productType.productType)) {
-      return obj;
-    }
-    obj.types.push(item.productType.productType);
-
-    return obj;
-  }, {});
+  const obj = {};
+  obj.brands = [...new Set(options.map((item) => item.brand.brand))];
+  obj.types = [...new Set(options.map((item) => item.productType.productType))];
+  obj.colors = [
+    ...new Set(
+      options.reduce((arr, item) => {
+        const colors = item.color.split(', ');
+        colors.forEach((color) => arr.push(color));
+        return arr;
+      }, [])
+    ),
+  ];
+  return obj;
 }

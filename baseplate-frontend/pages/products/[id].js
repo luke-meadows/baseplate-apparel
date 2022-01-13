@@ -34,7 +34,6 @@ export default function Products({ query }) {
 
   return (
     <ProductsPage>
-      <ProductsFilter query={query} filterOptions={data.filterQuery} />
       <ProductsPageHeading>
         <h4>
           {query.id}
@@ -48,6 +47,11 @@ export default function Products({ query }) {
             ))}
         </h4>
       </ProductsPageHeading>
+      <ProductsFilter
+        query={query}
+        filterOptions={data.filterQuery}
+        page="products"
+      />
       <DeliveryBanner />
       <ProductsContainer>
         {data.allProducts.map((product) => (
