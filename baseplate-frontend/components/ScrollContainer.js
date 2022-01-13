@@ -23,7 +23,7 @@ export default function ScrollContainer({ children }) {
   return (
     <StyledScrollContainer
       ref={containerRef}
-      className={stopScrolling ? 'disabled' : ''}
+      className={stopScrolling ? 'page-disabled' : ''}
     >
       {children}
     </StyledScrollContainer>

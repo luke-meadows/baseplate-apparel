@@ -4,6 +4,7 @@ import { NavCtxProvider } from '../lib/NavCtxProvider';
 
 import '../public/fontello/css/fontello.css';
 import 'swiper/css/bundle';
+import '../components/styles/nprogress.css';
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/admin/api',

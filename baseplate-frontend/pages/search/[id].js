@@ -63,11 +63,6 @@ export default function Search({ query }) {
     <ProductsPage>
       <ProductsPageHeading>
         <h4>Search Results: '{query.id}'</h4>
-        <Pagination
-          totalPages={Math.ceil(data.productCount.count / perPage)}
-          currentPage={currentPage}
-          updateCurrentPage={updateCurrentPage}
-        />
       </ProductsPageHeading>
       <ProductsContainer>
         {data?.searchResults.map((product) => (

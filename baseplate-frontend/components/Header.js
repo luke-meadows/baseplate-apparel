@@ -5,21 +5,22 @@ import Link from 'next/link';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
-import { IconContainer, Logo, StyledHeader } from './styles/HeaderStyles';
+import {
+  IconContainer,
+  Logo,
+  Placeholder,
+  StyledHeader,
+} from './styles/HeaderStyles';
 import { useQuery, gql } from '@apollo/client';
 import SearchBar from './SearchBar';
 import HeaderIcon from './HeaderIcon';
 import { CartCtx } from '../lib/CartCtxProvider';
 import Cart from './Cart';
+import populateSubnavOptions from '../lib/populateSubnavOptions';
 
 export default function Header() {
-  const {
-    subNavOptions,
-    setSubNavOptions,
-    searchActive,
-    setSearchActive,
-    setScrollTop,
-  } = useContext(NavCtx);
+  const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
+    useContext(NavCtx);
   const { cartActive, setCartActive } = useContext(CartCtx);
 
   const NAV_DATA_QUERY = gql`
@@ -65,29 +66,7 @@ export default function Header() {
   const { setNavCategories } = useContext(NavCtx);
   const { data } = useQuery(NAV_DATA_QUERY);
   useEffect(() => {
-    const allBrands = [
-      ...new Set(data?.allBrands.map((brand) => brand.brand.brand)),
-    ];
-    const shoeBrands = [
-      ...new Set(data?.allShoeBrands.map((brand) => brand.brand.brand)),
-    ];
-    const clothingTypes = [
-      ...new Set(
-        data?.allClothingTypes.map((type) => type.productType.productType)
-      ),
-    ];
-    const accessoryTypes = [
-      ...new Set(
-        data?.allAccessoryTypes.map((type) => type.productType.productType)
-      ),
-    ];
-
-    setNavCategories({
-      brands: allBrands,
-      shoes: shoeBrands,
-      clothing: clothingTypes,
-      accessories: accessoryTypes,
-    });
+    populateSubnavOptions(data, setNavCategories);
   }, [data]);
 
   return (
@@ -110,7 +89,10 @@ export default function Header() {
             iconActive={searchActive}
             setIconActive={setSearchActive}
           />
-          <Cart />
+          {cartActive && (
+            <Cart cartActive={cartActive} setCartActive={setCartActive} />
+          )}
+
           <HeaderIcon
             iconName="shopping_cart"
             iconActive={cartActive}
@@ -118,7 +100,7 @@ export default function Header() {
           />
         </IconContainer>
         {/* {to make the nav centered using the flex} */}
-        <div style={{ width: '9rem' }} />
+        <Placeholder />
       </StyledHeader>
     </AnimateSharedLayout>
   );
