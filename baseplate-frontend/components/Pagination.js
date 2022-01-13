@@ -56,6 +56,7 @@ const PaginationStyles = styled.div`
     text-transform: capitalize;
     background: none;
     color: rgba(0, 0, 0, 0.7);
+    font-family: 'Lexend', sans-serif;
 
     &:hover,
     &:focus {

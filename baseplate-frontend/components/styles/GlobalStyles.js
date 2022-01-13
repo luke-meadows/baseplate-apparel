@@ -24,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'Poppins';
+    font-family: 'Lexend', sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;

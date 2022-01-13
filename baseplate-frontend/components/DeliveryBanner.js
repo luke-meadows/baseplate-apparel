@@ -19,8 +19,8 @@ const StyledDeliveryBanner = styled.div`
   align-items: center;
   justify-content: center;
   font-family: 'Roboto Mono';
-  font-weight: 400;
   h5 {
+    font-weight: 300;
     display: flex;
     align-items: center;
   }

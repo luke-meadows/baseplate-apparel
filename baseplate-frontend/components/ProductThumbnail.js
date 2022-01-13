@@ -60,13 +60,14 @@ const Thumbnail = styled.div`
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    line-height: 2;
+    line-height: 1.5;
+    font-weight: 300;
   }
   .show-sizes {
     transform: translateY(-100%);
   }
   .description {
-    font-weight: 500;
+    font-weight: 400;
     line-height: initial;
     margin-top: 5px;
     &:hover {

@@ -7,12 +7,12 @@ export const ProductsPage = styled.div`
   .slash {
     color: rgba(0, 0, 0, 0.5);
     font-weight: 200;
-    font-size: 1.5rem;
+    font-size: 3rem;
   }
 `;
 export const ProductsPageHeading = styled.div`
   h4 {
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 300;
     text-transform: capitalize;
     color: black;

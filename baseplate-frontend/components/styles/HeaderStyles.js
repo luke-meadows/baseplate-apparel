@@ -59,6 +59,7 @@ export const StyledNav = styled.nav`
     height: 100%;
     padding: 0 3.5rem;
     position: relative;
+    font-weight: 300;
     ::after {
       content: '|';
       position: absolute;
@@ -90,10 +91,11 @@ export const StyledSubNav = styled(motion.div)`
     padding: 3rem 0 3.3rem 0;
     margin: 0;
     font-size: 1.8rem;
-    font-weight: 300;
     text-transform: uppercase;
+    font-family: 'Poppins';
     a {
       color: rgba(0, 0, 0, 0.8);
+      font-weight: 300;
     }
     a:hover {
       color: rgba(0, 0, 0, 0.5);
@@ -135,7 +137,7 @@ export const SubNavList = styled(motion.ul)`
     line-height: 1;
     a {
       font-size: 1.4rem;
-      font-weight: 400;
+      font-weight: 300;
       color: rgba(0, 0, 0, 0.8);
       &:hover {
         color: rgba(0, 0, 0, 0.5);
