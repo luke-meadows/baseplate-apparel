@@ -42,10 +42,20 @@ export default function ProductsFilter({ query, filterOptions, page }) {
 
   // a list of possible filter options for current selection of products
   const options = getFilterOptions(filterOptions);
-
+  // icon-down-open-mini
+  // icon-up-open-mini
   return (
     <StyledProductsFilter>
-      <button onClick={() => updateShowFilters(!showFilters)}>Filter</button>
+      <button onClick={() => updateShowFilters(!showFilters)}>
+        Filter
+        <i
+          className={
+            showFilters
+              ? 'filter-icon icon-up-open-mini'
+              : 'filter-icon icon-down-open-mini'
+          }
+        ></i>
+      </button>
       {showFilters && (
         <form action="submit" onChange={handleFilterChange}>
           <select name="brand" id="" defaultValue={'default'}>

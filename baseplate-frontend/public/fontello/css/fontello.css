@@ -43,6 +43,10 @@
   font-size: 2rem;
   margin: 0 0.5rem;
 }
+.filter-icon {
+  font-size: 1.3rem;
+}
+
 .footer-icon:hover {
   color: var(--main-blue);
 }
