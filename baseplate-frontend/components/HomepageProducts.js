@@ -10,7 +10,7 @@ export default function HomepageProducts({ products, heading }) {
     <HomepageProductsContainer>
       <ProductsHeading>{heading}</ProductsHeading>
       <ProductsContainer>
-        {products.map((product) => (
+        {products?.map((product) => (
           <ProductThumbnail product={product} key={product.id} />
         ))}
       </ProductsContainer>
