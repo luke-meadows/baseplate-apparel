@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { NavCtx } from '../lib/NavCtxProvider';
@@ -5,6 +6,7 @@ export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
   const { setStopScrolling, stopScrolling } = useContext(NavCtx);
   return (
     <Icon
+      layout
       onClick={(e) => {
         setIconActive(!iconActive);
         setStopScrolling(!stopScrolling);
@@ -17,10 +19,11 @@ export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
   );
 }
 
-const Icon = styled.div`
+const Icon = styled(motion.div)`
   display: flex;
   align-items: center;
   height: 6rem;
+  overflow: hidden;
   span {
     fontsize: 2rem;
     cursor: pointer;

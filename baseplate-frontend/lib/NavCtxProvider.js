@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 
 export const NavCtx = createContext();
 export const NavCtxProvider = ({ children }) => {
+  const [showFilters, updateShowFilters] = useState(false);
   const [stopScrolling, setStopScrolling] = useState(false);
   const [subNavOptions, setSubNavOptions] = useState({
     subNavRect: null,
@@ -39,7 +40,7 @@ export const NavCtxProvider = ({ children }) => {
     const navX = subNavOptions.navRect.x;
     const navY = subNavOptions.navRect.y;
     const navWidth = subNavOptions.navRect.width - 5;
-    const subNavY = subNavOptions.subNavRect.y;
+    const subNavY = subNavOptions.subNavRect?.y || 50;
 
     // areas of screen that should trigger the nav to close if hovered over.
     const isInBlock1 = pointerX < navX && pointerY < subNavY;
@@ -73,6 +74,8 @@ export const NavCtxProvider = ({ children }) => {
         setSearchActive,
         stopScrolling,
         setStopScrolling,
+        showFilters,
+        updateShowFilters,
       }}
     >
       {children}

@@ -15,7 +15,7 @@ export const SubNav = forwardRef((props, ref) => {
     // these are the query parameters passed through to the product page to filter options
     brands: `/products/brands?brand=`,
     shoes: `/products/shoes?brand=`,
-    clothing: `/products/clothes?category=`,
+    clothing: `/products/clothes?type=`,
   };
 
   useEffect(() => {

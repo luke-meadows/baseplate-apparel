@@ -1,10 +1,13 @@
 import { useRouter } from 'next/dist/client/router';
 import getFilterOptions from '../lib/getFilterOptions';
+import { NavCtx } from '../lib/NavCtxProvider';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 export default function ProductsFilter({ query, filterOptions, page }) {
-  const [showFilters, updateShowFilters] = useState(false);
+  // const [showFilters, updateShowFilters] = useState(false);
+  const { showFilters, updateShowFilters } = useContext(NavCtx);
+
   const router = useRouter();
   const [queryParams, updateQueryParams] = useState({ ...query });
 
@@ -84,6 +87,7 @@ export default function ProductsFilter({ query, filterOptions, page }) {
 const StyledProductsFilter = styled.div`
   margin-bottom: 1.5rem;
   select {
+    width: 15rem;
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0;
     padding: 0.5rem 2rem;
@@ -108,12 +112,12 @@ const StyledProductsFilter = styled.div`
   form {
     button {
       padding: 0.5rem 2rem;
+      margin: 0 0.5rem 0 0;
     }
   }
 
   button {
     font-size: 1.1rem;
-    margin: 0 0.5rem 0 0;
     background: none;
     height: initial;
     width: initial;

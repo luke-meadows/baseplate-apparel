@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const DeliveryBanner = () => {
@@ -11,7 +12,7 @@ export const DeliveryBanner = () => {
   );
 };
 
-const StyledDeliveryBanner = styled.div`
+const StyledDeliveryBanner = styled(motion.div)`
   width: 100%;
   background: #eeeeee;
   height: 4rem;

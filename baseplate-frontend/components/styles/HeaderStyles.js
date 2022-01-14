@@ -70,7 +70,7 @@ export const StyledNav = styled.nav`
   }
 `;
 
-export const IconContainer = styled.div`
+export const IconContainer = styled(motion.div)`
   display: flex;
   position: absolute;
   align-items: center;

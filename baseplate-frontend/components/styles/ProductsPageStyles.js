@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
-export const ProductsPage = styled.div`
+
+export const ProductsPage = styled(motion.div)`
   margin: 6rem auto 0rem auto;
   padding: var(--medium-screen-padding);
   max-width: 1550px;
@@ -17,6 +19,7 @@ export const ProductsPageHeading = styled.div`
     text-transform: capitalize;
     color: black;
   }
+
   max-width: 1550px;
   margin-bottom: 1rem;
   display: flex;

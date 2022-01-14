@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const ProductsHeading = styled.p`
@@ -7,7 +8,7 @@ export const ProductsHeading = styled.p`
   margin-bottom: 1rem;
   max-width: 1650px;
 `;
-export const ProductsContainer = styled.div`
+export const ProductsContainer = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 0.5rem;
