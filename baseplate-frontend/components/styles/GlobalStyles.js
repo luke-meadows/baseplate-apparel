@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     --medium-screen-padding: 6rem 6rem 0 6rem;
     --mobile-screen-padding: 1rem;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.09);
+    --max-width: 1720px;
     box-sizing: border-box;
     font-size: 70.5%;
     padding: 0;

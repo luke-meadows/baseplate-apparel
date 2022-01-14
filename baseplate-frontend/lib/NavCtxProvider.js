@@ -40,7 +40,7 @@ export const NavCtxProvider = ({ children }) => {
     const navX = subNavOptions.navRect.x;
     const navY = subNavOptions.navRect.y;
     const navWidth = subNavOptions.navRect.width - 5;
-    const subNavY = subNavOptions.subNavRect?.y || 50;
+    const subNavY = subNavOptions.subNavRect?.y;
 
     // areas of screen that should trigger the nav to close if hovered over.
     const isInBlock1 = pointerX < navX && pointerY < subNavY;

@@ -17,7 +17,7 @@ const StyledDeliveryBanner = styled(motion.div)`
   background: #eeeeee;
   height: 4rem;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   font-family: 'Lexend', sans-serif;
 
@@ -25,11 +25,13 @@ const StyledDeliveryBanner = styled(motion.div)`
     font-weight: 300;
     display: flex;
     align-items: center;
+    color: #515151;
   }
   span {
     margin: 0 0 0.1rem 1rem;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
+    color: #515151;
   }
 `;

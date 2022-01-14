@@ -85,7 +85,6 @@ export default function ProductsFilter({ query, filterOptions, page }) {
 }
 
 const StyledProductsFilter = styled.div`
-  margin-bottom: 1.5rem;
   select {
     width: 15rem;
     font-size: 1.1rem;
@@ -110,6 +109,8 @@ const StyledProductsFilter = styled.div`
   }
 
   form {
+    margin-bottom: 1.5rem;
+
     button {
       padding: 0.5rem 2rem;
       margin: 0 0.5rem 0 0;
@@ -117,7 +118,7 @@ const StyledProductsFilter = styled.div`
   }
 
   button {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     background: none;
     height: initial;
     width: initial;

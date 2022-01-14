@@ -4,8 +4,7 @@ import styled from 'styled-components';
 export const ProductsPage = styled(motion.div)`
   margin: 6rem auto 0rem auto;
   padding: var(--medium-screen-padding);
-  max-width: 1550px;
-
+  max-width: var(--max-width);
   .slash {
     color: rgba(0, 0, 0, 0.5);
     font-weight: 200;
@@ -19,8 +18,6 @@ export const ProductsPageHeading = styled.div`
     text-transform: capitalize;
     color: black;
   }
-
-  max-width: 1550px;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;

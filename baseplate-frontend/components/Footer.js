@@ -60,15 +60,15 @@ const FooterTop = styled.div`
   display: flex;
   align-items: center;
   button {
-    height: 4rem;
-    margin-left: 0.5rem;
+    height: 100%;
+    margin: -1px 0;
   }
   form {
     border: 1px solid #515151;
     display: flex;
     align-items: center;
     height: 4.2rem;
-    padding: 1px 0;
+    /* padding: 1px 0; */
   }
 `;
 const FooterInput = styled(StyledInput)`

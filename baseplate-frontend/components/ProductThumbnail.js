@@ -76,6 +76,7 @@ const Thumbnail = styled.div`
     span {
       font-weight: 300;
       color: rgba(0, 0, 0, 0.7);
+      /* color: #515151; */
     }
   }
   .price {
