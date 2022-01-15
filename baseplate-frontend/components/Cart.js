@@ -29,7 +29,7 @@ export default function Cart() {
                 <span>
                   {product.color}, Size: {item.size},{' '}
                 </span>
-                x {item.quantity}
+                x{item.quantity}
               </p>
               <p>£{product.price / 100}.00</p>
               <button

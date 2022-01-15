@@ -24,9 +24,9 @@ const Icon = styled(motion.div)`
   align-items: center;
   height: 6rem;
   overflow: hidden;
+  cursor: pointer;
   span {
     fontsize: 2rem;
-    cursor: pointer;
     margin: 0 1rem;
   }
   .blue {
