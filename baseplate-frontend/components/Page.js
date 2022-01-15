@@ -40,3 +40,7 @@ const StyledPage = styled.div`
   justify-content: space-between;
   position: relative;
 `;
+
+export const PagePadding = styled.main`
+  padding: var(--medium-screen-padding);
+`;

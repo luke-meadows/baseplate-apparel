@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const ProductPage = styled.div`
-  margin: 6rem auto;
+  margin-top: 6rem;
   padding: var(--medium-screen-padding);
-  max-width: 1050px;
   display: flex;
   flex-direction: column;
   * {
@@ -11,7 +10,12 @@ export const ProductPage = styled.div`
     margin: 0;
   }
 `;
+export const ProductMain = styled.div`
+  display: flex;
+  margin: 6rem auto;
 
+  max-width: 1050px;
+`;
 export const ProductPageHeading = styled.h4`
   margin-bottom: 2rem;
 `;
@@ -26,10 +30,6 @@ export const ProductPageRight = styled.div`
   img {
     object-fit: cover;
   }
-`;
-
-export const ProductMain = styled.div`
-  display: flex;
 `;
 
 export const ProductHeading = styled.h3`
@@ -61,6 +61,7 @@ export const AddToCartForm = styled.form`
 `;
 export const Description = styled.div`
   font-size: 1.2rem;
+  font-family: Poppins;
 `;
 
 export const Dropdown = styled.select`
@@ -89,4 +90,8 @@ export const Dropdown = styled.select`
     left: 10px;
     top: 5px;
   }
+`;
+
+export const ProductLowerSection = styled.div`
+  margin-bottom: 6rem;
 `;

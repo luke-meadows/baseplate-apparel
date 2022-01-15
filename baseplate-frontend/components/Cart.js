@@ -3,7 +3,7 @@ import { CartCtx } from '../lib/CartCtxProvider';
 import styled from 'styled-components';
 
 export default function Cart() {
-  const { updateCartItems, cartItems, removeCartItem } = useContext(CartCtx);
+  const { cartItems, removeCartItem } = useContext(CartCtx);
   if (!cartItems)
     return <NoCartItems>You have no items in your cart</NoCartItems>;
   const [totalCost, updateTotalCost] = useState(0);

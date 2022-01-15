@@ -2,7 +2,12 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { NavCtx } from '../lib/NavCtxProvider';
-export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
+export default function HeaderIcon({
+  iconName,
+  iconActive,
+  setIconActive,
+  quantity,
+}) {
   const { setStopScrolling, stopScrolling } = useContext(NavCtx);
   return (
     <Icon
@@ -15,6 +20,7 @@ export default function HeaderIcon({ iconName, iconActive, setIconActive }) {
       <span className={iconActive ? 'blue material-icons' : 'material-icons'}>
         {iconName}
       </span>
+      {quantity && <p>{quantity.length}</p>}
     </Icon>
   );
 }

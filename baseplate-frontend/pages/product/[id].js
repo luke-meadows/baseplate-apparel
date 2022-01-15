@@ -2,6 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import Loading from '../../components/Loading';
 import { CartCtx } from '../../lib/CartCtxProvider';
 import Image from 'next/image';
+import { DeliveryBanner } from '../../components/DeliveryBanner';
 import {
   AddToCartForm,
   Description,
@@ -13,6 +14,7 @@ import {
   ProductPrice,
   Dropdown,
   ProductMain,
+  ProductLowerSection,
 } from '../../components/styles/ProductPageStyles';
 import { useContext, useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
@@ -129,7 +131,10 @@ export default function Product({ query }) {
           />
         </ProductPageRight>
       </ProductMain>
-      <RecentlyViewed />
+      <ProductLowerSection>
+        <DeliveryBanner />
+        <RecentlyViewed />
+      </ProductLowerSection>
     </ProductPage>
   );
 }

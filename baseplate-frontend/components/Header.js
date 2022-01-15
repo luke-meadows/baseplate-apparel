@@ -21,7 +21,7 @@ import populateSubnavOptions from '../lib/populateSubnavOptions';
 export default function Header() {
   const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
     useContext(NavCtx);
-  const { cartActive, setCartActive } = useContext(CartCtx);
+  const { cartActive, setCartActive, cartItems } = useContext(CartCtx);
 
   const NAV_DATA_QUERY = gql`
     query NAV_DATA_QUERY {
@@ -97,6 +97,7 @@ export default function Header() {
             iconName="shopping_cart"
             iconActive={cartActive}
             setIconActive={setCartActive}
+            quantity={cartItems}
           />
         </IconContainer>
         {/* {to make the nav centered using the flex} */}

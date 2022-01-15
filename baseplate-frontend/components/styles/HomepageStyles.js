@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const HomepageProductsContainer = styled.div`
-  padding: var(--medium-screen-padding);
+  /* padding: var(--medium-screen-padding); */
   margin: auto;
   max-width: var(--max-width);
 `;
