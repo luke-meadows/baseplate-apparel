@@ -1,12 +1,14 @@
 import { gql, useQuery } from '@apollo/client';
 import { useState } from 'react';
+import { DeliveryBanner } from '../../components/DeliveryBanner';
 import Loading from '../../components/Loading';
+import { PagePadding } from '../../components/Page';
 import Pagination from '../../components/Pagination';
-import ProductsFilter from '../../components/ProductsFilter';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import {
   BottomPagination,
+  ProductsCount,
   ProductsPage,
   ProductsPageHeading,
 } from '../../components/styles/ProductsPageStyles';
@@ -61,22 +63,36 @@ export default function Search({ query }) {
   });
   if (loading) return <Loading />;
   return (
-    <ProductsPage>
-      <ProductsPageHeading>
-        <h4>Search Results: '{query.id}'</h4>
-      </ProductsPageHeading>
-      <ProductsContainer>
-        {data?.searchResults.map((product) => (
-          <ProductThumbnail product={product} key={product.id} />
-        ))}
-      </ProductsContainer>
-      <BottomPagination>
-        <Pagination
-          totalPages={Math.ceil(data.productCount.count / perPage)}
-          currentPage={currentPage}
-          updateCurrentPage={updateCurrentPage}
-        />
-      </BottomPagination>
-    </ProductsPage>
+    <>
+      {data.productCount.count > 0 && (
+        <ProductsCount>{data.productCount.count} results</ProductsCount>
+      )}
+      <PagePadding>
+        <ProductsPage>
+          <ProductsPageHeading>
+            {data.productCount.count > 0 ? (
+              <h4>Search Results: '{query.id}'</h4>
+            ) : (
+              <h4 style={{ marginTop: '9rem' }}>
+                No Results Found For: '${query.id}'
+              </h4>
+            )}
+          </ProductsPageHeading>
+          {data.productCount.count > 0 && <DeliveryBanner />}
+          <ProductsContainer>
+            {data?.searchResults.map((product) => (
+              <ProductThumbnail product={product} key={product.id} />
+            ))}
+          </ProductsContainer>
+          <BottomPagination>
+            <Pagination
+              totalPages={Math.ceil(data.productCount.count / perPage)}
+              currentPage={currentPage}
+              updateCurrentPage={updateCurrentPage}
+            />
+          </BottomPagination>
+        </ProductsPage>
+      </PagePadding>
+    </>
   );
 }

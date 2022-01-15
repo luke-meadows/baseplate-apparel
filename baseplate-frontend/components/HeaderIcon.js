@@ -20,7 +20,9 @@ export default function HeaderIcon({
       <span className={iconActive ? 'blue material-icons' : 'material-icons'}>
         {iconName}
       </span>
-      {quantity && <p>{quantity.length}</p>}
+      {quantity && (
+        <CartItemsQuantity>{`+  ${quantity.length}`}</CartItemsQuantity>
+      )}
     </Icon>
   );
 }
@@ -33,9 +35,15 @@ const Icon = styled(motion.div)`
   cursor: pointer;
   span {
     fontsize: 2rem;
-    margin: 0 1rem;
+    margin: 0 0rem 0 2rem;
   }
   .blue {
     color: var(--main-blue);
   }
+`;
+
+const CartItemsQuantity = styled.p`
+  color: var(--main-blue);
+  font-family: 'Poppins';
+  font-size: 1.2rem;
 `;

@@ -30,4 +30,9 @@ export default function ScrollContainer({ children }) {
   );
 }
 
-const StyledScrollContainer = styled.div``;
+const StyledScrollContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+`;

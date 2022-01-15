@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const ProductsPage = styled(motion.div)`
   margin: auto;
+  margin-top: -6rem;
   max-width: var(--max-width);
   .slash {
     color: rgba(0, 0, 0, 0.5);
@@ -35,5 +36,6 @@ export const ProductsCount = styled.p`
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   margin-top: 7.5rem;
+  padding: 0 6rem;
   text-align: right;
 `;
