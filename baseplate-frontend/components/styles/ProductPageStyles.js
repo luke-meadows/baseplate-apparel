@@ -5,6 +5,7 @@ export const ProductPage = styled.div`
   padding: var(--medium-screen-padding);
   max-width: 1050px;
   display: flex;
+  flex-direction: column;
   * {
     line-height: initial;
     margin: 0;
@@ -25,6 +26,10 @@ export const ProductPageRight = styled.div`
   img {
     object-fit: cover;
   }
+`;
+
+export const ProductMain = styled.div`
+  display: flex;
 `;
 
 export const ProductHeading = styled.h3`

@@ -19,7 +19,7 @@ export default function Pagination({
     updateCurrentPage(currentPage - 1);
     return;
   }
-
+  if (totalPages === 1) return <></>;
   return (
     <PaginationStyles>
       <Head>

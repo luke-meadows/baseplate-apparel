@@ -128,11 +128,11 @@ const StyledProductsFilter = styled.div`
   }
 
   button {
+    color: #515151;
     font-size: 1.2rem;
     background: none;
     height: initial;
     width: initial;
-    color: #515151;
     :focus {
       background: none;
     }

@@ -8,14 +8,17 @@ import { useRouter } from 'next/router';
 import ScrollContainer from './ScrollContainer';
 import { useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
+import { useEffect } from 'react/cjs/react.development';
 
 export default function Page({ children }) {
   // stops displaying products filters if page is changed from products.
   const { updateShowFilters } = useContext(NavCtx);
   const router = useRouter();
-  if (router.route !== '/products/[id]') {
-    updateShowFilters(false);
-  }
+  useEffect(() => {
+    if (router.route !== '/products/[id]') {
+      updateShowFilters(false);
+    }
+  }, []);
   return (
     <StyledPage>
       <GlobalStyles />

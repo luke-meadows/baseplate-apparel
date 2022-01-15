@@ -8,6 +8,7 @@ import {
   ProductsPage,
   ProductsPageHeading,
   BottomPagination,
+  ProductsCount,
 } from '../../components/styles/ProductsPageStyles';
 import generateQuery from '../../lib/generateQuery';
 import { perPage } from '../../config';
@@ -33,38 +34,41 @@ export default function Products({ query }) {
   if (loading) return <Loading />;
 
   return (
-    <ProductsPage>
-      <ProductsPageHeading>
-        <h4>
-          {query.id}
-          {Object.keys(query)
-            .filter((key) => key != 'id')
-            .map((key) => (
-              <span key={key}>
-                {' '}
-                <span className="slash">/</span> {query[key]}{' '}
-              </span>
-            ))}
-        </h4>
-      </ProductsPageHeading>
-      <ProductsFilter
-        query={query}
-        filterOptions={data.filterQuery}
-        page="products"
-      />
-      <DeliveryBanner />
-      <ProductsContainer>
-        {data.allProducts.map((product) => (
-          <ProductThumbnail product={product} key={product.id} />
-        ))}
-      </ProductsContainer>
-      <BottomPagination>
-        <Pagination
-          totalPages={Math.ceil(data.productCount.count / perPage)}
-          currentPage={currentPage}
-          updateCurrentPage={updateCurrentPage}
+    <>
+      <ProductsPage>
+        <ProductsCount>{data.productCount.count} results</ProductsCount>
+        <ProductsPageHeading>
+          <h4>
+            {query.id}
+            {Object.keys(query)
+              .filter((key) => key != 'id')
+              .map((key) => (
+                <span key={key}>
+                  {' '}
+                  <span className="slash">/</span> {query[key]}{' '}
+                </span>
+              ))}
+          </h4>
+        </ProductsPageHeading>
+        <ProductsFilter
+          query={query}
+          filterOptions={data.filterQuery}
+          page="products"
         />
-      </BottomPagination>
-    </ProductsPage>
+        <DeliveryBanner />
+        <ProductsContainer>
+          {data.allProducts.map((product) => (
+            <ProductThumbnail product={product} key={product.id} />
+          ))}
+        </ProductsContainer>
+        <BottomPagination>
+          <Pagination
+            totalPages={Math.ceil(data.productCount.count / perPage)}
+            currentPage={currentPage}
+            updateCurrentPage={updateCurrentPage}
+          />
+        </BottomPagination>
+      </ProductsPage>
+    </>
   );
 }

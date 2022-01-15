@@ -7,6 +7,7 @@ export const HomepageProductsContainer = styled.div`
   max-width: var(--max-width);
 `;
 export const ProductsHeading = styled.p`
+  font-family: 'Poppins';
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 300;

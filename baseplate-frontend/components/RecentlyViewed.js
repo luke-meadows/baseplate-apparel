@@ -1,7 +1,11 @@
+import HomepageProducts from './HomepageProducts';
+
 export default function RecentlyViewed() {
+  const recentlyViewedProducts = JSON.parse(localStorage.getItem('recent'));
   return (
-    <>
-      <h1>recently viewed</h1>
-    </>
+    <HomepageProducts
+      products={recentlyViewedProducts}
+      heading="Recently Viewed"
+    />
   );
 }
