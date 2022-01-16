@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const ProductsPage = styled(motion.div)`
   margin: auto;
-  margin-top: -6rem;
   max-width: var(--max-width);
   .slash {
     color: rgba(0, 0, 0, 0.5);

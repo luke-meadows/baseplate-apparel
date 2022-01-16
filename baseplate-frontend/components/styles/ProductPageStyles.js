@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 
-export const ProductPage = styled.div`
+export const ProductPage = styled.div``;
+export const ProductMain = styled.div`
+  margin: auto;
   margin-top: 6rem;
   padding: var(--medium-screen-padding);
   display: flex;
-  flex-direction: column;
+  max-width: 1050px;
+
   * {
     line-height: initial;
     margin: 0;
   }
-`;
-export const ProductMain = styled.div`
-  display: flex;
-  margin: 6rem auto;
-
-  max-width: 1050px;
 `;
 export const ProductPageHeading = styled.h4`
   margin-bottom: 2rem;
@@ -93,5 +90,5 @@ export const Dropdown = styled.select`
 `;
 
 export const ProductLowerSection = styled.div`
-  margin-bottom: 6rem;
+  margin: 0 6rem 6rem 6rem;
 `;

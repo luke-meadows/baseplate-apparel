@@ -66,9 +66,10 @@ export default function Product({ query }) {
     const productAlreadyExistsIdx = existingRecentlyViewed.findIndex(
       (product) => product.id === data.Product.id
     );
-
-    if (productAlreadyExistsIdx > 0) {
-      existingRecentlyViewed.splice(productAlreadyExistsIdx, 1);
+    console.log(productAlreadyExistsIdx);
+    // not working
+    if (productAlreadyExistsIdx > -1) {
+      existingRecentlyViewed.slice(productAlreadyExistsIdx, 1);
     }
     existingRecentlyViewed.push(data.Product);
     console.log(existingRecentlyViewed);

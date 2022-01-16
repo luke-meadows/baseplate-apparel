@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const HomepageProductsContainer = styled.div`
-  /* padding: var(--medium-screen-padding); */
   margin: auto;
+  margin-top: 6rem;
   max-width: var(--max-width);
 `;
 export const ProductsHeading = styled.p`
