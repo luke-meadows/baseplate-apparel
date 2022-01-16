@@ -54,31 +54,6 @@ export default function Product({ query }) {
     e.target.blur();
   }
 
-  useEffect(() => {
-    if (!data) return;
-
-    const existingRecentlyViewed = JSON.parse(localStorage.getItem('recent'));
-
-    if (!existingRecentlyViewed) {
-      localStorage.setItem('recent', JSON.stringify([data.Product]));
-      return;
-    }
-    const productAlreadyExistsIdx = existingRecentlyViewed.findIndex(
-      (product) => product.id === data.Product.id
-    );
-    console.log(productAlreadyExistsIdx);
-    // not working
-    if (productAlreadyExistsIdx > -1) {
-      existingRecentlyViewed.slice(productAlreadyExistsIdx, 1);
-    }
-    existingRecentlyViewed.push(data.Product);
-    console.log(existingRecentlyViewed);
-    if (existingRecentlyViewed.length > 5) {
-      existingRecentlyViewed.shift();
-    }
-    localStorage.setItem('recent', JSON.stringify(existingRecentlyViewed));
-  }, [data]);
-
   const { addToCart } = useContext(CartCtx);
   if (loading) return <Loading />;
   return (
@@ -134,7 +109,7 @@ export default function Product({ query }) {
       </ProductMain>
       <ProductLowerSection>
         <DeliveryBanner />
-        <RecentlyViewed />
+        <RecentlyViewed data={data} />
       </ProductLowerSection>
     </ProductPage>
   );

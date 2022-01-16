@@ -74,7 +74,7 @@ export default function Search({ query }) {
               <h4>Search Results: '{query.id}'</h4>
             ) : (
               <h4 style={{ marginTop: '9rem' }}>
-                No Results Found For: '${query.id}'
+                No Results Found For: {query.id}
               </h4>
             )}
           </ProductsPageHeading>
