@@ -4,7 +4,12 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import styled from 'styled-components';
 import { useState, useEffect, useContext } from 'react';
 
-export default function ProductsFilter({ query, filterOptions, page }) {
+export default function ProductsFilter({
+  query,
+  filterOptions,
+  page,
+  updateCurrentPage,
+}) {
   // const [showFilters, updateShowFilters] = useState(false);
   const { showFilters, updateShowFilters } = useContext(NavCtx);
 
@@ -12,6 +17,7 @@ export default function ProductsFilter({ query, filterOptions, page }) {
   const [queryParams, updateQueryParams] = useState({ ...query });
 
   function handleFilterChange(e) {
+    updateCurrentPage(1);
     e.preventDefault();
     e.target.blur();
 

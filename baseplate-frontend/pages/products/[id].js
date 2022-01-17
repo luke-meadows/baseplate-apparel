@@ -56,6 +56,7 @@ export default function Products({ query }) {
             query={query}
             filterOptions={data.filterQuery}
             page="products"
+            updateCurrentPage={updateCurrentPage}
           />
           <DeliveryBanner />
           <ProductsContainer>

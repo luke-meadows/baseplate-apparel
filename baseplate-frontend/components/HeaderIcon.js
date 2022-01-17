@@ -21,7 +21,7 @@ export default function HeaderIcon({
         {iconName}
       </span>
       {quantity && (
-        <CartItemsQuantity>{`+  ${quantity.length}`}</CartItemsQuantity>
+        <CartItemsQuantity>{`+${quantity.length}`}</CartItemsQuantity>
       )}
     </Icon>
   );

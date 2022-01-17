@@ -18,7 +18,7 @@ export default function Page({ children }) {
     if (router.route !== '/products/[id]') {
       updateShowFilters(false);
     }
-  }, []);
+  }, [router.pathname]);
   return (
     <StyledPage>
       <GlobalStyles />
