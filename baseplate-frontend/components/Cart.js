@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { CartCtx } from '../lib/CartCtxProvider';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export default function Cart() {
   const { cartItems, removeCartItem } = useContext(CartCtx);
@@ -50,7 +51,7 @@ export default function Cart() {
           View Basket
         </button>
         <button className="checkout" type="button">
-          Checkout
+          <Link href="/checkout">Checkout</Link>
         </button>
       </div>
     </StyledCart>

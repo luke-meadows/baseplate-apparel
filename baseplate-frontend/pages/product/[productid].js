@@ -17,7 +17,6 @@ import {
   ProductLowerSection,
 } from '../../components/styles/ProductPageStyles';
 import { useContext, useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
 import RecentlyViewed from '../../components/RecentlyViewed';
 
 const PRODUCT_QUERY = gql`
@@ -53,9 +52,9 @@ export default function Product({ query }) {
     changeSizeDisabled(false);
     e.target.blur();
   }
-
   const { addToCart } = useContext(CartCtx);
   if (loading) return <Loading />;
+  const sizes = Object.keys(JSON.parse(data.Product.sizes));
   return (
     <ProductPage>
       <ProductMain>
@@ -75,7 +74,7 @@ export default function Product({ query }) {
               <option value="default" disabled>
                 Size
               </option>
-              {Object.keys(JSON.parse(data.Product.sizes)).map((size) => (
+              {sizes.map((size) => (
                 <option value={size} key={size}>
                   {size}
                 </option>

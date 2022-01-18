@@ -42,5 +42,5 @@ const StyledPage = styled.div`
 `;
 
 export const PagePadding = styled.main`
-  padding: 0 6rem;
+  padding: 6rem 6rem;
 `;
