@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from 'react';
 import { CartCtx } from '../lib/CartCtxProvider';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { NavCtx } from '../lib/NavCtxProvider';
 
 export default function Cart() {
-  const { cartItems, removeCartItem } = useContext(CartCtx);
+  const { cartItems, removeCartItem, setCartActive } = useContext(CartCtx);
+  const { setStopScrolling } = useContext(NavCtx);
   if (!cartItems)
     return <NoCartItems>You have no items in your cart</NoCartItems>;
 
@@ -19,6 +21,10 @@ export default function Cart() {
     updateTotalCost(total);
   }, [cartItems]);
 
+  function handleButtonClick() {
+    setCartActive(false);
+    setStopScrolling(false);
+  }
   return (
     <StyledCart>
       <h3>Cart</h3>
@@ -50,12 +56,20 @@ export default function Cart() {
       </ul>
       <p className="total-price">Total £{totalCost / 100}.00</p>
       <div className="checkout-and-view-basket">
-        <button className="basket" type="button">
-          <Link href="/checkout">View Basket</Link>
-        </button>
-        <button className="checkout" type="button">
-          <Link href="/checkout">Checkout</Link>
-        </button>
+        <Link href="/basket">
+          <button onClick={handleButtonClick} className="basket" type="button">
+            View Basket
+          </button>
+        </Link>
+        <Link href="/checkout">
+          <button
+            onClick={handleButtonClick}
+            className="checkout"
+            type="button"
+          >
+            Checkout
+          </button>
+        </Link>
       </div>
     </StyledCart>
   );
