@@ -2,12 +2,16 @@ import { useContext } from 'react/cjs/react.development';
 import { CartCtx } from '../lib/CartCtxProvider';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { ProductsPageHeading } from '../components/styles/ProductsPageStyles';
 
 export default function checkout() {
-  const { cartItems } = useContext(CartCtx);
+  const { cartItems, removeCartItem } = useContext(CartCtx);
   if (!cartItems) return <p style={{ marginTop: '12rem' }}>no items</p>;
   return (
     <StyledTable>
+      <ProductsPageHeading>
+        <h4>Basket</h4>
+      </ProductsPageHeading>
       <table>
         <thead>
           <tr>
@@ -35,9 +39,9 @@ export default function checkout() {
                   </a>
                 </td>
                 <td>
-                  <h4 className="title">
+                  <h5 className="title">
                     <Link href={`/product/${product.id}`}>{product.name}</Link>
-                  </h4>
+                  </h5>
                 </td>
                 <td className="cart__table__body--size">{item.size}</td>
                 <td className="cart__table__body--quantity">
@@ -47,7 +51,14 @@ export default function checkout() {
                   <span className="money">{product.price}</span>
                 </td>
                 <td className="cart__table__body--remove">
-                  <button type="button">&#215;</button>
+                  <button
+                    data-size={item.size}
+                    data-size={item.id}
+                    type="button"
+                    onClick={removeCartItem}
+                  >
+                    &#215;
+                  </button>
                 </td>
               </tr>
             );
@@ -59,9 +70,10 @@ export default function checkout() {
 }
 const StyledTable = styled.div`
   padding: 12rem 6rem 6rem 6rem;
-
   font-weight: 300;
   table {
+    max-width: 1500px;
+    margin: auto;
     width: 100%;
     border-collapse: collapse;
     font-family: 'Poppins';
@@ -95,9 +107,16 @@ const StyledTable = styled.div`
   a {
     line-height: 0;
   }
-  h4 {
-    font-weight: 300;
+  h4{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 3rem;
   }
+  h5 {
+    font-weight: 300;
+    font-size: 1.8rem;
+  }
+
   button {
     width: 1rem;
     font-size: 2rem;

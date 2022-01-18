@@ -3,7 +3,7 @@ import { Swiper } from 'swiper/react';
 
 export const HomepageSlider = styled(Swiper)`
   line-height: 0;
-
+  width: 100vw;
   .swiper-slide {
     min-width: 100vw !important;
   }

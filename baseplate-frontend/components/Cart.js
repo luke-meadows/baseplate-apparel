@@ -7,7 +7,9 @@ export default function Cart() {
   const { cartItems, removeCartItem } = useContext(CartCtx);
   if (!cartItems)
     return <NoCartItems>You have no items in your cart</NoCartItems>;
+
   const [totalCost, updateTotalCost] = useState(0);
+
   useEffect(() => {
     const total = cartItems.reduce((total, item) => {
       const price = item.product.price * item.quantity;
@@ -16,6 +18,7 @@ export default function Cart() {
     }, 0);
     updateTotalCost(total);
   }, [cartItems]);
+
   return (
     <StyledCart>
       <h3>Cart</h3>
@@ -48,7 +51,7 @@ export default function Cart() {
       <p className="total-price">Total £{totalCost / 100}.00</p>
       <div className="checkout-and-view-basket">
         <button className="basket" type="button">
-          View Basket
+          <Link href="/checkout">View Basket</Link>
         </button>
         <button className="checkout" type="button">
           <Link href="/checkout">Checkout</Link>
@@ -65,20 +68,24 @@ const StyledCart = styled.div`
   top: 6rem;
   right: 0;
   box-shadow: -2px 2px 10px 1px rgba(11, 11, 11, 0.323);
-  padding: 3rem 3rem;
+  padding: 3rem 0;
   font-weight: 300;
+  max-height: calc(100vh - 6rem);
   h3 {
     font-weight: 300;
     font-size: 2rem;
     text-align: center;
   }
   ul {
+    max-height: calc(100vh - 30rem);
+    overflow-y: scroll;
     li {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin: 1.5rem 0;
-      min-width: 40rem;
+      padding: 0 3rem;
+      min-width: 45rem;
       img {
         width: 8rem;
         height: 8rem;
@@ -107,9 +114,12 @@ const StyledCart = styled.div`
   }
   .total-price {
     text-align: right;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem;
+    padding: 0 3rem;
   }
   .checkout-and-view-basket {
+    padding: 0 3rem;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
