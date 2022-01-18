@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
-import { NavCtx } from '../lib/NavCtxProvider';
 import Link from 'next/link';
-// import SearchBar from './SearchBar';
+import { useQuery, gql } from '@apollo/client';
+import { NavCtx } from '../lib/NavCtxProvider';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
@@ -11,7 +11,6 @@ import {
   Placeholder,
   StyledHeader,
 } from './styles/HeaderStyles';
-import { useQuery, gql } from '@apollo/client';
 import SearchBar from './SearchBar';
 import HeaderIcon from './HeaderIcon';
 import { CartCtx } from '../lib/CartCtxProvider';
@@ -70,39 +69,40 @@ export default function Header() {
   }, [data]);
 
   return (
-    <AnimateSharedLayout>
-      <StyledHeader>
+    <StyledHeader>
+      <AnimateSharedLayout>
         <Logo id="logo">
           <Link href="/">Baseplate</Link>
         </Logo>
         <Nav ref={navRef} />
         <SubNav ref={subNavRef} />
-        <IconContainer>
-          {searchActive && (
-            <SearchBar
-              searchActive={searchActive}
-              setSearchActive={setSearchActive}
-            />
-          )}
-          <HeaderIcon
-            iconName="search"
-            iconActive={searchActive}
-            setIconActive={setSearchActive}
-          />
-          {cartActive && (
-            <Cart cartActive={cartActive} setCartActive={setCartActive} />
-          )}
+      </AnimateSharedLayout>
 
-          <HeaderIcon
-            iconName="shopping_cart"
-            iconActive={cartActive}
-            setIconActive={setCartActive}
-            quantity={cartItems}
+      <IconContainer>
+        {searchActive && (
+          <SearchBar
+            searchActive={searchActive}
+            setSearchActive={setSearchActive}
           />
-        </IconContainer>
-        {/* {to make the nav centered using the flex} */}
-        <Placeholder />
-      </StyledHeader>
-    </AnimateSharedLayout>
+        )}
+        <HeaderIcon
+          iconName="search"
+          iconActive={searchActive}
+          setIconActive={setSearchActive}
+        />
+        {cartActive && (
+          <Cart cartActive={cartActive} setCartActive={setCartActive} />
+        )}
+
+        <HeaderIcon
+          iconName="shopping_cart"
+          iconActive={cartActive}
+          setIconActive={setCartActive}
+          quantity={cartItems}
+        />
+      </IconContainer>
+      {/* {to make the nav centered using the flex} */}
+      <Placeholder />
+    </StyledHeader>
   );
 }

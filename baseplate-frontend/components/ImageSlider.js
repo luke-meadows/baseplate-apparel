@@ -34,8 +34,11 @@ export const ImageSlider = () => {
       >
         <SwiperSlide>
           <div className="slide-container-for-header">
-            <div className="img-container" style={{ width: '100%' }}>
-              <Image onLoad={() => setImageLoaded(true)} src={home2} />
+            <div
+              className="img-container"
+              style={{ width: '100%', height: '100%' }}
+            >
+              <Image src={home2} />
             </div>
             {imageLoaded && (
               <figcaption className="slide-heading-and-button">
@@ -58,14 +61,16 @@ export const ImageSlider = () => {
             <div className="img-container" style={{ width: '100%' }}>
               <Image src={home1} />
             </div>
-            <figcaption className="slide-heading-and-button">
-              <Link href="/products/brands">
-                <h2>All Brands</h2>
-              </Link>
-              <Link href="/products/brands">
-                <button type="button">Shop Now</button>
-              </Link>
-            </figcaption>
+            {imageLoaded && (
+              <figcaption className="slide-heading-and-button">
+                <Link href="/products/brands">
+                  <h2>All Brands</h2>
+                </Link>
+                <Link href="/products/brands">
+                  <button type="button">Shop Now</button>
+                </Link>
+              </figcaption>
+            )}
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -73,30 +78,34 @@ export const ImageSlider = () => {
             <div className="img-container" style={{ width: '100%' }}>
               <Image src={home4} />
             </div>
-            <figcaption className="slide-heading-and-button">
-              <Link href="/products/shoes?brand=Adidas">
-                <h2>Adidas Shoes</h2>
-              </Link>
-              <Link href="/products/shoes?brand=Adidas">
-                <button type="button">Shop Now</button>
-              </Link>
-            </figcaption>
+            {imageLoaded && (
+              <figcaption className="slide-heading-and-button">
+                <Link href="/products/shoes?brand=Adidas">
+                  <h2>Adidas Shoes</h2>
+                </Link>
+                <Link href="/products/shoes?brand=Adidas">
+                  <button type="button">Shop Now</button>
+                </Link>
+              </figcaption>
+            )}
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
           <div className="slide-container-for-header">
             <div className="img-container" style={{ width: '100%' }}>
-              <Image src={home6} />
+              <Image onLoad={() => setImageLoaded(true)} src={home6} />
             </div>
-            <figcaption className="slide-heading-and-button">
-              <Link href="/products/brands?brand=Stüssy">
-                <h2>Stüssy</h2>
-              </Link>
-              <Link href="/products/brands?brand=Stüssy">
-                <button type="button">Shop Now</button>
-              </Link>
-            </figcaption>
+            {imageLoaded && (
+              <figcaption className="slide-heading-and-button">
+                <Link href="/products/brands?brand=Stüssy">
+                  <h2>Stüssy</h2>
+                </Link>
+                <Link href="/products/brands?brand=Stüssy">
+                  <button type="button">Shop Now</button>
+                </Link>
+              </figcaption>
+            )}
           </div>
         </SwiperSlide>
       </HomepageSlider>

@@ -11,7 +11,6 @@ export default function HeaderIcon({
   const { setStopScrolling, stopScrolling } = useContext(NavCtx);
   return (
     <Icon
-      layout
       onClick={(e) => {
         setIconActive(!iconActive);
         setStopScrolling(!stopScrolling);

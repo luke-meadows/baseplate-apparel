@@ -41,7 +41,7 @@ export const HomepageSlider = styled(Swiper)`
     transform: translate(-50%, -50%);
     text-align: center;
     color: gainsboro;
-
+    width: 100vw;
     h3 {
       text-transform: uppercase;
       font-size: 1.2rem;
