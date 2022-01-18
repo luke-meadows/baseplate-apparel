@@ -25,8 +25,13 @@ export default function Page({ children }) {
       <CartCtxProvider>
         <Header />
         <ScrollContainer>
-          {children}
-          <Footer />
+          <Inner>
+            {' '}
+            // need to disable pointer events while still being able to click
+            scroll container
+            {children}
+            <Footer />
+          </Inner>
         </ScrollContainer>
       </CartCtxProvider>
     </StyledPage>

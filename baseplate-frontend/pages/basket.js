@@ -43,14 +43,12 @@ export default function checkout() {
                     <Link href={`/product/${product.id}`}>{product.name}</Link>
                   </h5>
                 </td>
-                <td className="cart__table__body--size">{item.size}</td>
-                <td className="cart__table__body--quantity">
-                  x{item.quantity}
+                <td>{item.size}</td>
+                <td>x{item.quantity}</td>
+                <td>
+                  <span>{product.price}</span>
                 </td>
-                <td className="cart__table__body--price">
-                  <span className="money">{product.price}</span>
-                </td>
-                <td className="cart__table__body--remove">
+                <td>
                   <button
                     data-size={item.size}
                     data-size={item.id}
@@ -69,7 +67,7 @@ export default function checkout() {
   );
 }
 const StyledTable = styled.div`
-  padding: 12rem 6rem 6rem 6rem;
+  padding: 18rem 6rem 6rem 6rem;
   font-weight: 300;
   table {
     max-width: 1500px;
@@ -94,6 +92,11 @@ const StyledTable = styled.div`
   td {
     text-align: center;
     padding-top: 1.5rem ;
+  }
+  tbody:first-child{
+    td{
+      padding-top: 6rem;
+    }
   }
   img {
     width: 8rem;

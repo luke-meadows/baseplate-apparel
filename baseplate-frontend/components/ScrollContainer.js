@@ -22,6 +22,7 @@ export default function ScrollContainer({ children }) {
 
   return (
     <StyledScrollContainer
+      onClick={() => console.log('click')}
       ref={containerRef}
       className={stopScrolling ? 'page-disabled' : ''}
     >
