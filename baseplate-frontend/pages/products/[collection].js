@@ -41,9 +41,9 @@ export default function Products({ query }) {
         <ProductsPage>
           <ProductsPageHeading>
             <h4>
-              {query.id}
+              {query.collection}
               {Object.keys(query)
-                .filter((key) => key != 'id')
+                .filter((key) => key != 'collection')
                 .map((key) => (
                   <span key={key}>
                     {' '}

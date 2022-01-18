@@ -39,7 +39,7 @@ const PRODUCT_QUERY = gql`
 `;
 export default function Product({ query }) {
   const { data, error, loading } = useQuery(PRODUCT_QUERY, {
-    variables: { id: query.id },
+    variables: { id: query.productid },
   });
   const product = data?.Product;
   const [sizeDisabled, changeSizeDisabled] = useState(true);

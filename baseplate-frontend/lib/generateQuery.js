@@ -1,4 +1,3 @@
-import { perPage } from '../config';
 export default function generateQuery(variables, currentPage = 1) {
   const products = {
     brands: ``,
@@ -18,7 +17,7 @@ export default function generateQuery(variables, currentPage = 1) {
     : '';
 
   const querySlug = `${
-    products[variables.id]
+    products[variables.collection]
   } ${brandQuery} ${categoryQuery} ${colorQuery}`;
 
   return `query DISPLAY_PRODUCTS_QUERY($skip: Int = 0, $first: Int) {

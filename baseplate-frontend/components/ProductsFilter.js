@@ -36,14 +36,14 @@ export default function ProductsFilter({
   useEffect(() => {
     // changes page url on query param change, triggering refetch of products
     router.push({
-      pathname: `/${page}/[id]`,
+      pathname: `/${page}/[collection]`,
       query: queryParams,
     });
   }, [queryParams]);
 
   function clearFilter(e) {
     e.preventDefault();
-    updateQueryParams({ id: query.id });
+    updateQueryParams({ collection: query.collection });
   }
 
   // a list of possible filter options for current selection of products
