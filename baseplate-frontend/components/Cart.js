@@ -54,23 +54,29 @@ export default function Cart() {
           );
         })}
       </ul>
-      <p className="total-price">Total £{totalCost / 100}.00</p>
-      <div className="checkout-and-view-basket">
-        <Link href="/basket">
-          <button onClick={handleButtonClick} className="basket" type="button">
-            View Basket
-          </button>
-        </Link>
-        <Link href="/checkout">
-          <button
-            onClick={handleButtonClick}
-            className="checkout"
-            type="button"
-          >
-            Checkout
-          </button>
-        </Link>
-      </div>
+      <CartBottom>
+        <p className="total-price">Total £{totalCost / 100}.00</p>
+        <div className="checkout-and-view-basket">
+          <Link href="/basket">
+            <button
+              onClick={handleButtonClick}
+              className="basket"
+              type="button"
+            >
+              View Basket
+            </button>
+          </Link>
+          <Link href="/checkout">
+            <button
+              onClick={handleButtonClick}
+              className="checkout"
+              type="button"
+            >
+              Checkout
+            </button>
+          </Link>
+        </div>
+      </CartBottom>
     </StyledCart>
   );
 }
@@ -81,10 +87,10 @@ const StyledCart = styled.div`
   position: fixed;
   top: 6rem;
   right: 0;
-  box-shadow: -2px 2px 10px 1px rgba(11, 11, 11, 0.323);
-  padding: 3rem 0;
   font-weight: 300;
   max-height: calc(100vh - 6rem);
+  box-shadow: -2px 2px 10px 1px rgba(11, 11, 11, 0.323);
+  padding: 1.5rem 0 3rem 0;
   h3 {
     font-weight: 300;
     font-size: 2rem;
@@ -93,11 +99,12 @@ const StyledCart = styled.div`
   ul {
     max-height: calc(100vh - 30rem);
     overflow-y: scroll;
+
     li {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 1.5rem 0;
+      margin-bottom: 1.5rem;
       padding: 0 3rem;
       min-width: 45rem;
       img {
@@ -128,12 +135,9 @@ const StyledCart = styled.div`
   }
   .total-price {
     text-align: right;
-    margin: 1.5rem;
-    padding: 0 3rem;
+    margin: 1.5rem 0;
   }
   .checkout-and-view-basket {
-    padding: 0 3rem;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,15 +147,17 @@ const StyledCart = styled.div`
       background: var(--main-blue);
     }
     .basket {
-      margin-right: 1.5rem;
+      margin-right: 0.5rem;
     }
     .checkout {
-      margin-left: 1.5rem;
-    }
-    .checkout-and-view-basket:first-child {
-      color: red;
+      margin-left: 0.5rem;
     }
   }
+`;
+
+const CartBottom = styled.div`
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 0 3rem;
 `;
 
 const NoCartItems = styled.div`
