@@ -25,13 +25,8 @@ export default function Page({ children }) {
       <CartCtxProvider>
         <Header />
         <ScrollContainer>
-          <Inner>
-            {' '}
-            // need to disable pointer events while still being able to click
-            scroll container
-            {children}
-            <Footer />
-          </Inner>
+          {children}
+          <Footer />
         </ScrollContainer>
       </CartCtxProvider>
     </StyledPage>
@@ -48,4 +43,7 @@ const StyledPage = styled.div`
 
 export const PagePadding = styled.main`
   padding: 6rem 6rem;
+`;
+export const PageBreak = styled.div`
+  margin: 3rem 0;
 `;

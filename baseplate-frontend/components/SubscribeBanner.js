@@ -26,7 +26,7 @@ export default function SubscribeBanner() {
 
 const StyledBanner = styled.div`
   position: relative;
-  margin: 6rem 0 -1rem 0;
+  margin: 0 0 -1rem 0;
   width: 100vw;
 `;
 const FormContainer = styled.div`

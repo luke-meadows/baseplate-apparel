@@ -5,7 +5,7 @@ import HomepageProducts from '../components/HomepageProducts';
 import { ImageSlider } from '../components/ImageSlider';
 import Loading from '../components/Loading';
 import SubscribeBanner from '../components/SubscribeBanner';
-import { PagePadding } from '../components/Page';
+import { PageBreak, PagePadding } from '../components/Page';
 
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {
@@ -40,6 +40,7 @@ export default function Home() {
           products={data?.allProducts.filter((product) => product.latest)}
           heading="latest"
         />
+        <PageBreak />
         <HomepageProducts
           products={data?.allProducts.filter((product) => product.recommended)}
           heading="recommended"
