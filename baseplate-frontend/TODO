@@ -1,3 +1,7 @@
-- Style slider IMG button header and content
-- Put slider IMGS in backend
-- Pull them on page load 
+
+* Checkout page and payment
+* Scroll lock disabled and enabled where required
+* Email list schema
+* Padding across all pages 
+* Responsiveness
+* Standardise colors

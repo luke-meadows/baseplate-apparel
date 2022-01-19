@@ -97,13 +97,9 @@ export default function Product({ query }) {
             molestiae voluptatem. Voluptatum, vitae earum.
           </Description>
         </ProductPageLeft>
+
         <ProductPageRight>
-          <Image
-            placeholder="blur"
-            blurDataURL={data.Product.photo.image.publicUrlTransformed}
-            layout="fill"
-            src={data.Product.photo.image.publicUrlTransformed}
-          />
+          <img src={data.Product.photo.image.publicUrlTransformed} />
         </ProductPageRight>
       </ProductMain>
       <ProductLowerSection>

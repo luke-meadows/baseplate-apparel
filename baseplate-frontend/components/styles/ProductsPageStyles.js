@@ -1,30 +1,26 @@
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const ProductsPage = styled(motion.div)`
-  margin: auto;
-  max-width: var(--max-width);
-  .slash {
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: 200;
-    font-size: 3rem;
-  }
-`;
 export const ProductsPageHeading = styled.div`
+  line-height: initial;
+  margin: 6rem 0 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   h4 {
     font-size: 3rem;
     font-weight: 300;
     text-transform: capitalize;
     color: black;
   }
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  .slash {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 200;
+    font-size: 3rem;
+  }
 `;
 
 export const BottomPagination = styled.div`
-  margin: 3rem auto;
+  margin: 3rem auto -3rem auto;
   display: flex;
   justify-content: center;
 `;
@@ -34,7 +30,4 @@ export const ProductsCount = styled.p`
   font-size: 1.1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  margin-top: 7.5rem;
-  padding: 0 6rem;
-  text-align: right;
 `;

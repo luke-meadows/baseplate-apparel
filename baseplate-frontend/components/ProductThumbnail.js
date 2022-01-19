@@ -66,6 +66,9 @@ const Thumbnail = styled.div`
   .show-sizes {
     transform: translateY(-100%);
   }
+  h5 {
+    /* font-size: 1.1rem; */
+  }
   .description {
     font-weight: 400;
     line-height: initial;

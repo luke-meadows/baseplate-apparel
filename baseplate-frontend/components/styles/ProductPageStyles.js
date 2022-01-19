@@ -2,12 +2,9 @@ import styled from 'styled-components';
 
 export const ProductPage = styled.div``;
 export const ProductMain = styled.div`
-  margin: auto;
-  margin-top: 6rem;
-  padding: var(--medium-screen-padding);
+  margin: 6rem auto 0 auto;
+  padding: 6rem 25rem;
   display: flex;
-  max-width: 1050px;
-
   * {
     line-height: initial;
     margin: 0;
@@ -18,13 +15,12 @@ export const ProductPageHeading = styled.h4`
 `;
 
 export const ProductPageLeft = styled.div`
-  width: 40%;
+  /* width: 40rem; */
   margin-right: 4rem;
 `;
 export const ProductPageRight = styled.div`
-  width: 60%;
-  position: relative;
   img {
+    width: 40rem;
     object-fit: cover;
   }
 `;
