@@ -18,6 +18,7 @@ import {
 } from '../../components/styles/ProductPageStyles';
 import { useContext, useState } from 'react';
 import RecentlyViewed from '../../components/RecentlyViewed';
+import { NavCtx } from '../../lib/NavCtxProvider';
 
 const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
@@ -52,7 +53,13 @@ export default function Product({ query }) {
     changeSizeDisabled(false);
     e.target.blur();
   }
-  const { addToCart } = useContext(CartCtx);
+  const { addToCart, setCartActive } = useContext(CartCtx);
+  const { setStopScrolling } = useContext(NavCtx);
+  function handleSubmit(e) {
+    addToCart(e);
+    setCartActive(true);
+    setStopScrolling(true);
+  }
   if (loading) return <Loading />;
   const sizes = Object.keys(JSON.parse(data.Product.sizes));
   return (
@@ -64,7 +71,7 @@ export default function Product({ query }) {
           <ProductColor>{product.color}</ProductColor>
           <AddToCartForm
             data-product={JSON.stringify(product)}
-            onSubmit={addToCart}
+            onSubmit={handleSubmit}
           >
             <Dropdown
               name="size"
