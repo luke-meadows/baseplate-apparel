@@ -89,6 +89,7 @@ export default function Header() {
           iconName="search"
           iconActive={searchActive}
           setIconActive={setSearchActive}
+          otherIconActive={cartActive}
         />
         {cartActive && (
           <Cart cartActive={cartActive} setCartActive={setCartActive} />
@@ -97,6 +98,7 @@ export default function Header() {
         <HeaderIcon
           iconName="shopping_cart"
           iconActive={cartActive}
+          otherIconActive={searchActive}
           setIconActive={setCartActive}
           quantity={cartItems}
         />

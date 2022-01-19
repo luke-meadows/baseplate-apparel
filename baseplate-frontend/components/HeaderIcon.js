@@ -7,13 +7,16 @@ export default function HeaderIcon({
   iconActive,
   setIconActive,
   quantity,
+  otherIconActive,
 }) {
   const { setStopScrolling, stopScrolling } = useContext(NavCtx);
   return (
     <Icon
       onClick={(e) => {
         setIconActive(!iconActive);
-        setStopScrolling(!stopScrolling);
+        if (!otherIconActive) {
+          setStopScrolling(!stopScrolling);
+        }
       }}
     >
       <span className={iconActive ? 'blue material-icons' : 'material-icons'}>

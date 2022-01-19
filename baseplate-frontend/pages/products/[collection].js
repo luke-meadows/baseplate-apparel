@@ -5,7 +5,6 @@ import Pagination from '../../components/Pagination';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
 import { ProductsContainer } from '../../components/styles/HomepageStyles';
 import {
-  ProductsPage,
   ProductsPageHeading,
   BottomPagination,
   ProductsCount,
@@ -14,7 +13,7 @@ import generateQuery from '../../lib/generateQuery';
 import { perPage } from '../../config';
 import { DeliveryBanner } from '../../components/DeliveryBanner';
 import ProductsFilter from '../../components/ProductsFilter';
-import { PageBreak, PagePadding } from '../../components/Page';
+import { PagePadding } from '../../components/Page';
 export default function Products({ query }) {
   const [queryVariables, setQueryVariables] = useState({ ...query });
   const [currentPage, updateCurrentPage] = useState(1);
