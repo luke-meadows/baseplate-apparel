@@ -5,7 +5,7 @@ export const HomepageSlider = styled(Swiper)`
   line-height: 0;
   width: 100vw;
   .swiper-slide {
-    min-width: 100vw !important;
+    width: 100%;
   }
 
   .swiper-pagination-bullet {
@@ -16,7 +16,6 @@ export const HomepageSlider = styled(Swiper)`
     background-color: #02e1f5 !important;
     color: rgba(0, 0, 0, 0.666);
   }
-
   .swiper-button-prev,
   .swiper-button-next {
     color: var(--main-blue);
@@ -39,9 +38,9 @@ export const HomepageSlider = styled(Swiper)`
     text-shadow: 1px 1px #00000020;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: 100vw;
     text-align: center;
     color: gainsboro;
-    width: 100vw;
     h3 {
       text-transform: uppercase;
       font-size: 1.2rem;
