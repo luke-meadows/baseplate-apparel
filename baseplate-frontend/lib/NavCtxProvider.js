@@ -4,6 +4,7 @@ export const NavCtx = createContext();
 export const NavCtxProvider = ({ children }) => {
   const [showFilters, updateShowFilters] = useState(false);
   const [stopScrolling, setStopScrolling] = useState(false);
+  const [searchActive, setSearchActive] = useState(false);
   const [subNavOptions, setSubNavOptions] = useState({
     subNavRect: null,
     navRect: null,
@@ -18,8 +19,6 @@ export const NavCtxProvider = ({ children }) => {
     clothes: [],
     accessories: [],
   }); // data from the backend to populate subnav options
-
-  const [searchActive, setSearchActive] = useState(false);
 
   function handleNavItemHover(e) {
     const value = e.target.textContent;

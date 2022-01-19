@@ -2,10 +2,13 @@ import { useContext, useEffect, useRef } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import styled from 'styled-components';
 import { useState } from 'react/cjs/react.development';
+import { CartCtx } from '../lib/CartCtxProvider';
 
 export default function ScrollContainer({ children }) {
   const containerRef = useRef();
-  const { stopScrolling } = useContext(NavCtx);
+  const { stopScrolling, setSearchActive, setStopScrolling } =
+    useContext(NavCtx);
+  const { setCartActive } = useContext(CartCtx);
   const [scrollTo, updateScrollTo] = useState(0);
 
   useEffect(() => {
@@ -20,11 +23,17 @@ export default function ScrollContainer({ children }) {
     }
   }, [stopScrolling]);
 
+  function handleClick(e) {
+    if (!stopScrolling) return;
+    setSearchActive(false);
+    setStopScrolling(false);
+    setCartActive(false);
+  }
   return (
     <StyledScrollContainer
-      onClick={() => console.log('click')}
       ref={containerRef}
       className={stopScrolling ? 'page-disabled' : ''}
+      onClick={handleClick}
     >
       {children}
     </StyledScrollContainer>

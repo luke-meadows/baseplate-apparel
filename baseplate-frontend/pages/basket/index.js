@@ -26,10 +26,13 @@ export default function checkout() {
             </tr>
           </thead>
           <tbody>
-            {cartItems.map((item) => {
+            {cartItems.map((item, i) => {
               const { product } = item;
               return (
-                <tr key={product.id + item.size}>
+                <tr
+                  className={i === 0 ? 'padding' : ''}
+                  key={product.id + item.size}
+                >
                   <td className="image">
                     <a href={`/product/${product.id}`}>
                       <div>
@@ -80,10 +83,7 @@ const StyledTable = styled.div`
     border-collapse: collapse;
   }
   thead {
-    tr {
-      border-bottom: 1px solid #c8c8c8;
-    }
-  }
+    border-bottom: 1px solid #c8c8c8;
   }
   th {
     font-weight: 200;
@@ -94,10 +94,10 @@ const StyledTable = styled.div`
   }
   td {
     text-align: center;
-    padding-top: 1.5rem ;
+    padding-top: 1.5rem;
   }
-  tbody:first-child{
-    td{
+  .padding {
+    td {
       padding-top: 6rem;
     }
   }
@@ -107,13 +107,13 @@ const StyledTable = styled.div`
     object-fit: cover;
     margin: 0;
   }
-  tr{
-    border: 1rem;
+  tr {
+    /* border-top: 5rem solid rgba(0, 0, 0, 0); */
   }
   a {
     line-height: 0;
   }
-  h4{
+  h4 {
     text-align: center;
     width: 100%;
   }

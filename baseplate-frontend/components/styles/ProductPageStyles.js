@@ -5,6 +5,7 @@ export const ProductMain = styled.div`
   margin: 6rem auto 0 auto;
   padding: 6rem 25rem;
   display: flex;
+  max-width: 1500px;
   * {
     line-height: initial;
     margin: 0;

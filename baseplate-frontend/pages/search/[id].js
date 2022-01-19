@@ -68,30 +68,28 @@ export default function Search({ query }) {
         <ProductsCount>{data.productCount.count} results</ProductsCount>
       )}
       <PagePadding>
-        <ProductsPage>
-          <ProductsPageHeading>
-            {data.productCount.count > 0 ? (
-              <h4>Search Results: '{query.id}'</h4>
-            ) : (
-              <h4 style={{ marginTop: '9rem' }}>
-                No Results Found For: {query.id}
-              </h4>
-            )}
-          </ProductsPageHeading>
-          {data.productCount.count > 0 && <DeliveryBanner />}
-          <ProductsContainer>
-            {data?.searchResults.map((product) => (
-              <ProductThumbnail product={product} key={product.id} />
-            ))}
-          </ProductsContainer>
-          <BottomPagination>
-            <Pagination
-              totalPages={Math.ceil(data.productCount.count / perPage)}
-              currentPage={currentPage}
-              updateCurrentPage={updateCurrentPage}
-            />
-          </BottomPagination>
-        </ProductsPage>
+        <ProductsPageHeading>
+          {data.productCount.count > 0 ? (
+            <h4>Search Results: '{query.id}'</h4>
+          ) : (
+            <h4 style={{ marginTop: '9rem' }}>
+              No Results Found For: {query.id}
+            </h4>
+          )}
+        </ProductsPageHeading>
+        {data.productCount.count > 0 && <DeliveryBanner />}
+        <ProductsContainer>
+          {data?.searchResults.map((product) => (
+            <ProductThumbnail product={product} key={product.id} />
+          ))}
+        </ProductsContainer>
+        <BottomPagination>
+          <Pagination
+            totalPages={Math.ceil(data.productCount.count / perPage)}
+            currentPage={currentPage}
+            updateCurrentPage={updateCurrentPage}
+          />
+        </BottomPagination>
       </PagePadding>
     </>
   );

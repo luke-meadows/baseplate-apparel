@@ -60,6 +60,5 @@ export const GlobalStyles = createGlobalStyle`
 }
 .page-disabled {
     filter: blur(5px);
-    pointer-events: none;
   }
 `;

@@ -12,21 +12,27 @@ import { useEffect } from 'react/cjs/react.development';
 
 export default function Page({ children }) {
   // stops displaying products filters if page is changed from products.
-  const { updateShowFilters } = useContext(NavCtx);
+  const { updateShowFilters, stopScrolling, setStopScrolling } =
+    useContext(NavCtx);
   const router = useRouter();
   useEffect(() => {
     if (router.route !== '/products/[id]') {
       updateShowFilters(false);
     }
   }, [router.pathname]);
+
   return (
     <StyledPage>
       <GlobalStyles />
       <CartCtxProvider>
         <Header />
         <ScrollContainer>
-          {children}
-          <Footer />
+          <InnerScrollContainer
+            className={stopScrolling ? 'pointer-events-off' : ''}
+          >
+            {children}
+            <Footer />
+          </InnerScrollContainer>
         </ScrollContainer>
       </CartCtxProvider>
     </StyledPage>
@@ -46,4 +52,9 @@ export const PagePadding = styled.main`
 `;
 export const PageBreak = styled.div`
   margin: 3rem 0;
+`;
+const InnerScrollContainer = styled.div`
+  &.pointer-events-off {
+    pointer-events: none;
+  }
 `;

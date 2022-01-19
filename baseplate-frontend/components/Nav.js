@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { forwardRef, useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledNav } from './styles/HeaderStyles';
+import { CartCtx } from '../lib/CartCtxProvider';
 
 export const Nav = forwardRef((props, ref) => {
   const {
@@ -9,10 +10,19 @@ export const Nav = forwardRef((props, ref) => {
     handleNavItemHover,
     setSubNavOptions,
     subNavOptions,
+    stopScrolling,
+    setSearchActive,
+    setStopScrolling,
   } = useContext(NavCtx);
+
+  const { setCartActive } = useContext(CartCtx);
 
   function handleClick() {
     setSubNavOptions({ ...subNavOptions, subNavOpen: false });
+    if (!stopScrolling) return;
+    setSearchActive(false);
+    setStopScrolling(false);
+    setCartActive(false);
   }
 
   return (
