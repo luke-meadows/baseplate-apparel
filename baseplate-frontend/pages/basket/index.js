@@ -81,6 +81,7 @@ const StyledTable = styled.div`
     margin: auto;
     width: 100%;
     border-collapse: collapse;
+    font-size: 1.4rem;
   }
   thead {
     border-bottom: 1px solid #c8c8c8;
@@ -119,7 +120,7 @@ const StyledTable = styled.div`
   }
   h5 {
     font-weight: 300;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
   button {
     width: 1rem;

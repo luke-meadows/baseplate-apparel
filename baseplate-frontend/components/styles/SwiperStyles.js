@@ -24,6 +24,10 @@ export const HomepageSlider = styled(Swiper)`
     transform: translateY(-50%);
   }
   img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     filter: brightness(45%);
     @media screen and (max-width: 700px) {
       width: 100%;
@@ -38,7 +42,6 @@ export const HomepageSlider = styled(Swiper)`
     text-shadow: 1px 1px #00000020;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 100vw;
     text-align: center;
     color: gainsboro;
     h3 {

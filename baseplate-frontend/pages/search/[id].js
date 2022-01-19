@@ -64,9 +64,6 @@ export default function Search({ query }) {
   if (loading) return <Loading />;
   return (
     <>
-      {data.productCount.count > 0 && (
-        <ProductsCount>{data.productCount.count} results</ProductsCount>
-      )}
       <PagePadding>
         <ProductsPageHeading>
           {data.productCount.count > 0 ? (
@@ -75,6 +72,9 @@ export default function Search({ query }) {
             <h4 style={{ marginTop: '9rem' }}>
               No Results Found For: {query.id}
             </h4>
+          )}
+          {data.productCount.count > 0 && (
+            <ProductsCount>{data.productCount.count} results</ProductsCount>
           )}
         </ProductsPageHeading>
         {data.productCount.count > 0 && <DeliveryBanner />}

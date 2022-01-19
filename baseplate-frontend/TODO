@@ -1,7 +1,8 @@
 
 * Padding across all pages ✅
+* Scroll lock disabled and enabled where required ✅
+* Add total and checkout button to basket page
 * Checkout page and payment
-* Scroll lock disabled and enabled where required
 * Email list schema
 * Responsiveness
 * Standardise colors
