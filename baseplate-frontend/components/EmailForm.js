@@ -17,8 +17,8 @@ export default function EmailForm({ placeholder, withLabel }) {
 }
 
 const StyledForm = styled.form`
-    border: 1px solid black;
-    padding: 1px;
+  border: 1px solid black;
+  padding: 1px;
   div {
     display: flex;
     height: 4rem;
@@ -28,19 +28,15 @@ const StyledForm = styled.form`
     font-size: 1.5rem;
   }
   button {
-    height: 4rem;
-    outline-none;
-
+    height: 100%;
   }
 `;
 
 export const StyledInput = styled.input`
-  height: 4rem;
   line-height: 0;
   outline: none;
   border: none;
   width: 27.41rem;
   font-size: 1.5rem;
-  outline: none;
   padding: 0.5rem 1rem;
 `;
