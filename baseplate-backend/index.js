@@ -12,7 +12,7 @@ const ProductList = require('./lists/Product');
 const ProductImageList = require('./lists/ProductImage');
 const BrandList = require('./lists/Brand');
 const ProductTypeList = require('./lists/ProductType');
-const EmailList = require('./lists/ProductType');
+const EmailList = require('./lists/Email');
 
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),

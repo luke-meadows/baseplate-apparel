@@ -1,8 +1,8 @@
-const { Email } = require('@keystonejs/fields');
+const { Text } = require('@keystonejs/fields');
 
 const Email = {
   fields: {
-    brand: { type: Email, isUnique: true },
+    email: { type: Text, isUnique: true },
   },
   labelField: 'Email',
 };
