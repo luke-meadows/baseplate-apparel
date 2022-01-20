@@ -12,6 +12,7 @@ const ProductList = require('./lists/Product');
 const ProductImageList = require('./lists/ProductImage');
 const BrandList = require('./lists/Brand');
 const ProductTypeList = require('./lists/ProductType');
+const EmailList = require('./lists/ProductType');
 
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
@@ -22,6 +23,7 @@ keystone.createList('Product', ProductList);
 keystone.createList('ProductImage', ProductImageList);
 keystone.createList('Brand', BrandList);
 keystone.createList('ProductType', ProductTypeList);
+keystone.createList('Email', EmailList);
 
 module.exports = {
   keystone,

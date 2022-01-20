@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import EmailForm from './EmailForm';
 import { StyledInput } from './SubscribeBanner';
 export default function Footer() {
   return (
@@ -9,14 +10,7 @@ export default function Footer() {
           <i className="footer-icon icon-facebook"></i>
           <i className="footer-icon icon-instagram"></i>
         </IconContainer>
-        <form>
-          <FooterInput
-            name="email"
-            placeholder="Sign Up to our newsletter"
-            type="email"
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <EmailForm placeholder="Sign Up to our newsletter" />
       </FooterTop>
       <FooterBottom>
         <ul>
@@ -59,20 +53,6 @@ const FooterTop = styled.div`
   margin: 0 auto 4rem auto;
   display: flex;
   align-items: center;
-  button {
-    height: 100%;
-    margin: -1px 0;
-  }
-  form {
-    border: 1px solid #515151;
-    display: flex;
-    align-items: center;
-    height: 4.2rem;
-    /* padding: 1px 0; */
-  }
-`;
-const FooterInput = styled(StyledInput)`
-  height: 4rem;
 `;
 const FooterBottom = styled.div`
   max-width: 1200px;
