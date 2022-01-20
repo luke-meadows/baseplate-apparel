@@ -1,5 +1,6 @@
-import { useContext } from 'react/cjs/react.development';
+import { useContext } from 'react';
 import { CartCtx } from '../../lib/CartCtxProvider';
+import useCartTotal from '../../lib/useCartTotal';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
@@ -8,6 +9,7 @@ import { PagePadding } from '../../components/Page';
 export default function checkout() {
   const { cartItems, removeCartItem } = useContext(CartCtx);
   if (!cartItems) return <p style={{ marginTop: '12rem' }}>no items</p>;
+  const totalCost = useCartTotal(cartItems);
   return (
     <PagePadding>
       <StyledTable>
@@ -61,6 +63,7 @@ export default function checkout() {
                       data-size={item.id}
                       type="button"
                       onClick={removeCartItem}
+                      className="remove-btn"
                     >
                       &#215;
                     </button>
@@ -70,6 +73,12 @@ export default function checkout() {
             })}
           </tbody>
         </table>
+        <TableFooter>
+          <p>Total: £{totalCost / 100}.00</p>
+          <button type="button" className="checkout-btn">
+            <Link href="/checkout">Checkout</Link>
+          </button>
+        </TableFooter>
       </StyledTable>
     </PagePadding>
   );
@@ -122,7 +131,7 @@ const StyledTable = styled.div`
     font-weight: 300;
     font-size: 1.4rem;
   }
-  button {
+  .remove-btn {
     width: 1rem;
     font-size: 2rem;
     background: none;
@@ -132,8 +141,29 @@ const StyledTable = styled.div`
       background: none;
     }
   }
+  .checkout-btn {
+    height: 4rem;
+    width: 25rem;
+    background: var(--main-blue);
+  }
   .image,
   .title {
     text-align: left;
+  }
+`;
+
+const TableFooter = styled.div`
+  line-height: initial;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 6rem;
+  padding-top: 1rem;
+  border-top: 1px solid #c8c8c8;
+
+  p {
+    font-size: 2rem;
+    margin-right: 3rem;
   }
 `;

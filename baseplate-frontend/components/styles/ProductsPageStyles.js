@@ -6,6 +6,7 @@ export const ProductsPageHeading = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  line-height: initial;
   h4 {
     font-size: 3rem;
     font-weight: 300;

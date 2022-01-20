@@ -3,6 +3,7 @@ import { CartCtx } from '../lib/CartCtxProvider';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { NavCtx } from '../lib/NavCtxProvider';
+import useCartTotal from '../lib/useCartTotal';
 
 export default function Cart() {
   const { cartItems, removeCartItem, setCartActive } = useContext(CartCtx);
@@ -10,16 +11,7 @@ export default function Cart() {
   if (!cartItems)
     return <NoCartItems>You have no items in your cart</NoCartItems>;
 
-  const [totalCost, updateTotalCost] = useState(0);
-
-  useEffect(() => {
-    const total = cartItems.reduce((total, item) => {
-      const price = item.product.price * item.quantity;
-      total += price;
-      return total;
-    }, 0);
-    updateTotalCost(total);
-  }, [cartItems]);
+  const totalCost = useCartTotal(cartItems);
 
   function handleButtonClick() {
     setCartActive(false);

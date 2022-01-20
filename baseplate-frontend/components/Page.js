@@ -57,4 +57,8 @@ const InnerScrollContainer = styled.div`
   &.pointer-events-off {
     pointer-events: none;
   }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 `;

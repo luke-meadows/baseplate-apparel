@@ -40,9 +40,4 @@ export default function ScrollContainer({ children }) {
   );
 }
 
-const StyledScrollContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
-`;
+const StyledScrollContainer = styled.div``;
