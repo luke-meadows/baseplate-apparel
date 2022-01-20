@@ -1,8 +1,34 @@
 import styled from 'styled-components';
+import { useMutation } from '@apollo/client';
+import gql from 'graphql-tag';
+import { useState } from 'react';
 
+const CREATE_EMAIL_MUTATION = gql`
+  mutation CREATE_EMAIL_MUTATION($email: String!) {
+    createEmail(data: { email: $email }) {
+      email
+    }
+  }
+`;
 export default function EmailForm({ placeholder, withLabel }) {
+  const [email, setEmail] = useState({ email: 'hello' });
+  const [createEmail, { data, error, loading }] = useMutation(
+    CREATE_EMAIL_MUTATION,
+    {
+      variables: email,
+    }
+  );
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    // e.target.disable
+    await e.target.email.value;
+    setEmail({ email: e.target.email.value });
+    await createEmail();
+    e.target.reset();
+  }
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
       {withLabel && (
         <label htmlFor="email">
           Sign Up to our newsletter for 15% off your first order
