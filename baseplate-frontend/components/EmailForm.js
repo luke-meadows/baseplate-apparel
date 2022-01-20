@@ -11,7 +11,7 @@ const CREATE_EMAIL_MUTATION = gql`
   }
 `;
 export default function EmailForm({ placeholder, withLabel }) {
-  const [email, setEmail] = useState({ email: 'hello' });
+  const [email, setEmail] = useState({ email: '' });
   const [createEmail, { data, error, loading }] = useMutation(
     CREATE_EMAIL_MUTATION,
     {
@@ -21,9 +21,7 @@ export default function EmailForm({ placeholder, withLabel }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // e.target.disable
-    await e.target.email.value;
-    setEmail({ email: e.target.email.value });
+    setEmail({ email: await e.target.email.value });
     await createEmail();
     e.target.reset();
   }
@@ -35,7 +33,12 @@ export default function EmailForm({ placeholder, withLabel }) {
         </label>
       )}
       <div>
-        <StyledInput name="email" placeholder={placeholder} type="email" />
+        <StyledInput
+          onChange={(e) => setEmail({ email: e.target.value })}
+          name="email"
+          placeholder={placeholder}
+          type="email"
+        />
         <button type="submit">Submit</button>
       </div>
     </StyledForm>
