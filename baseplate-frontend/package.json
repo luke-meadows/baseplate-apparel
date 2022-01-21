@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.5",
+    "@stripe/react-stripe-js": "^1.7.0",
+    "@stripe/stripe-js": "^1.22.0",
     "disable-scroll": "^0.6.0",
     "framer-motion": "^5.3.3",
     "graphql": "^16.0.1",

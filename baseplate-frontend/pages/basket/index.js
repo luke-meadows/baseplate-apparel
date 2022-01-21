@@ -159,7 +159,7 @@ const TableFooter = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-top: 6rem;
-  padding-top: 1rem;
+  padding-top: 6rem;
   border-top: 1px solid #c8c8c8;
 
   p {
