@@ -2,10 +2,26 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { PagePadding } from '../components/Page';
 
+const CollapsableDiv = ({ children }) => {
+  const [toggle, setToggle] = useState(false);
+  console.log(children);
+  return (
+    <>
+      {children[0]}
+      <div onClick={() => setToggle(!toggle)}>header</div>
+      {toggle && <div>collapsable</div>}
+    </>
+  );
+};
+
 export default function checkout() {
   const [address, setAddress] = useState(null);
   return (
     <PagePadding>
+      <CollapsableDiv>
+        <h1>Email</h1>
+        <input type="text" name="" id="" />
+      </CollapsableDiv>
       <CheckoutContainer>
         <form action="">
           <div className="email">
