@@ -3,6 +3,7 @@ import { forwardRef, useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { StyledNav } from './styles/HeaderStyles';
 import { CartCtx } from '../lib/CartCtxProvider';
+import { useUser } from './User';
 
 export const Nav = forwardRef((props, ref) => {
   const {
@@ -24,7 +25,8 @@ export const Nav = forwardRef((props, ref) => {
     setStopScrolling(false);
     setCartActive(false);
   }
-
+  const user = useUser();
+  console.log(user);
   return (
     <StyledNav ref={ref} onMouseLeave={handleMouseLeave}>
       <Link href="/products/brands">
