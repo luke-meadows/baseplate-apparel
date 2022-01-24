@@ -19,6 +19,14 @@ const UserList = require('./lists/User');
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   cookieSecret: process.env.COOKIE_SECRET,
+  config: {
+    server: {
+      cors: {
+        origin: process.env.FRONTEND_URL,
+        credentials: true,
+      },
+    },
+  },
 });
 
 keystone.createList('Product', ProductList);
@@ -34,6 +42,11 @@ const authStrategy = keystone.createAuthStrategy({
   config: {
     identityField: 'email',
     secretField: 'password',
+  },
+});
+
+const prepare = keystone.prepare({
+  options: {
     cors: {
       origin: process.env.FRONTEND_URL,
       credentials: true,
@@ -49,6 +62,7 @@ module.exports = {
       name: PROJECT_NAME,
       enableDefaultRoute: true,
       authStrategy,
+      prepare,
     }),
   ],
 };

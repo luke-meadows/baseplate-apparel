@@ -4,7 +4,6 @@ const CURRENT_USER_QUERY = gql`
   query CURRENT_USER_QUERY {
     authenticatedUser {
       id
-      email
       name
     }
   }
@@ -12,5 +11,6 @@ const CURRENT_USER_QUERY = gql`
 
 export function useUser() {
   const { data } = useQuery(CURRENT_USER_QUERY);
-  return data?.authenticatedUser;
+  console.log({ data });
+  return data;
 }

@@ -25,8 +25,7 @@ export const Nav = forwardRef((props, ref) => {
     setStopScrolling(false);
     setCartActive(false);
   }
-  const user = useUser();
-  console.log(user);
+
   return (
     <StyledNav ref={ref} onMouseLeave={handleMouseLeave}>
       <Link href="/products/brands">

@@ -6,6 +6,7 @@ import { ImageSlider } from '../components/ImageSlider';
 import Loading from '../components/Loading';
 import SubscribeBanner from '../components/SubscribeBanner';
 import { PageBreak, PagePadding } from '../components/Page';
+import { useUser } from '../components/User';
 
 const INITIAL_STATE_QUERY = gql`
   query INITIAL_STATE_QUERY {
@@ -25,9 +26,10 @@ const INITIAL_STATE_QUERY = gql`
     }
   }
 `;
-
 export default function Home() {
   const { data, error, loading } = useQuery(INITIAL_STATE_QUERY);
+  const user = useUser();
+  console.log(user);
   if (loading) return <Loading />;
   return (
     <>
