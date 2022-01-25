@@ -32,6 +32,7 @@ export const Product = list({
       ref: 'Brand',
       ui: {
         displayMode: 'select',
+        labelField: 'brand',
       },
     }),
 
@@ -51,6 +52,7 @@ export const Product = list({
       ref: 'ProductType',
       ui: {
         displayMode: 'select',
+        labelField: 'productType',
       },
     }),
 

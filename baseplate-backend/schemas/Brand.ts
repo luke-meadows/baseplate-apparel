@@ -4,4 +4,7 @@ export const Brand = list({
   fields: {
     brand: text({ isRequired: true, isUnique: true }),
   },
+  ui: {
+    labelField: 'brand',
+  },
 });

@@ -70,20 +70,20 @@ const Thumbnail = styled.div`
     /* font-size: 1.1rem; */
   }
   .description {
-    font-weight: 400;
+    font-weight: 500;
     line-height: initial;
     margin-top: 5px;
     &:hover {
       color: #02e1f5;
     }
     span {
-      font-weight: 300;
+      font-weight: 500;
       color: rgba(0, 0, 0, 0.7);
       /* color: #515151; */
     }
   }
   .price {
-    font-weight: 300;
+    font-weight: 500;
     color: rgba(0, 0, 0, 0.7);
   }
 `;

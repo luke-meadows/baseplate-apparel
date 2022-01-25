@@ -4,4 +4,7 @@ export const ProductType = list({
   fields: {
     productType: text({ isRequired: true, isUnique: true }),
   },
+  ui: {
+    labelField: 'productType',
+  },
 });
