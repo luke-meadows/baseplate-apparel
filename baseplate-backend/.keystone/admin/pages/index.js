@@ -24,6 +24,18 @@ export default function Home() {
           User: _allUsersMeta {
             count
           }
+          Product: _allProductsMeta {
+            count
+          }
+          ProductImage: _allProductImagesMeta {
+            count
+          }
+          Brand: _allBrandsMeta {
+            count
+          }
+          ProductType: _allProductTypesMeta {
+            count
+          }
         }
       `}
     />

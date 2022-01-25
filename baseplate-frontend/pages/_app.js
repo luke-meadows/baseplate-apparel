@@ -7,7 +7,8 @@ import 'swiper/css/bundle';
 import '../components/styles/nprogress.css';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/admin/api',
+  uri: 'http://localhost:5000/api/graphql',
+  credentials: 'include',
   cache: new InMemoryCache({
     typePolicies: {
       Query: {

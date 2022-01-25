@@ -11,8 +11,10 @@ import { createAuth } from '@keystone-next/auth';
 
 // Lists
 import { User } from './schemas/User';
-// import { Product } from './schemas/Product';
-// import { ProductImage } from './schemas/ProductImage';
+import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
+import { Brand } from './schemas/Brand';
+import { ProductType } from './schemas/ProductType';
 // Session methods
 import {
   withItemData,
@@ -46,8 +48,10 @@ export default withAuth(
     lists: createSchema({
       // Schema items go in here.
       User,
-      //   Product,
-      //   ProductImage,
+      Product,
+      ProductImage,
+      Brand,
+      ProductType,
     }),
 
     ui: {
