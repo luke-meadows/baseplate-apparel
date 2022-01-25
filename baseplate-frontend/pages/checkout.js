@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { PagePadding } from '../components/Page';
+import { ProductsPageHeading } from '../components/styles/ProductsPageStyles';
 
 const CollapsableDiv = ({ children, title }) => {
   const [toggle, setToggle] = useState(false);
@@ -24,6 +25,9 @@ export default function checkout() {
   const [address, setAddress] = useState(null);
   return (
     <PagePadding>
+      <ProductsPageHeading style={{ justifyContent: 'center' }}>
+        <h4>Checkout</h4>
+      </ProductsPageHeading>
       <CheckoutContainer>
         <form action="">
           <div className="email">
@@ -75,7 +79,7 @@ export default function checkout() {
 }
 
 const CheckoutContainer = styled.div`
-  max-width: 30rem;
+  min-width: 30rem;
   border: 1px solid #c8c8c8;
   border-radius: 0.5rem;
   padding: 1rem;

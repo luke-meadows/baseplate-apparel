@@ -30,6 +30,7 @@ export default function Products({ query }) {
       $brand: String
       $type: String
       $color: String
+      $collection: String
       $first: Int
       $skip: Int = 0
     ) {
@@ -40,6 +41,7 @@ export default function Products({ query }) {
           brand: { brand_i: $brand }
           productType: { productType: $type }
           color: $color
+          productCategory: $collection
         }
       ) {
         id
@@ -59,6 +61,7 @@ export default function Products({ query }) {
           brand: { brand_i: $brand }
           productType: { productType: $type }
           color: $color
+          productCategory: $collection
         }
       ) {
         count
@@ -68,6 +71,7 @@ export default function Products({ query }) {
           brand: { brand_i: $brand }
           productType: { productType: $type }
           color: $color
+          productCategory: $collection
         }
       ) {
         color

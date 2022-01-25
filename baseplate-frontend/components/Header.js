@@ -90,6 +90,7 @@ export default function Header() {
           <Cart cartActive={cartActive} setCartActive={setCartActive} />
         )}
 
+        <HeaderIcon iconName="person" />
         <HeaderIcon
           iconName="shopping_cart"
           iconActive={cartActive}
