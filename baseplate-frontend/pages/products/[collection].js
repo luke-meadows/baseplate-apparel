@@ -16,15 +16,6 @@ import ProductsFilter from '../../components/ProductsFilter';
 import { PagePadding } from '../../components/Page';
 export default function Products({ query }) {
   const [currentPage, updateCurrentPage] = useState(1);
-  // (
-  //   first: $first
-  //   skip: $skip
-  //   where: {
-  //     brand: { brand_i: $brand }
-  //     productType: { productType: $type }
-  //     color: $color
-  //   }
-  // )
   const PRODUCTS_PAGE_QUERY = gql`
     query DISPLAY_PRODUCTS_QUERY(
       $brand: String
@@ -84,16 +75,18 @@ export default function Products({ query }) {
       }
     }
   `;
-
+  const queryVariables = { ...query };
+  if (query.collection === 'brands') {
+    delete queryVariables.collection;
+  }
   const { data, error, loading } = useQuery(PRODUCTS_PAGE_QUERY, {
     variables: {
-      ...query,
+      ...queryVariables,
       skip: currentPage * perPage - perPage,
       first: perPage,
     },
   });
   if (loading) return <Loading />;
-  console.log(data);
   return (
     <PagePadding>
       <ProductsPageHeading>
