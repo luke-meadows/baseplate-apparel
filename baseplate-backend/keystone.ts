@@ -7,10 +7,10 @@ const sessionConfig = {
 };
 // Methods from keystone
 import { config, createSchema } from '@keystone-next/keystone/schema';
-import { createAuth } from '@keystone-next/auth';
+// import { createAuth } from '@keystone-next/auth';
 
 // Lists
-// import { User } from './schemas/User';
+import { User } from './schemas/User';
 // import { Product } from './schemas/Product';
 // import { ProductImage } from './schemas/ProductImage';
 // Session methods
@@ -19,18 +19,19 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session';
 
-const { withAuth } = createAuth({
-  listKey: 'User', // listKey is the field we want to use for our auth
-  identityField: 'email',
-  secretField: 'password',
-  initFirstItem: {
-    fields: ['name', 'email', 'password'],
-    // TODO add in initial roles here
-  },
-});
+// const { withAuth } = createAuth({
+//   listKey: 'User', // listKey is the field we want to use for our auth
+//   identityField: 'email',
+//   secretField: 'password',
+//   initFirstItem: {
+//     fields: ['name', 'email', 'password'],
+//     // TODO add in initial roles here
+//   },
+// });
 
-export default withAuth(
-  config({
+// export default withAuth(
+export default config(
+  {
     server: {
       cors: {
         origin: process.env.FRONTEND_URL,
@@ -45,7 +46,7 @@ export default withAuth(
 
     lists: createSchema({
       // Schema items go in here.
-      //   User,
+      User,
       //   Product,
       //   ProductImage,
     }),
@@ -63,5 +64,6 @@ export default withAuth(
       // GraphQL Query
       User: 'id name email',
     }),
-  })
+  }
+  // )
 );

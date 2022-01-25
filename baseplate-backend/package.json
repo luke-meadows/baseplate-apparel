@@ -5,8 +5,7 @@
   "author": "Luke Meadows",
   "license": "MIT",
   "scripts": {
-    "dev": "keystone-next",
-    "seed-data": "keystone-next --seed-data"
+    "dev": "PORT=5000 keystone-next "
   },
   "babel": {
     "presets": [
