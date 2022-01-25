@@ -49,6 +49,8 @@ const StyledPage = styled.div`
 
 export const PagePadding = styled.main`
   padding: 6rem 6rem;
+  max-width: 1700px;
+  margin: auto;
 `;
 export const PageBreak = styled.div`
   margin: 3rem 0;
