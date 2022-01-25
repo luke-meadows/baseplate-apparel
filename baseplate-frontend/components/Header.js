@@ -24,17 +24,12 @@ export default function Header() {
 
   const NAV_DATA_QUERY = gql`
     query NAV_DATA_QUERY {
-      allShoeBrands: allProducts(where: { productCategory: shoes }) {
+      allShoeBrands: allProducts(where: { productCategory: "shoes" }) {
         brand {
           brand
         }
       }
-      allClothingTypes: allProducts(where: { productCategory: clothes }) {
-        productType {
-          productType
-        }
-      }
-      allAccessoryTypes: allProducts(where: { productCategory: accessory }) {
+      allClothingTypes: allProducts(where: { productCategory: "clothes" }) {
         productType {
           productType
         }

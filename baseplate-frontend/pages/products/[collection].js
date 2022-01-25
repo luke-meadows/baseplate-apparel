@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Loading from '../../components/Loading';
 import Pagination from '../../components/Pagination';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
-import { ProductsContainer } from '../../components/styles/HomepageStyles';
+import { ProductsContainer } from '../../components/HomepageProducts';
 import {
   ProductsPageHeading,
   BottomPagination,
@@ -15,24 +15,81 @@ import { DeliveryBanner } from '../../components/DeliveryBanner';
 import ProductsFilter from '../../components/ProductsFilter';
 import { PagePadding } from '../../components/Page';
 export default function Products({ query }) {
-  const [queryVariables, setQueryVariables] = useState({ ...query });
   const [currentPage, updateCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setQueryVariables({ ...query });
-  }, [query]);
-
+  // (
+  //   first: $first
+  //   skip: $skip
+  //   where: {
+  //     brand: { brand_i: $brand }
+  //     productType: { productType: $type }
+  //     color: $color
+  //   }
+  // )
   const PRODUCTS_PAGE_QUERY = gql`
-    ${generateQuery(queryVariables, currentPage)}
+    query DISPLAY_PRODUCTS_QUERY(
+      $brand: String
+      $type: String
+      $color: String
+      $first: Int
+      $skip: Int = 0
+    ) {
+      allProducts(
+        first: $first
+        skip: $skip
+        where: {
+          brand: { brand_i: $brand }
+          productType: { productType: $type }
+          color: $color
+        }
+      ) {
+        id
+        name
+        description
+        color
+        price
+        sizes
+        photo {
+          image {
+            publicUrlTransformed
+          }
+        }
+      }
+      productCount: _allProductsMeta(
+        where: {
+          brand: { brand_i: $brand }
+          productType: { productType: $type }
+          color: $color
+        }
+      ) {
+        count
+      }
+      filterQuery: allProducts(
+        where: {
+          brand: { brand_i: $brand }
+          productType: { productType: $type }
+          color: $color
+        }
+      ) {
+        color
+        brand {
+          brand
+        }
+        productType {
+          productType
+        }
+      }
+    }
   `;
+
   const { data, error, loading } = useQuery(PRODUCTS_PAGE_QUERY, {
     variables: {
+      ...query,
       skip: currentPage * perPage - perPage,
       first: perPage,
     },
   });
   if (loading) return <Loading />;
-
+  console.log(data);
   return (
     <PagePadding>
       <ProductsPageHeading>
@@ -47,7 +104,7 @@ export default function Products({ query }) {
               </span>
             ))}
         </h4>
-        <ProductsCount>{data.productCount.count} results</ProductsCount>
+        <ProductsCount>{data?.productCount?.count} results</ProductsCount>
       </ProductsPageHeading>
       <ProductsFilter
         query={query}
