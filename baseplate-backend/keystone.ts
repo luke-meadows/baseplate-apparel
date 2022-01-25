@@ -7,7 +7,7 @@ const sessionConfig = {
 };
 // Methods from keystone
 import { config, createSchema } from '@keystone-next/keystone/schema';
-// import { createAuth } from '@keystone-next/auth';
+import { createAuth } from '@keystone-next/auth';
 
 // Lists
 import { User } from './schemas/User';
@@ -19,19 +19,18 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session';
 
-// const { withAuth } = createAuth({
-//   listKey: 'User', // listKey is the field we want to use for our auth
-//   identityField: 'email',
-//   secretField: 'password',
-//   initFirstItem: {
-//     fields: ['name', 'email', 'password'],
-//     // TODO add in initial roles here
-//   },
-// });
+const { withAuth } = createAuth({
+  listKey: 'User', // listKey is the field we want to use for our auth
+  identityField: 'email',
+  secretField: 'password',
+  initFirstItem: {
+    fields: ['name', 'email', 'password'],
+    // TODO add in initial roles here
+  },
+});
 
-// export default withAuth(
-export default config(
-  {
+export default withAuth(
+  config({
     server: {
       cors: {
         origin: process.env.FRONTEND_URL,
@@ -53,17 +52,15 @@ export default config(
 
     ui: {
       // show the ui for only people who pass this test - check if they have a session and are logged in
-      isAccessAllowed: () => true,
-      //   ({ session }) => {
-      //     console.log(session);
-      //     return !!session?.data;
-      //   },
+      isAccessAllowed: ({ session }) => {
+        console.log(session);
+        return !!session?.data;
+      },
     },
     //  add session values
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL Query
       User: 'id name email',
     }),
-  }
-  // )
+  })
 );
