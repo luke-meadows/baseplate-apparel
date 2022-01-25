@@ -1,9 +1,9 @@
-const formatter = new Intl.NumberFormat('en-US', {
+const formatter = new Intl.NumberFormat('en-UK', {
   style: 'currency',
-  currency: 'USD',
+  currency: 'GBP',
 });
 
-export default function formatMoney(cents: number) {
-  const dollars = cents / 100;
-  return formatter.format(dollars);
+export default function formatMoney(pennys: number) {
+  const pounds = pennys / 100;
+  return formatter.format(pounds);
 }
