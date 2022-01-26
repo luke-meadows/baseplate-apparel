@@ -4,6 +4,7 @@ export const NavCtx = createContext();
 export const NavCtxProvider = ({ children }) => {
   const [showFilters, updateShowFilters] = useState(false);
   const [stopScrolling, setStopScrolling] = useState(false);
+  const [accountActive, setAccountActive] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [subNavOptions, setSubNavOptions] = useState({
     subNavRect: null,
@@ -75,6 +76,8 @@ export const NavCtxProvider = ({ children }) => {
         setStopScrolling,
         showFilters,
         updateShowFilters,
+        accountActive,
+        setAccountActive,
       }}
     >
       {children}

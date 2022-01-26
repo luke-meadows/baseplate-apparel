@@ -9,10 +9,11 @@ import ScrollContainer from './ScrollContainer';
 import { useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { useEffect } from 'react/cjs/react.development';
+import { AccountSection } from './AccountSection';
 
 export default function Page({ children }) {
   // stops displaying products filters if page is changed from products.
-  const { updateShowFilters, stopScrolling, setStopScrolling } =
+  const { updateShowFilters, stopScrolling, accountActive } =
     useContext(NavCtx);
   const router = useRouter();
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Page({ children }) {
       <GlobalStyles />
       <CartCtxProvider>
         <Header />
+        {accountActive && <AccountSection />}
         <ScrollContainer>
           <InnerScrollContainer
             className={stopScrolling ? 'pointer-events-off' : ''}

@@ -18,8 +18,15 @@ import Cart from './Cart';
 import populateSubnavOptions from '../lib/populateSubnavOptions';
 
 export default function Header() {
-  const { subNavOptions, setSubNavOptions, searchActive, setSearchActive } =
-    useContext(NavCtx);
+  const {
+    subNavOptions,
+    setSubNavOptions,
+    searchActive,
+    setSearchActive,
+    setNavCategories,
+    accountActive,
+    setAccountActive,
+  } = useContext(NavCtx);
   const { cartActive, setCartActive, cartItems } = useContext(CartCtx);
 
   const NAV_DATA_QUERY = gql`
@@ -57,7 +64,6 @@ export default function Header() {
   }, []);
 
   // fetches nav options from backend
-  const { setNavCategories } = useContext(NavCtx);
   const { data } = useQuery(NAV_DATA_QUERY);
   useEffect(() => {
     populateSubnavOptions(data, setNavCategories);
@@ -90,7 +96,11 @@ export default function Header() {
           <Cart cartActive={cartActive} setCartActive={setCartActive} />
         )}
 
-        <HeaderIcon iconName="person" />
+        <HeaderIcon
+          iconName="person"
+          iconActive={accountActive}
+          setIconActive={setAccountActive}
+        />
         <HeaderIcon
           iconName="shopping_cart"
           iconActive={cartActive}

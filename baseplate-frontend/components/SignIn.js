@@ -2,9 +2,13 @@ import useForm from '../lib/useForm';
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
+import { ProductsPageHeading } from './styles/ProductsPageStyles';
+import { Form } from './styles/Form';
+import { StyledInput } from './EmailForm';
+import AccountContainer from './AccountContainer';
 
-export default function SignIn() {
-  const { inputs, handleChange } = useForm({
+export default function SignIn({ type }) {
+  const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
   });
@@ -32,28 +36,31 @@ export default function SignIn() {
   // handle submit of signin form
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await signIn();
-    console.log(res);
+    await signIn();
+    resetForm();
   }
   return (
-    <div>
-      <form method="POST" onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+    <AccountContainer>
+      <ProductsPageHeading>
+        <h4>Login</h4>
+      </ProductsPageHeading>
+      <Form method="POST" onSubmit={handleSubmit}>
+        <label htmlFor="email">Email:</label>
         <input
           type="text"
           name="email"
           value={inputs.email}
           onChange={handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
           name="password"
           value={inputs.password}
           onChange={handleChange}
         />
-        <button type="submit">submit</button>
-      </form>
-    </div>
+        <button>{type}</button>
+      </Form>
+    </AccountContainer>
   );
 }
