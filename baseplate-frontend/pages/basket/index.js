@@ -8,8 +8,8 @@ import { PagePadding } from '../../components/Page';
 
 export default function checkout() {
   const { cartItems, removeCartItem } = useContext(CartCtx);
-  if (!cartItems) return <p style={{ marginTop: '12rem' }}>no items</p>;
   const totalCost = useCartTotal(cartItems);
+  if (!cartItems) return <p style={{ marginTop: '12rem' }}>no items</p>;
   return (
     <PagePadding>
       <StyledTable>
@@ -60,7 +60,7 @@ export default function checkout() {
                   <td>
                     <button
                       data-size={item.size}
-                      data-size={item.id}
+                      data-id={product.id}
                       type="button"
                       onClick={removeCartItem}
                       className="remove-btn"
@@ -85,6 +85,7 @@ export default function checkout() {
 }
 const StyledTable = styled.div`
   font-weight: 300;
+  width: 100%;
   table {
     max-width: 1500px;
     margin: auto;

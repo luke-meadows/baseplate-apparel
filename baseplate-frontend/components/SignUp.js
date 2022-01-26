@@ -2,18 +2,43 @@ import useForm from '../lib/useForm';
 import AccountContainer from './AccountContainer';
 import { Form } from './styles/Form';
 import { ProductsPageHeading } from './styles/ProductsPageStyles';
+import { gql, useMutation } from '@apollo/client';
 export default function SignUp({ type }) {
   const { inputs, handleChange, clearForm } = useForm({
     name: '',
     email: '',
     password: '',
   });
+
+  const SIGNUP_MUTATION = gql`
+    mutation SIGNUP_MUTATION(
+      $name: String!
+      $email: String!
+      $password: String!
+    ) {
+      createUser(data: { name: $name, email: $email, password: $password }) {
+        id
+        name
+        email
+      }
+    }
+  `;
+
+  const [signUp, { data, error, loading }] = useMutation(SIGNUP_MUTATION, {
+    variables: inputs,
+  });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await signUp();
+  }
+
   return (
     <AccountContainer>
       <ProductsPageHeading>
         <h4>Create Account</h4>
       </ProductsPageHeading>
-      <Form>
+      <Form method="POST" onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -30,7 +55,7 @@ export default function SignUp({ type }) {
         />
         <label htmlFor="password">Password:</label>
         <input
-          type="text"
+          type="password"
           name="password"
           value={inputs.password}
           onChange={handleChange}

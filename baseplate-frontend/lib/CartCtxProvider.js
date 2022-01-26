@@ -51,6 +51,7 @@ export const CartCtxProvider = ({ children }) => {
   }
 
   function removeCartItem(e) {
+    console.log(e.target.dataset.id);
     const { id, size } = e.target.dataset;
     const index = cartItems.findIndex(
       (item) => item.product.id === id && item.size === size
