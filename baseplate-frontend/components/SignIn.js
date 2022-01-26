@@ -1,5 +1,8 @@
 import useForm from '../lib/useForm';
-import { gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
+import gql from 'graphql-tag';
+import { CURRENT_USER_QUERY } from './User';
+
 export default function SignIn() {
   const { inputs, handleChange } = useForm({
     email: '',
@@ -19,15 +22,22 @@ export default function SignIn() {
       }
     }
   `;
-  const [signIn, { error, loading }] = useMutation(SIGNIN_emMUTATION, {
-    varia,
+
+  // mutation functions
+  const [signIn, { error, loading }] = useMutation(SIGNIN_MUTATION, {
+    variables: inputs,
+    refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
-  function handleSubmit(e) {
+
+  // handle submit of signin form
+  async function handleSubmit(e) {
     e.preventDefault();
+    const res = await signIn();
+    console.log(res);
   }
   return (
     <div>
-      <form method="POST">
+      <form method="POST" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="text"
@@ -42,6 +52,7 @@ export default function SignIn() {
           value={inputs.password}
           onChange={handleChange}
         />
+        <button type="submit">submit</button>
       </form>
     </div>
   );
