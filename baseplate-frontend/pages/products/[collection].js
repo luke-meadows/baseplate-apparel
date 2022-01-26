@@ -31,7 +31,7 @@ export default function Products({ query }) {
         where: {
           brand: { brand_i: $brand }
           productType: { productType: $type }
-          color: $color
+          color_contains_i: $color
           productCategory: $collection
         }
       ) {
@@ -51,7 +51,7 @@ export default function Products({ query }) {
         where: {
           brand: { brand_i: $brand }
           productType: { productType: $type }
-          color: $color
+          color_contains_i: $color
           productCategory: $collection
         }
       ) {
@@ -61,7 +61,7 @@ export default function Products({ query }) {
         where: {
           brand: { brand_i: $brand }
           productType: { productType: $type }
-          color: $color
+          color_contains_i: $color
           productCategory: $collection
         }
       ) {

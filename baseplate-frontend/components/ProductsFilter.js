@@ -10,7 +10,6 @@ export default function ProductsFilter({
   page,
   updateCurrentPage,
 }) {
-  // const [showFilters, updateShowFilters] = useState(false);
   const { showFilters, updateShowFilters } = useContext(NavCtx);
 
   const router = useRouter();
@@ -48,8 +47,6 @@ export default function ProductsFilter({
 
   // a list of possible filter options for current selection of products
   const options = getFilterOptions(filterOptions);
-  // icon-down-open-mini
-  // icon-up-open-mini
   return (
     <StyledProductsFilter>
       <button onClick={() => updateShowFilters(!showFilters)}>

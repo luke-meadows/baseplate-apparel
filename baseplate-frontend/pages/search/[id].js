@@ -5,7 +5,7 @@ import Loading from '../../components/Loading';
 import { PagePadding } from '../../components/Page';
 import Pagination from '../../components/Pagination';
 import { ProductThumbnail } from '../../components/ProductThumbnail';
-import { ProductsContainer } from '../../components/styles/HomepageStyles';
+import { ProductsContainer } from '../../components/HomepageProducts';
 import {
   BottomPagination,
   ProductsCount,
