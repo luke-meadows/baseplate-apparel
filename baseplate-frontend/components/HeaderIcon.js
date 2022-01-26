@@ -37,7 +37,7 @@ const Icon = styled(motion.div)`
   cursor: pointer;
   span {
     fontsize: 2rem;
-    margin: 0 0rem 0 2rem;
+    margin: 0 1rem 0 1rem;
   }
   .blue {
     color: var(--main-blue);
@@ -48,4 +48,5 @@ const CartItemsQuantity = styled.p`
   color: var(--main-blue);
   font-family: 'Poppins';
   font-size: 1.2rem;
+  margin-left: -1rem;
 `;

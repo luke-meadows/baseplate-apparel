@@ -6,9 +6,6 @@ export default function useForm(initialValues) {
   function handleChange(e) {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
-    console.log(e.target.name);
-    console.log(e.target.value);
-    console.log(inputs);
   }
   function resetForm() {
     setInputs(initialValues);
@@ -19,6 +16,5 @@ export default function useForm(initialValues) {
     );
     setInputs(blankForm);
   }
-  console.log(inputs);
   return { inputs, handleChange, clearForm, resetForm };
 }

@@ -4,10 +4,13 @@ import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
 import { ProductsPageHeading } from './styles/ProductsPageStyles';
 import { Form } from './styles/Form';
-import { StyledInput } from './EmailForm';
 import AccountContainer from './AccountContainer';
+import { useContext } from 'react';
+import { NavCtx } from '../lib/NavCtxProvider';
 
 export default function SignIn({ type }) {
+  const { setAccountActive, setStopScrolling } = useContext(NavCtx);
+
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     password: '',
@@ -38,6 +41,8 @@ export default function SignIn({ type }) {
     e.preventDefault();
     await signIn();
     resetForm();
+    setAccountActive(false);
+    setStopScrolling(false);
   }
   return (
     <AccountContainer>
@@ -59,7 +64,7 @@ export default function SignIn({ type }) {
           value={inputs.password}
           onChange={handleChange}
         />
-        <button>{type}</button>
+        <button type="submit">{type}</button>
       </Form>
     </AccountContainer>
   );

@@ -16,6 +16,7 @@ import HeaderIcon from './HeaderIcon';
 import { CartCtx } from '../lib/CartCtxProvider';
 import Cart from './Cart';
 import populateSubnavOptions from '../lib/populateSubnavOptions';
+import { AccountSection } from './AccountSection';
 
 export default function Header() {
   const {
@@ -92,15 +93,16 @@ export default function Header() {
           setIconActive={setSearchActive}
           otherIconActive={cartActive}
         />
-        {cartActive && (
-          <Cart cartActive={cartActive} setCartActive={setCartActive} />
-        )}
 
         <HeaderIcon
           iconName="person"
           iconActive={accountActive}
           setIconActive={setAccountActive}
         />
+        {cartActive && (
+          <Cart cartActive={cartActive} setCartActive={setCartActive} />
+        )}
+        {accountActive && <AccountSection />}
         <HeaderIcon
           iconName="shopping_cart"
           iconActive={cartActive}

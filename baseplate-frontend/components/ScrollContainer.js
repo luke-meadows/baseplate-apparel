@@ -6,7 +6,7 @@ import { CartCtx } from '../lib/CartCtxProvider';
 
 export default function ScrollContainer({ children }) {
   const containerRef = useRef();
-  const { stopScrolling, setSearchActive, setStopScrolling } =
+  const { stopScrolling, setSearchActive, setStopScrolling, setAccountActive } =
     useContext(NavCtx);
   const { setCartActive } = useContext(CartCtx);
   const [scrollTo, updateScrollTo] = useState(0);
@@ -25,9 +25,11 @@ export default function ScrollContainer({ children }) {
 
   function handleClick(e) {
     if (!stopScrolling) return;
+    console.log('close from contianer');
     setSearchActive(false);
     setStopScrolling(false);
     setCartActive(false);
+    setAccountActive(false);
   }
   return (
     <StyledScrollContainer
