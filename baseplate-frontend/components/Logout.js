@@ -40,8 +40,8 @@ const StyledLogout = styled.div`
   padding: 3rem;
   color: rgba(0, 0, 0, 0.7);
   display: flex;
+  flex-direction: column;
   align-items: center;
-
   span {
     margin: 0 1rem 0 0.5rem;
     color: black;
@@ -49,8 +49,9 @@ const StyledLogout = styled.div`
   button {
     background: var(--main-blue);
     display: block;
-    width: fit-content;
+    width: 100%;
     padding: 0.59rem 3rem;
     font-size: 1.3rem;
+    margin-top: 1rem;
   }
 `;

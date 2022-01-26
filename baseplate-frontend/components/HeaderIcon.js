@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { NavCtx } from '../lib/NavCtxProvider';
+import { CartCtx } from '../lib/CartCtxProvider';
 export default function HeaderIcon({
   iconName,
   iconActive,
@@ -9,16 +10,23 @@ export default function HeaderIcon({
   quantity,
   otherIconActive,
 }) {
-  const { setStopScrolling, stopScrolling } = useContext(NavCtx);
+  const { setStopScrolling, stopScrolling, setSearchActive, setAccountActive } =
+    useContext(NavCtx);
+  const { setCartActive } = useContext(CartCtx);
+  function handleIconClick() {
+    setIconActive(!iconActive);
+    if (iconName === 'person') {
+      setCartActive(false);
+      setSearchActive(false);
+    } else {
+      setAccountActive(false);
+    }
+    if (!otherIconActive) {
+      setStopScrolling(!stopScrolling);
+    }
+  }
   return (
-    <Icon
-      onClick={(e) => {
-        setIconActive(!iconActive);
-        if (!otherIconActive) {
-          setStopScrolling(!stopScrolling);
-        }
-      }}
-    >
+    <Icon onClick={handleIconClick}>
       <span className={iconActive ? 'blue material-icons' : 'material-icons'}>
         {iconName}
       </span>

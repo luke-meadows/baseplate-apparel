@@ -28,7 +28,7 @@ const StyledAccountSection = styled.div`
   background: #ebebe6;
   display: flex;
   justify-content: center;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
 `;
 
 const Line = styled.div`
