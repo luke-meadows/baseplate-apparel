@@ -8,7 +8,7 @@ export default function Logout({ user }) {
       endSession
     }
   `;
-  const [endSession, { data, error, loading }] = useMutation(LOGOUT_MUTATION, {
+  const [endSession, { data }] = useMutation(LOGOUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   console.log(data);
