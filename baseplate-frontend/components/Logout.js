@@ -1,8 +1,5 @@
 import { gql, useMutation } from '@apollo/client';
-import { useContext } from 'react';
 import styled from 'styled-components';
-import { NavCtx } from '../lib/NavCtxProvider';
-import Error from './Error';
 import { CURRENT_USER_QUERY } from './User';
 
 export default function Logout({ user }) {

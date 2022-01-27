@@ -4,8 +4,6 @@ import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
 import { ProductsPageHeading } from './styles/ProductsPageStyles';
 import { Form } from './styles/Form';
-import { useContext } from 'react';
-import { NavCtx } from '../lib/NavCtxProvider';
 import { SignContainer } from './styles/SignContainer';
 import Error from './Error';
 

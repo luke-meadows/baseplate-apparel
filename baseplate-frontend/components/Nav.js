@@ -1,25 +1,21 @@
 import Link from 'next/link';
 import { forwardRef, useContext } from 'react';
-import { NavCtx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 import { StyledNav } from './styles/HeaderStyles';
-import { CartCtx } from '../lib/CartCtxProvider';
-import { useUser } from './User';
+import { useNav } from '../lib/useNav';
 
 export const Nav = forwardRef((props, ref) => {
+  const { handleMouseLeave, handleNavItemHover } = useNav();
   const {
-    handleMouseLeave,
-    handleNavItemHover,
-    setSubNavOptions,
-    subNavOptions,
+    setCartActive,
     stopScrolling,
     setSearchActive,
     setStopScrolling,
-  } = useContext(NavCtx);
-
-  const { setCartActive } = useContext(CartCtx);
+    setSubNavOpen,
+  } = useContext(Ctx);
 
   function handleClick() {
-    setSubNavOptions({ ...subNavOptions, subNavOpen: false });
+    setSubNavOpen(false);
     if (!stopScrolling) return;
     setSearchActive(false);
     setStopScrolling(false);

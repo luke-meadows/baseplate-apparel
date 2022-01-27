@@ -1,6 +1,6 @@
 import { useRouter } from 'next/dist/client/router';
 import getFilterOptions from '../lib/getFilterOptions';
-import { NavCtx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 import styled from 'styled-components';
 import { useState, useEffect, useContext } from 'react';
 
@@ -10,7 +10,7 @@ export default function ProductsFilter({
   page,
   updateCurrentPage,
 }) {
-  const { showFilters, updateShowFilters } = useContext(NavCtx);
+  const { showFilters, setShowFilters } = useContext(Ctx);
 
   const router = useRouter();
   const [queryParams, updateQueryParams] = useState({ ...query });
@@ -49,7 +49,7 @@ export default function ProductsFilter({
   const options = getFilterOptions(filterOptions);
   return (
     <StyledProductsFilter>
-      <button onClick={() => updateShowFilters(!showFilters)}>
+      <button onClick={() => setShowFilters(!showFilters)}>
         Filter
         <i
           className={

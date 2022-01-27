@@ -1,7 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
 import Loading from '../../components/Loading';
-import { CartCtx } from '../../lib/CartCtxProvider';
-import Image from 'next/image';
 import { DeliveryBanner } from '../../components/DeliveryBanner';
 import {
   AddToCartForm,
@@ -18,7 +16,8 @@ import {
 } from '../../components/styles/ProductPageStyles';
 import { useContext, useState } from 'react';
 import RecentlyViewed from '../../components/RecentlyViewed';
-import { NavCtx } from '../../lib/NavCtxProvider';
+import { useCart } from '../../lib/useCart';
+import { Ctx } from '../../lib/NavCtxProvider';
 
 const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
@@ -53,8 +52,9 @@ export default function Product({ query }) {
     changeSizeDisabled(false);
     e.target.blur();
   }
-  const { addToCart, setCartActive } = useContext(CartCtx);
-  const { setStopScrolling } = useContext(NavCtx);
+  const { setCartActive, setStopScrolling } = useContext(Ctx);
+  const { addToCart } = useCart();
+
   function handleSubmit(e) {
     addToCart(e);
     setCartActive(true);

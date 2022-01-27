@@ -6,9 +6,9 @@ export const CartCtx = createContext();
 // - hook up nav active.
 
 export const CartCtxProvider = ({ children }) => {
-  const [cartActive, setCartActive] = useState(false);
+  // const [cartActive, setCartActive] = useState(false);
 
-  const [cartItems, updateCartItems] = useState(null);
+  // const [cartItems, updateCartItems] = useState(null);
   useEffect(() => {
     // retrieves cart items from local storage if they are there
     const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
@@ -18,55 +18,55 @@ export const CartCtxProvider = ({ children }) => {
     }
   }, []);
 
-  function addToCart(e) {
-    e.preventDefault();
-    const cartItem = {
-      product: JSON.parse(e.target.dataset.product),
-      size: e.target.size.value,
-      quantity: 1,
-    };
+  // function addToCart(e) {
+  //   e.preventDefault();
+  //   const cartItem = {
+  //     product: JSON.parse(e.target.dataset.product),
+  //     size: e.target.size.value,
+  //     quantity: 1,
+  //   };
 
-    if (!cartItems) {
-      localStorage.setItem('cart', JSON.stringify([cartItem]));
-      updateCartItems([cartItem]);
-      return;
-    }
-    // Changes quantity of product in cart if id & size already exist.
-    const itemAlreadyExists = cartItems.findIndex(
-      (existingItem) =>
-        existingItem.product.id === cartItem.product.id &&
-        existingItem.size == cartItem.size
-    );
+  //   if (!cartItems) {
+  //     localStorage.setItem('cart', JSON.stringify([cartItem]));
+  //     updateCartItems([cartItem]);
+  //     return;
+  //   }
+  //   // Changes quantity of product in cart if id & size already exist.
+  //   const itemAlreadyExists = cartItems.findIndex(
+  //     (existingItem) =>
+  //       existingItem.product.id === cartItem.product.id &&
+  //       existingItem.size == cartItem.size
+  //   );
 
-    if (itemAlreadyExists > -1) {
-      const newCartItems = JSON.parse(localStorage.getItem('cart'));
-      newCartItems[itemAlreadyExists].quantity += 1;
-      localStorage.setItem('cart', JSON.stringify(newCartItems));
-      updateCartItems(newCartItems);
-    } else {
-      updateCartItems([...cartItems, cartItem]);
-      localStorage.setItem('cart', JSON.stringify([...cartItems, cartItem]));
-    }
-    return;
-  }
+  //   if (itemAlreadyExists > -1) {
+  //     const newCartItems = JSON.parse(localStorage.getItem('cart'));
+  //     newCartItems[itemAlreadyExists].quantity += 1;
+  //     localStorage.setItem('cart', JSON.stringify(newCartItems));
+  //     updateCartItems(newCartItems);
+  //   } else {
+  //     updateCartItems([...cartItems, cartItem]);
+  //     localStorage.setItem('cart', JSON.stringify([...cartItems, cartItem]));
+  //   }
+  //   return;
+  // }
 
-  function removeCartItem(e) {
-    console.log(e.target.dataset.id);
-    const { id, size } = e.target.dataset;
-    const index = cartItems.findIndex(
-      (item) => item.product.id === id && item.size === size
-    );
-    const newCartItems = JSON.parse(localStorage.getItem('cart'));
-    newCartItems.splice(index, 1);
+  // function removeCartItem(e) {
+  //   console.log(e.target.dataset.id);
+  //   const { id, size } = e.target.dataset;
+  //   const index = cartItems.findIndex(
+  //     (item) => item.product.id === id && item.size === size
+  //   );
+  //   const newCartItems = JSON.parse(localStorage.getItem('cart'));
+  //   newCartItems.splice(index, 1);
 
-    if (newCartItems.length < 1) {
-      localStorage.removeItem('cart');
-      updateCartItems(null);
-      return;
-    }
-    localStorage.setItem('cart', JSON.stringify(newCartItems));
-    updateCartItems(newCartItems);
-  }
+  //   if (newCartItems.length < 1) {
+  //     localStorage.removeItem('cart');
+  //     updateCartItems(null);
+  //     return;
+  //   }
+  //   localStorage.setItem('cart', JSON.stringify(newCartItems));
+  //   updateCartItems(newCartItems);
+  // }
 
   return (
     <CartCtx.Provider

@@ -1,14 +1,17 @@
 import { useContext, useEffect, useRef } from 'react';
-import { NavCtx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 import styled from 'styled-components';
 import { useState } from 'react/cjs/react.development';
-import { CartCtx } from '../lib/CartCtxProvider';
 
 export default function ScrollContainer({ children }) {
   const containerRef = useRef();
-  const { stopScrolling, setSearchActive, setStopScrolling, setAccountActive } =
-    useContext(NavCtx);
-  const { setCartActive } = useContext(CartCtx);
+  const {
+    setCartActive,
+    stopScrolling,
+    setSearchActive,
+    setStopScrolling,
+    setAccountActive,
+  } = useContext(Ctx);
   const [scrollTo, updateScrollTo] = useState(0);
 
   useEffect(() => {

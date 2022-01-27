@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Page from '../components/Page';
-import { NavCtxProvider } from '../lib/NavCtxProvider';
+import { CtxProvider } from '../lib/NavCtxProvider';
 
 import '../public/fontello/css/fontello.css';
 import 'swiper/css/bundle';
@@ -24,11 +24,11 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <NavCtxProvider>
+      <CtxProvider>
         <Page>
           <Component {...pageProps} />
         </Page>
-      </NavCtxProvider>
+      </CtxProvider>
     </ApolloProvider>
   );
 }

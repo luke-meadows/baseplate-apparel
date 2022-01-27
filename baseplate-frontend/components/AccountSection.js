@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import SignIn from '../components/SignIn';
-import { NavCtx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 import Logout from './Logout';
 import SignUp from './SignUp';
 import { useUser } from './User';
 export function AccountSection() {
   const user = useUser();
-  const { setStopScrolling, setAccountActive } = useContext(NavCtx);
+  const { setStopScrolling, setAccountActive } = useContext(Ctx);
   function handleClose() {
     setStopScrolling(false);
     setAccountActive(false);

@@ -1,14 +1,20 @@
 import { forwardRef, useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { NavCtx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 import { StyledSubNav, SubNavHeader, SubNavList } from './styles/HeaderStyles';
 import { motion } from 'framer-motion';
 import { animateOptions } from '../lib/subNavAnimations';
 import NavTriangle from './NavTriangle';
 
 export const SubNav = forwardRef((props, ref) => {
-  const { subNavOptions, handleMouseLeave, navCategories, setSubNavOptions } =
-    useContext(NavCtx);
+  const {
+    subNavOpen,
+    navTriangleCoords,
+    activeNavHeading,
+    setSubNavOpen,
+    handleMouseLeave,
+    navCategories,
+  } = useContext(Ctx);
   const [variant, setVariant] = useState();
 
   const slugs = {
@@ -19,38 +25,35 @@ export const SubNav = forwardRef((props, ref) => {
   };
 
   useEffect(() => {
-    if (subNavOptions.subNavOpen) {
+    if (subNavOpen) {
       setVariant('animate');
     } else {
       setVariant('hidden');
     }
-  }, [subNavOptions.subNavOpen]);
+  }, [subNavOpen]);
 
   function closeSubnav() {
-    setSubNavOptions({ ...subNavOptions, subNavOpen: false });
+    setSubNavOpen(false);
   }
 
-  const activeOptions = // Gets the list of subnav data based on what nav item is hovered
-    navCategories[subNavOptions.activeNavHeading] || navCategories.brands;
+  const activeOptions = navCategories[activeNavHeading] || navCategories.brands; // Gets the list of subnav data based on what nav item is hovered
 
   return (
     <StyledSubNav
-      className={subNavOptions.subNavOpen ? 'box-shadow' : ''}
+      className={subNavOpen ? 'box-shadow' : ''}
       layout
       ref={ref}
       onMouseLeave={handleMouseLeave}
     >
       <motion.div variants={animateOptions} initial="initial" animate={variant}>
-        {subNavOptions.subNavOpen && (
+        {subNavOpen && (
           <motion.div>
-            <SubNavHeader>{subNavOptions.activeNavHeading}</SubNavHeader>
+            <SubNavHeader>{activeNavHeading}</SubNavHeader>
             <SubNavList>
               {activeOptions.sort().map((option) => {
                 return (
                   <li key={option} onClick={closeSubnav}>
-                    <Link
-                      href={`${slugs[subNavOptions.activeNavHeading]}${option}`}
-                    >
+                    <Link href={`${slugs[activeNavHeading]}${option}`}>
                       {option}
                     </Link>
                   </li>
@@ -58,16 +61,12 @@ export const SubNav = forwardRef((props, ref) => {
               })}
             </SubNavList>
             <motion.h5 className="bottom-header" onClick={closeSubnav}>
-              <Link href={`/products/${subNavOptions.activeNavHeading}`}>
-                View All
-              </Link>
+              <Link href={`/products/${activeNavHeading}`}>View All</Link>
             </motion.h5>
           </motion.div>
         )}
       </motion.div>
-      {subNavOptions.subNavOpen && (
-        <NavTriangle coords={subNavOptions.navTriangleCoords} />
-      )}
+      {subNavOpen && <NavTriangle coords={navTriangleCoords} />}
     </StyledSubNav>
   );
 });

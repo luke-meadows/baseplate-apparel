@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useQuery, gql } from '@apollo/client';
-import { NavCtx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';
@@ -13,22 +13,23 @@ import {
 } from './styles/HeaderStyles';
 import SearchBar from './SearchBar';
 import HeaderIcon from './HeaderIcon';
-import { CartCtx } from '../lib/CartCtxProvider';
 import Cart from './Cart';
 import populateSubnavOptions from '../lib/populateSubnavOptions';
 import { AccountSection } from './AccountSection';
 
 export default function Header() {
   const {
-    subNavOptions,
-    setSubNavOptions,
     searchActive,
     setSearchActive,
     setNavCategories,
     accountActive,
     setAccountActive,
-  } = useContext(NavCtx);
-  const { cartActive, setCartActive, cartItems } = useContext(CartCtx);
+    cartActive,
+    setCartActive,
+    cartItems,
+    setSubNavRect,
+    setNavRect,
+  } = useContext(Ctx);
 
   const NAV_DATA_QUERY = gql`
     query NAV_DATA_QUERY {
@@ -57,11 +58,8 @@ export default function Header() {
   useEffect(() => {
     const subRect = subNavRef?.current?.getBoundingClientRect();
     const navRect = navRef?.current?.getBoundingClientRect();
-    setSubNavOptions({
-      ...subNavOptions,
-      subNavRect: subRect,
-      navRect: navRect,
-    });
+    setSubNavRect(subRect);
+    setNavRect(navRect);
   }, []);
 
   // fetches nav options from backend

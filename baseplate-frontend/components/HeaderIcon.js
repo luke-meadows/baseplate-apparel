@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { NavCtx } from '../lib/NavCtxProvider';
-import { CartCtx } from '../lib/CartCtxProvider';
+import { Ctx } from '../lib/NavCtxProvider';
 export default function HeaderIcon({
   iconName,
   iconActive,
@@ -10,9 +9,13 @@ export default function HeaderIcon({
   quantity,
   otherIconActive,
 }) {
-  const { setStopScrolling, stopScrolling, setSearchActive, setAccountActive } =
-    useContext(NavCtx);
-  const { setCartActive } = useContext(CartCtx);
+  const {
+    setCartActive,
+    setStopScrolling,
+    stopScrolling,
+    setSearchActive,
+    setAccountActive,
+  } = useContext(Ctx);
   function handleIconClick() {
     setIconActive(!iconActive);
     if (iconName === 'person') {

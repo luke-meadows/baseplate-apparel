@@ -1,22 +1,30 @@
-import { useContext, useEffect, useState } from 'react';
-import { CartCtx } from '../lib/CartCtxProvider';
+import { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { NavCtx } from '../lib/NavCtxProvider';
 import useCartTotal from '../lib/useCartTotal';
+import { Ctx } from '../lib/NavCtxProvider';
+import { useCart } from '../lib/useCart';
 
 export default function Cart() {
-  const { cartItems, removeCartItem, setCartActive } = useContext(CartCtx);
-  const { setStopScrolling } = useContext(NavCtx);
-  if (!cartItems)
-    return <NoCartItems>You have no items in your cart</NoCartItems>;
-
+  const { setCartActive, cartItems, setCartItems, setStopScrolling } =
+    useContext(Ctx);
   const totalCost = useCartTotal(cartItems);
+  const { removeCartItem } = useCart();
+  useEffect(() => {
+    // retrieves cart items from local storage if they are there
+    const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
+    if (cartItemsInLocalStorage && !cartItems) {
+      // Only runs on page reload if cart items exist in local storage
+      setCartItems(cartItemsInLocalStorage);
+    }
+  }, []);
 
   function handleButtonClick() {
     setCartActive(false);
     setStopScrolling(false);
   }
+  if (!cartItems)
+    return <NoCartItems>You have no items in your cart</NoCartItems>;
   return (
     <StyledCart>
       <h3>Cart</h3>

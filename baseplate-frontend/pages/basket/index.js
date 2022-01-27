@@ -1,14 +1,19 @@
 import { useContext } from 'react';
-import { CartCtx } from '../../lib/CartCtxProvider';
 import useCartTotal from '../../lib/useCartTotal';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
 import { PagePadding } from '../../components/Page';
+import { Ctx } from '../../lib/NavCtxProvider';
+import { useCart } from '../../lib/useCart';
 
 export default function checkout() {
-  const { cartItems, removeCartItem } = useContext(CartCtx);
+  const { cartItems } = useContext(Ctx);
+  const { removeCartItem } = useCart();
+
+  // move that into use cart
   const totalCost = useCartTotal(cartItems);
+
   if (!cartItems)
     return (
       <PagePadding>

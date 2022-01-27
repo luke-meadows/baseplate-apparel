@@ -29,7 +29,6 @@ const INITIAL_STATE_QUERY = gql`
 export default function Home() {
   const { data, error, loading } = useQuery(INITIAL_STATE_QUERY);
   const user = useUser();
-  console.log(user);
   if (loading) return <Loading />;
   return (
     <>
