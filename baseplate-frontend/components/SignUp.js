@@ -1,8 +1,8 @@
 import useForm from '../lib/useForm';
-import AccountContainer from './AccountContainer';
 import { Form } from './styles/Form';
 import { ProductsPageHeading } from './styles/ProductsPageStyles';
 import { gql, useMutation } from '@apollo/client';
+import { SignContainer } from './styles/SignContainer';
 export default function SignUp({ type }) {
   const { inputs, handleChange, clearForm } = useForm({
     name: '',
@@ -34,7 +34,7 @@ export default function SignUp({ type }) {
   }
 
   return (
-    <AccountContainer>
+    <SignContainer>
       <ProductsPageHeading>
         <h4>Create Account</h4>
       </ProductsPageHeading>
@@ -62,6 +62,6 @@ export default function SignUp({ type }) {
         />
         <button>{type}</button>
       </Form>
-    </AccountContainer>
+    </SignContainer>
   );
 }

@@ -4,9 +4,9 @@ import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
 import { ProductsPageHeading } from './styles/ProductsPageStyles';
 import { Form } from './styles/Form';
-import AccountContainer from './AccountContainer';
 import { useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
+import { SignContainer } from './styles/SignContainer';
 
 export default function SignIn({ type }) {
   const { setAccountActive, setStopScrolling } = useContext(NavCtx);
@@ -45,7 +45,7 @@ export default function SignIn({ type }) {
     setStopScrolling(false);
   }
   return (
-    <AccountContainer>
+    <SignContainer>
       <ProductsPageHeading>
         <h4>Login</h4>
       </ProductsPageHeading>
@@ -66,6 +66,6 @@ export default function SignIn({ type }) {
         />
         <button type="submit">{type}</button>
       </Form>
-    </AccountContainer>
+    </SignContainer>
   );
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ProductPage = styled.div``;
 export const ProductMain = styled.div`
   margin: 6rem auto 0 auto;
-  padding: 6rem 25rem;
+  padding: 6rem 22rem;
   display: flex;
   max-width: 1500px;
   * {
@@ -17,7 +17,7 @@ export const ProductPageHeading = styled.h4`
 
 export const ProductPageLeft = styled.div`
   /* width: 40rem; */
-  margin-right: 4rem;
+  margin-right: 6rem;
 `;
 export const ProductPageRight = styled.div`
   img {
@@ -88,4 +88,7 @@ export const Dropdown = styled.select`
 
 export const ProductLowerSection = styled.div`
   margin: 0 6rem 6rem 6rem;
+  @media (min-width: 1600px) {
+    margin: 0 12rem 6rem 12rem;
+  }
 `;

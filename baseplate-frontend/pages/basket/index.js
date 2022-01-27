@@ -9,7 +9,16 @@ import { PagePadding } from '../../components/Page';
 export default function checkout() {
   const { cartItems, removeCartItem } = useContext(CartCtx);
   const totalCost = useCartTotal(cartItems);
-  if (!cartItems) return <p style={{ marginTop: '12rem' }}>no items</p>;
+  if (!cartItems)
+    return (
+      <PagePadding>
+        <ProductsPageHeading>
+          <h4 style={{ textAlign: 'center', width: '100%' }}>
+            No Items in Basket
+          </h4>
+        </ProductsPageHeading>
+      </PagePadding>
+    );
   return (
     <PagePadding>
       <StyledTable>

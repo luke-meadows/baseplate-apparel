@@ -46,8 +46,8 @@ export default function EmailForm({ placeholder, withLabel }) {
 }
 
 const StyledForm = styled.form`
-  border: 1px solid black;
-  padding: 1px;
+  border: 1px solid #51515187;
+  /* padding: 1px; */
   div {
     display: flex;
     height: 4rem;
