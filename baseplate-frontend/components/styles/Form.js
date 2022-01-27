@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   width: 100%;
-  padding: 0 6rem;
   input {
     border: 1px solid #51515187;
     margin-bottom: 1rem;
@@ -27,11 +26,11 @@ export const Form = styled.form`
 
   button {
     background: var(--main-blue);
-    display: block;
     width: fit-content;
-    height: initial;
     padding: 0.59rem 3rem;
     margin-top: 1rem;
-    font-size: 1.3rem;
+    height: 4rem;
+    flex: 1;
+    min-width: 50%;
   }
 `;

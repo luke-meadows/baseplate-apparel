@@ -2,6 +2,7 @@ import { gql, useMutation } from '@apollo/client';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { NavCtx } from '../lib/NavCtxProvider';
+import Error from './Error';
 import { CURRENT_USER_QUERY } from './User';
 
 export default function Logout({ user }) {
@@ -22,17 +23,20 @@ export default function Logout({ user }) {
       <p>
         Logged in as:<span>{user.name}</span>
       </p>
-      <button type="button" onClick={handleLogout}>
-        Signout
-      </button>
-      <button type="button" onClick={handleLogout}>
-        Orders
-      </button>
+      <div className="buttons">
+        <button type="button" onClick={handleLogout}>
+          Orders
+        </button>
+        <button type="button" onClick={handleLogout}>
+          Signout
+        </button>
+      </div>
     </StyledLogout>
   );
 }
 
 const StyledLogout = styled.div`
+  min-width: 50rem;
   position: fixed;
   right: 0;
   top: 6rem;
@@ -41,18 +45,28 @@ const StyledLogout = styled.div`
   color: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  box-shadow: -2px 2px 10px 1px rgba(11, 11, 11, 0.323);
+  p {
+    margin-bottom: 1rem;
+  }
   span {
     margin: 0 1rem 0 0.5rem;
     color: black;
     text-transform: capitalize;
   }
-  button {
-    background: var(--main-blue);
-    display: block;
+  .buttons {
+    display: flex;
     width: 100%;
-    padding: 0.59rem 3rem;
-    font-size: 1.3rem;
-    margin-top: 1rem;
+  }
+  .buttons > :first-child {
+    margin-right: 0.5rem;
+  }
+  .buttons > :last-child {
+    margin-left: 0.5rem;
+  }
+  button {
+    height: 4rem;
+    flex: 1;
+    background: var(--main-blue);
   }
 `;
