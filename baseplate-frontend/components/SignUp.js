@@ -3,6 +3,10 @@ import { Form } from './styles/Form';
 import { ProductsPageHeading } from './styles/ProductsPageStyles';
 import { gql, useMutation } from '@apollo/client';
 import { SignContainer } from './styles/SignContainer';
+import { SIGNIN_MUTATION } from '../components/SignIn';
+import { CURRENT_USER_QUERY } from '../components/User';
+import Error from './Error';
+
 export default function SignUp({ type }) {
   const { inputs, handleChange, clearForm } = useForm({
     name: '',
@@ -27,24 +31,39 @@ export default function SignUp({ type }) {
   const [signUp, { data, error, loading }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
   });
-
+  const [
+    signIn,
+    { signInData = data, signInError = error, signInLoading = loading },
+  ] = useMutation(SIGNIN_MUTATION, {
+    variables: {
+      email: inputs.email,
+      password: inputs.password,
+    },
+    refetchQueries: [{ query: CURRENT_USER_QUERY }],
+  });
   async function handleSubmit(e) {
     e.preventDefault();
-    await signUp();
+    const res = await signUp();
+    // await user creation then log user in
+    if (res.data.createUser) {
+      await signIn();
+    }
+    clearForm();
   }
-
+  console.log({ error });
   return (
     <SignContainer>
       <ProductsPageHeading>
         <h4>Create Account</h4>
       </ProductsPageHeading>
-      <Form method="POST" onSubmit={handleSubmit}>
+      <Form method="POST" onSubmit={handleSubmit} disabled={loading}>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
           name="name"
           value={inputs.name}
           onChange={handleChange}
+          autoComplete="false"
         />
         <label htmlFor="email">Email:</label>
         <input
@@ -52,6 +71,7 @@ export default function SignUp({ type }) {
           name="email"
           value={inputs.email}
           onChange={handleChange}
+          autoComplete="false"
         />
         <label htmlFor="password">Password:</label>
         <input
@@ -59,8 +79,10 @@ export default function SignUp({ type }) {
           name="password"
           value={inputs.password}
           onChange={handleChange}
+          autocomplete="off"
         />
         <button>{type}</button>
+        {error && <Error errorMessage={error.message} section="sign" />}
       </Form>
     </SignContainer>
   );
