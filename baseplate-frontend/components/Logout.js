@@ -17,8 +17,8 @@ export default function Logout({ user }) {
   console.log(data);
   async function handleLogout() {
     await endSession();
-    setAccountActive(false);
-    setStopScrolling(false);
+    // setAccountActive(false);
+    // setStopScrolling(false);
   }
   return (
     <StyledLogout>

@@ -41,8 +41,8 @@ export default function SignIn({ type }) {
     e.preventDefault();
     await signIn();
     resetForm();
-    setAccountActive(false);
-    setStopScrolling(false);
+    // setAccountActive(false);
+    // setStopScrolling(false);
   }
   return (
     <SignContainer>
