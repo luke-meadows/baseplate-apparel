@@ -2,31 +2,24 @@ import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { Ctx } from '../lib/CtxProvider';
+
 export default function HeaderIcon({
   iconName,
   iconActive,
   setIconActive,
   quantity,
-  otherIconActive,
 }) {
-  const {
-    setCartActive,
-    setStopScrolling,
-    stopScrolling,
-    setSearchActive,
-    setAccountActive,
-  } = useContext(Ctx);
+  const { setStopScrolling, closeAllHeaderIcons } = useContext(Ctx);
+
   function handleIconClick() {
-    setIconActive(!iconActive);
-    if (iconName === 'person') {
-      setCartActive(false);
-      setSearchActive(false);
-    } else {
-      setAccountActive(false);
+    if (iconActive) {
+      setIconActive(false);
+      setStopScrolling(false);
+      return;
     }
-    if (!otherIconActive) {
-      setStopScrolling(!stopScrolling);
-    }
+    closeAllHeaderIcons();
+    setIconActive(true);
+    setStopScrolling(true);
   }
   return (
     <Icon onClick={handleIconClick}>

@@ -3,23 +3,34 @@ import { createContext, useState } from 'react';
 export const Ctx = createContext();
 
 export const CtxProvider = ({ children }) => {
-  const [showFilters, setShowFilters] = useState(false);
+  const [cartActive, setCartActive] = useState(false);
   const [stopScrolling, setStopScrolling] = useState(false);
-  const [accountActive, setAccountActive] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
+  const [accountActive, setAccountActive] = useState(false);
+
+  const [cartItems, setCartItems] = useState(null);
+
+  const [showFilters, setShowFilters] = useState(false);
+
   const [subNavOpen, setSubNavOpen] = useState(false);
   const [subNavRect, setSubNavRect] = useState(null);
   const [navRect, setNavRect] = useState(null);
   const [navTriangleCoords, setNavTriangleCoords] = useState(null);
   const [activeNavHeading, setActiveNavHeading] = useState();
-  const [cartActive, setCartActive] = useState(false);
-  const [cartItems, setCartItems] = useState(null);
   const [navCategories, setNavCategories] = useState({
     brands: [],
     shoes: [],
     clothes: [],
     accessories: [],
   }); // data from the backend to populate subnav options
+
+  function closeAllHeaderIcons() {
+    setStopScrolling(false);
+    setCartActive(false);
+    setSearchActive(false);
+    setAccountActive(false);
+  }
+
   return (
     <Ctx.Provider
       value={{
@@ -47,6 +58,7 @@ export const CtxProvider = ({ children }) => {
         setCartActive,
         cartItems,
         setCartItems,
+        closeAllHeaderIcons,
       }}
     >
       {children}
