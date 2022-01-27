@@ -43,6 +43,7 @@ export default function Pagination({
 }
 
 const PaginationStyles = styled.div`
+  margin: 3rem auto -3rem auto;
   display: flex;
   border-radius: 0.5rem;
   color: rgba(0, 0, 0, 0.7);

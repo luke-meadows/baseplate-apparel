@@ -78,13 +78,11 @@ export default function Search({ query }) {
           <ProductThumbnail product={product} key={product.id} />
         ))}
       </ProductsContainer>
-      <BottomPagination>
-        <Pagination
-          totalPages={Math.ceil(data.productCount.count / perPage)}
-          currentPage={currentPage}
-          updateCurrentPage={updateCurrentPage}
-        />
-      </BottomPagination>
+      <Pagination
+        totalPages={Math.ceil(data.productCount.count / perPage)}
+        currentPage={currentPage}
+        updateCurrentPage={updateCurrentPage}
+      />
     </PagePadding>
   );
 }

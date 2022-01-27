@@ -20,15 +20,11 @@ export const ProductsPageHeading = styled.div`
   }
 `;
 
-export const BottomPagination = styled.div`
-  margin: 3rem auto -3rem auto;
-  display: flex;
-  justify-content: center;
-`;
-
 export const ProductsCount = styled.p`
   color: #515151;
   font-size: 1.1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  /* margin-top: -1rem;
+  margin-bottom: 1rem; */
 `;
