@@ -5,7 +5,6 @@ import { NavCtx } from '../lib/NavCtxProvider';
 import { CURRENT_USER_QUERY } from './User';
 
 export default function Logout({ user }) {
-  const { setAccountActive, setStopScrolling } = useContext(NavCtx);
   const LOGOUT_MUTATION = gql`
     mutation {
       endSession
@@ -17,16 +16,17 @@ export default function Logout({ user }) {
   console.log(data);
   async function handleLogout() {
     await endSession();
-    // setAccountActive(false);
-    // setStopScrolling(false);
   }
   return (
     <StyledLogout>
       <p>
-        Logged in as: <span>{user.name}</span>
+        Logged in as:<span>{user.name}</span>
       </p>
       <button type="button" onClick={handleLogout}>
         Signout
+      </button>
+      <button type="button" onClick={handleLogout}>
+        Orders
       </button>
     </StyledLogout>
   );
@@ -45,6 +45,7 @@ const StyledLogout = styled.div`
   span {
     margin: 0 1rem 0 0.5rem;
     color: black;
+    text-transform: capitalize;
   }
   button {
     background: var(--main-blue);

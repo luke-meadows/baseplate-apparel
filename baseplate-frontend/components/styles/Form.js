@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  width: 100%;
+  padding: 0 6rem;
   input {
     border: 1px solid #51515187;
     margin-bottom: 1rem;
     line-height: 0;
     outline: none;
-    width: 27.41rem;
+    width: 100%;
+    display: block;
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     &:focus {

@@ -7,43 +7,52 @@ import { Form } from './styles/Form';
 import { useContext } from 'react';
 import { NavCtx } from '../lib/NavCtxProvider';
 import { SignContainer } from './styles/SignContainer';
+import Error from './Error';
+
+export const SIGNIN_MUTATION = gql`
+  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
+    authenticateUserWithPassword(email: $email, password: $password) {
+      ... on UserAuthenticationWithPasswordSuccess {
+        item {
+          id
+          name
+          email
+        }
+      }
+    }
+  }
+`;
 
 export default function SignIn({ type }) {
-  const { setAccountActive, setStopScrolling } = useContext(NavCtx);
-
-  const { inputs, handleChange, resetForm } = useForm({
+  const { inputs, handleChange, clearForm } = useForm({
     email: '',
     password: '',
   });
 
-  const SIGNIN_MUTATION = gql`
-    mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-      authenticateUserWithPassword(email: $email, password: $password) {
-        ... on UserAuthenticationWithPasswordSuccess {
-          item {
-            id
-            name
-            email
-          }
-        }
-      }
-    }
-  `;
-
   // mutation functions
-  const [signIn, { error, loading }] = useMutation(SIGNIN_MUTATION, {
+  const [signIn, { data, loading }] = useMutation(SIGNIN_MUTATION, {
     variables: inputs,
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
+
+  if (data) {
+    console.log(data);
+  }
+
+  const error =
+    data?.authenticateUserWithPassword?.__typename ===
+    'UserAuthenticationWithPasswordFailure'
+      ? 'Invalid username or password.'
+      : null;
+  console.log(error);
 
   // handle submit of signin form
   async function handleSubmit(e) {
     e.preventDefault();
     await signIn();
-    resetForm();
-    // setAccountActive(false);
-    // setStopScrolling(false);
+    clearForm();
   }
+
   return (
     <SignContainer>
       <ProductsPageHeading>
@@ -65,6 +74,7 @@ export default function SignIn({ type }) {
           onChange={handleChange}
         />
         <button type="submit">{type}</button>
+        {error && <Error errorMessage={error} section="sign" />}
       </Form>
     </SignContainer>
   );
