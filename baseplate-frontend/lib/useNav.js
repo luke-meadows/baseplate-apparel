@@ -3,10 +3,10 @@ import { Ctx } from './CtxProvider';
 
 export function useNav() {
   const {
-    setSubNavOpen,
-    setActiveNavHeading,
     navRect,
     subNavRect,
+    setSubNavOpen,
+    setActiveNavHeading,
     setNavTriangleCoords,
     searchActive,
   } = useContext(Ctx);

@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import useCartTotal from '../../lib/useCartTotal';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
@@ -9,10 +8,10 @@ import { useCart } from '../../lib/useCart';
 
 export default function checkout() {
   const { cartItems } = useContext(Ctx);
-  const { removeCartItem } = useCart();
+  const { removeCartItem, cartTotal } = useCart();
 
   // move that into use cart
-  const totalCost = useCartTotal(cartItems);
+  const totalCost = cartTotal(cartItems);
 
   if (!cartItems)
     return (

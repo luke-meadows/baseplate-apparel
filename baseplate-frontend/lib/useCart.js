@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Ctx } from './CtxProvider';
 
 export function useCart() {
   // on cart render upload items to cart from backend or local storage
   const { cartItems, setCartItems } = useContext(Ctx);
+
   function addToCart(e) {
     e.preventDefault();
     const cartItem = {
@@ -11,7 +12,6 @@ export function useCart() {
       size: e.target.size.value,
       quantity: 1,
     };
-
     if (!cartItems) {
       localStorage.setItem('cart', JSON.stringify([cartItem]));
       setCartItems([cartItem]);
@@ -23,7 +23,6 @@ export function useCart() {
         existingItem.product.id === cartItem.product.id &&
         existingItem.size == cartItem.size
     );
-
     if (itemAlreadyExists > -1) {
       const newCartItems = JSON.parse(localStorage.getItem('cart'));
       newCartItems[itemAlreadyExists].quantity += 1;
@@ -52,8 +51,24 @@ export function useCart() {
     localStorage.setItem('cart', JSON.stringify(newCartItems));
     setCartItems(newCartItems);
   }
+
+  function cartTotal(cartItems = []) {
+    const [totalCost, updateTotalCost] = useState(0);
+
+    useEffect(() => {
+      const total = cartItems?.reduce((total, item) => {
+        const price = item.product.price * item.quantity;
+        total += price;
+        return total;
+      }, 0);
+      updateTotalCost(total);
+    }, [cartItems]);
+
+    return totalCost;
+  }
   return {
     removeCartItem,
     addToCart,
+    cartTotal,
   };
 }

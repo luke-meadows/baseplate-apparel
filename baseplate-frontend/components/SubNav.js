@@ -5,6 +5,7 @@ import { StyledSubNav, SubNavHeader, SubNavList } from './styles/HeaderStyles';
 import { motion } from 'framer-motion';
 import { animateOptions } from '../lib/subNavAnimations';
 import NavTriangle from './NavTriangle';
+import { useNav } from '../lib/useNav';
 
 export const SubNav = forwardRef((props, ref) => {
   const {
@@ -12,9 +13,9 @@ export const SubNav = forwardRef((props, ref) => {
     navTriangleCoords,
     activeNavHeading,
     setSubNavOpen,
-    handleMouseLeave,
     navCategories,
   } = useContext(Ctx);
+  const { handleMouseLeave } = useNav();
   const [variant, setVariant] = useState();
 
   const slugs = {

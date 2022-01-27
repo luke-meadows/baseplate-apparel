@@ -1,15 +1,14 @@
 import { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import useCartTotal from '../lib/useCartTotal';
 import { Ctx } from '../lib/CtxProvider';
 import { useCart } from '../lib/useCart';
 
 export default function Cart() {
   const { setCartActive, cartItems, setCartItems, setStopScrolling } =
     useContext(Ctx);
-  const totalCost = useCartTotal(cartItems);
-  const { removeCartItem } = useCart();
+  const { removeCartItem, cartTotal } = useCart();
+
   useEffect(() => {
     // retrieves cart items from local storage if they are there
     const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
@@ -18,6 +17,8 @@ export default function Cart() {
       setCartItems(cartItemsInLocalStorage);
     }
   }, []);
+
+  const totalCost = cartTotal(cartItems);
 
   function handleButtonClick() {
     setCartActive(false);
