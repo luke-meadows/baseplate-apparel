@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import SignIn from '../components/SignIn';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import Logout from './Logout';
 import SignUp from './SignUp';
 import { useUser } from './User';

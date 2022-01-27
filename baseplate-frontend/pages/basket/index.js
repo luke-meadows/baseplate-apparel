@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
 import { PagePadding } from '../../components/Page';
-import { Ctx } from '../../lib/NavCtxProvider';
+import { Ctx } from '../../lib/CtxProvider';
 import { useCart } from '../../lib/useCart';
 
 export default function checkout() {

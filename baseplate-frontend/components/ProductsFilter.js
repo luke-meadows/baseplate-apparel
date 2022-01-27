@@ -1,6 +1,6 @@
 import { useRouter } from 'next/dist/client/router';
 import getFilterOptions from '../lib/getFilterOptions';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import styled from 'styled-components';
 import { useState, useEffect, useContext } from 'react';
 

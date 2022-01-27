@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Page from '../components/Page';
-import { CtxProvider } from '../lib/NavCtxProvider';
+import { CtxProvider } from '../lib/CtxProvider';
 
 import '../public/fontello/css/fontello.css';
 import 'swiper/css/bundle';
@@ -9,16 +9,7 @@ import '../components/styles/nprogress.css';
 const client = new ApolloClient({
   uri: 'http://localhost:5000/api/graphql',
   credentials: 'include',
-  cache: new InMemoryCache({
-    typePolicies: {
-      Query: {
-        fields: {
-          // TODO: We will add this together!
-          // allProducts: paginationField(),
-        },
-      },
-    },
-  }),
+  cache: new InMemoryCache({}),
 });
 
 function MyApp({ Component, pageProps }) {

@@ -2,7 +2,7 @@ import { useEffect, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 
 export default function SearchBar({ searchActive, setSearchActive }) {
   const { setStopScrolling } = useContext(Ctx);

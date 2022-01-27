@@ -17,7 +17,7 @@ import {
 import { useContext, useState } from 'react';
 import RecentlyViewed from '../../components/RecentlyViewed';
 import { useCart } from '../../lib/useCart';
-import { Ctx } from '../../lib/NavCtxProvider';
+import { Ctx } from '../../lib/CtxProvider';
 
 const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {

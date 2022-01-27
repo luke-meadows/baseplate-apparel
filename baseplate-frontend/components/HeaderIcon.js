@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 export default function HeaderIcon({
   iconName,
   iconActive,

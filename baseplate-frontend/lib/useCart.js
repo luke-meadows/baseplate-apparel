@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Ctx } from './NavCtxProvider';
+import { Ctx } from './CtxProvider';
 
 export function useCart() {
   // on cart render upload items to cart from backend or local storage

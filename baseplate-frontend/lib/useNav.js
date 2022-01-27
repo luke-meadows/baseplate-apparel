@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from './CtxProvider';
 
 export function useNav() {
   const {

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from 'react';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import styled from 'styled-components';
 import { useState } from 'react/cjs/react.development';
 

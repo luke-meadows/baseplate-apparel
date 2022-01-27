@@ -5,7 +5,7 @@ import Footer from './Footer';
 import { useRouter } from 'next/router';
 import ScrollContainer from './ScrollContainer';
 import { useContext } from 'react';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import { useEffect } from 'react';
 
 export default function Page({ children }) {

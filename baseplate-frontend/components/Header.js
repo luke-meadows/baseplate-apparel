@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useQuery, gql } from '@apollo/client';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import { Nav } from './Nav';
 import { SubNav } from './SubNav';
 import { AnimateSharedLayout } from 'framer-motion';

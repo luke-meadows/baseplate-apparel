@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { forwardRef, useContext } from 'react';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import { StyledNav } from './styles/HeaderStyles';
 import { useNav } from '../lib/useNav';
 

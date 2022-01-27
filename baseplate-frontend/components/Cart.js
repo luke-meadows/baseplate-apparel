@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import useCartTotal from '../lib/useCartTotal';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import { useCart } from '../lib/useCart';
 
 export default function Cart() {

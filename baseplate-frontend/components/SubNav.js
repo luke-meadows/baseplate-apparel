@@ -1,6 +1,6 @@
 import { forwardRef, useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Ctx } from '../lib/NavCtxProvider';
+import { Ctx } from '../lib/CtxProvider';
 import { StyledSubNav, SubNavHeader, SubNavList } from './styles/HeaderStyles';
 import { motion } from 'framer-motion';
 import { animateOptions } from '../lib/subNavAnimations';
