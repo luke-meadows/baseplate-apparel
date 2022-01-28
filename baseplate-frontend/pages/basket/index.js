@@ -21,7 +21,6 @@ export default function checkout() {
         </ProductsPageHeading>
       </PagePadding>
     );
-  console.log('hello');
   return (
     <PagePadding>
       <StyledTable>
