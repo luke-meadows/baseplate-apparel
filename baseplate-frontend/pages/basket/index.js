@@ -9,8 +9,6 @@ import { useCart } from '../../lib/useCart';
 export default function checkout() {
   const { cartItems } = useContext(Ctx);
   const { removeCartItem, cartTotal } = useCart();
-
-  // move that into use cart
   const totalCost = cartTotal(cartItems);
 
   if (!cartItems)
@@ -136,6 +134,9 @@ const StyledTable = styled.div`
   }
   a {
     line-height: 0;
+    &:hover {
+      color: var(--main-blue);
+    }
   }
   h4 {
     text-align: center;

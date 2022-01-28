@@ -6,6 +6,7 @@ import { ProductsPageHeading } from './styles/ProductsPageStyles';
 import { Form } from './styles/Form';
 import { SignContainer } from './styles/SignContainer';
 import Error from './Error';
+import Loading from './Loading';
 
 export const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -33,16 +34,11 @@ export default function SignIn({ type }) {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
 
-  if (data) {
-    console.log(data);
-  }
-
   const error =
     data?.authenticateUserWithPassword?.__typename ===
     'UserAuthenticationWithPasswordFailure'
       ? 'Invalid username or password.'
       : null;
-  console.log(error);
 
   // handle submit of signin form
   async function handleSubmit(e) {
@@ -53,6 +49,7 @@ export default function SignIn({ type }) {
 
   return (
     <SignContainer>
+      {loading && <Loading />}
       <ProductsPageHeading>
         <h4>Login</h4>
       </ProductsPageHeading>

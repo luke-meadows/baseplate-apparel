@@ -6,6 +6,7 @@ import { SignContainer } from './styles/SignContainer';
 import { SIGNIN_MUTATION } from '../components/SignIn';
 import { CURRENT_USER_QUERY } from '../components/User';
 import Error from './Error';
+import Loading from './Loading';
 
 export default function SignUp({ type }) {
   const { inputs, handleChange, clearForm } = useForm({
@@ -53,6 +54,7 @@ export default function SignUp({ type }) {
   console.log({ error });
   return (
     <SignContainer>
+      {loading || (signInLoading && <Loading />)}
       <ProductsPageHeading>
         <h4>Create Account</h4>
       </ProductsPageHeading>
