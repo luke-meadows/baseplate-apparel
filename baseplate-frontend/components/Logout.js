@@ -1,20 +1,21 @@
 import { gql, useMutation } from '@apollo/client';
 import styled from 'styled-components';
 import { CURRENT_USER_QUERY } from './User';
-
+import Loading from '../components/Loading';
 export default function Logout({ user }) {
   const LOGOUT_MUTATION = gql`
     mutation {
       endSession
     }
   `;
-  const [endSession, { data }] = useMutation(LOGOUT_MUTATION, {
+  const [endSession, { data, loading }] = useMutation(LOGOUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
-  console.log(data);
+
   async function handleLogout() {
     await endSession();
   }
+  if (loading) return <Loading />;
   return (
     <StyledLogout>
       <p>

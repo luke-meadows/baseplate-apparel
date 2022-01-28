@@ -2,29 +2,32 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import SignIn from '../components/SignIn';
 import { Ctx } from '../lib/CtxProvider';
+import Loading from './Loading';
 import Logout from './Logout';
 import SignUp from './SignUp';
 import { useUser } from './User';
 export function AccountSection() {
-  const user = useUser();
+  const { user, loading } = useUser();
   const { setStopScrolling, setAccountActive } = useContext(Ctx);
   function handleClose() {
     setStopScrolling(false);
     setAccountActive(false);
   }
+  if (loading) return <Loading />;
   if (user) return <Logout user={user} />;
-  return (
-    <StyledAccountSection>
-      <AccountContainer>
-        <SignIn type="Login" />
-        <Line />
-        <SignUp type="Create Account" />
-        <button onClick={handleClose} className="close">
-          &#215;
-        </button>
-      </AccountContainer>
-    </StyledAccountSection>
-  );
+  if (!user && !loading)
+    return (
+      <StyledAccountSection>
+        <AccountContainer>
+          <SignIn type="Login" />
+          <Line />
+          <SignUp type="Create Account" />
+          <button onClick={handleClose} className="close">
+            &#215;
+          </button>
+        </AccountContainer>
+      </StyledAccountSection>
+    );
 }
 
 const StyledAccountSection = styled.div`

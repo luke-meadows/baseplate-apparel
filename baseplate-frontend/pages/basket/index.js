@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
@@ -7,9 +7,18 @@ import { Ctx } from '../../lib/CtxProvider';
 import { useCart } from '../../lib/useCart';
 
 export default function checkout() {
-  const { cartItems } = useContext(Ctx);
+  const { cartItems, setCartItems } = useContext(Ctx);
   const { removeCartItem, cartTotal } = useCart();
   const totalCost = cartTotal(cartItems);
+
+  useEffect(() => {
+    // retrieves cart items from local storage if they are there
+    const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
+    if (cartItemsInLocalStorage && !cartItems) {
+      // Only runs on page reload if cart items exist in local storage
+      setCartItems(cartItemsInLocalStorage);
+    }
+  }, []);
 
   if (!cartItems)
     return (

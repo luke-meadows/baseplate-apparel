@@ -32,10 +32,7 @@ export default function SignUp({ type }) {
   const [signUp, { data, error, loading }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
   });
-  const [
-    signIn,
-    { signInData = data, signInError = error, signInLoading = loading },
-  ] = useMutation(SIGNIN_MUTATION, {
+  const [signIn, { signInLoading = loading }] = useMutation(SIGNIN_MUTATION, {
     variables: {
       email: inputs.email,
       password: inputs.password,
@@ -51,10 +48,11 @@ export default function SignUp({ type }) {
     }
     clearForm();
   }
-  console.log({ error });
+
   return (
     <SignContainer>
-      {loading || (signInLoading && <Loading />)}
+      {signInLoading && <Loading />}
+      {loading && <Loading />}
       <ProductsPageHeading>
         <h4>Create Account</h4>
       </ProductsPageHeading>
