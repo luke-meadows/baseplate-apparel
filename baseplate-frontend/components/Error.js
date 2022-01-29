@@ -1,5 +1,4 @@
 export default function Error({ errorMessage, section }) {
-  console.log(errorMessage);
   let userMessage;
   if (errorMessage.includes('duplicate key error') && section === 'sign')
     userMessage = 'User already exists, please Login.';

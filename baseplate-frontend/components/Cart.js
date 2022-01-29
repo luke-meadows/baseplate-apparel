@@ -19,6 +19,7 @@ export default function Cart() {
   }, []);
 
   const totalCost = cartTotal(cartItems);
+  w1;
 
   function handleButtonClick() {
     setCartActive(false);

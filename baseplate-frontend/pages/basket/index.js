@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
-import { PagePadding } from '../../components/Page';
 import { Ctx } from '../../lib/CtxProvider';
 import { useCart } from '../../lib/useCart';
+import { PagePadding } from '../../components/Page';
+import { ProductsPageHeading } from '../../components/styles/ProductsPageStyles';
 
 export default function checkout() {
   const { cartItems, setCartItems } = useContext(Ctx);
@@ -106,8 +106,9 @@ export default function checkout() {
 const StyledTable = styled.div`
   font-weight: 300;
   width: 100%;
+  max-width: 1500px;
+  margin: auto;
   table {
-    max-width: 1500px;
     margin: auto;
     width: 100%;
     border-collapse: collapse;
@@ -165,11 +166,7 @@ const StyledTable = styled.div`
       background: none;
     }
   }
-  .checkout-btn {
-    height: 4rem;
-    width: 25rem;
-    background: var(--main-blue);
-  }
+
   .image,
   .title {
     text-align: left;
@@ -185,7 +182,17 @@ const TableFooter = styled.div`
   margin-top: 6rem;
   padding-top: 6rem;
   border-top: 1px solid #c8c8c8;
-
+  button {
+    height: 4rem;
+    width: 20rem;
+    background: var(--main-blue);
+    &:hover {
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  a:hover {
+    color: rgba(0, 0, 0, 0.8);
+  }
   p {
     font-size: 2rem;
     margin-right: 3rem;

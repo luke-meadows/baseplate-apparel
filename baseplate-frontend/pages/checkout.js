@@ -5,7 +5,6 @@ import { ProductsPageHeading } from '../components/styles/ProductsPageStyles';
 
 const CollapsableDiv = ({ children, title }) => {
   const [toggle, setToggle] = useState(false);
-  console.log(children);
   return (
     <div style={{ padding: '2rem 0' }}>
       <div className="shipping">

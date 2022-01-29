@@ -1,18 +1,21 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import SignIn from '../components/SignIn';
 import { Ctx } from '../lib/CtxProvider';
-import Loading from './Loading';
-import Logout from './Logout';
+import SignIn from '../components/SignIn';
 import SignUp from './SignUp';
+import Logout from './Logout';
+import Loading from './Loading';
 import { useUser } from './User';
+
 export function AccountSection() {
   const { user, loading } = useUser();
   const { setStopScrolling, setAccountActive } = useContext(Ctx);
+
   function handleClose() {
     setStopScrolling(false);
     setAccountActive(false);
   }
+
   if (loading) return <Loading />;
   if (user) return <Logout user={user} />;
   if (!user && !loading)

@@ -39,6 +39,7 @@ export default function SignUp({ type }) {
     },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
+
   async function handleSubmit(e) {
     e.preventDefault();
     const res = await signUp();
