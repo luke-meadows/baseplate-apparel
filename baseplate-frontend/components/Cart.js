@@ -7,6 +7,7 @@ import { useCart } from '../lib/useCart';
 export default function Cart() {
   const { setCartActive, cartItems, setCartItems, setStopScrolling } =
     useContext(Ctx);
+
   const { removeCartItem, cartTotal } = useCart();
 
   useEffect(() => {
@@ -19,7 +20,6 @@ export default function Cart() {
   }, []);
 
   const totalCost = cartTotal(cartItems);
-  w1;
 
   function handleButtonClick() {
     setCartActive(false);
