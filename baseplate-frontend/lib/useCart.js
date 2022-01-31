@@ -1,13 +1,13 @@
 import { useContext, useState, useEffect } from 'react';
-import { useUser } from '../components/User';
 import { Ctx } from './CtxProvider';
 
 export function useCart() {
   const { cartItems, setCartItems } = useContext(Ctx);
 
   function fetchCartItems(user) {
+    // if user not logged in items fetch from local storage.
     const existingCartItems =
-      user?.cartItem || JSON.parse(localStorage.getItem('cart'));
+      user?.cartItem || JSON.parse(localStorage.getItem('cart')) || null;
     setCartItems(existingCartItems);
   }
 

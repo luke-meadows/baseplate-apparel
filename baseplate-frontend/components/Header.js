@@ -73,9 +73,7 @@ export default function Header() {
   }, [data]);
 
   useEffect(() => {
-    console.log(loading);
     if (loading) return;
-    console.log(user);
     fetchCartItems(user);
   }, [user]);
 

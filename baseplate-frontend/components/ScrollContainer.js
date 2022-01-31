@@ -26,9 +26,8 @@ export default function ScrollContainer({ children }) {
     }
   }, [stopScrolling]);
 
-  function handleClick(e) {
+  function handleClick() {
     if (!stopScrolling) return;
-    console.log('close from contianer');
     setSearchActive(false);
     setStopScrolling(false);
     setCartActive(false);

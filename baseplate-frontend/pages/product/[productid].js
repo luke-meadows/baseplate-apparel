@@ -14,10 +14,11 @@ import {
   ProductMain,
   ProductLowerSection,
 } from '../../components/styles/ProductPageStyles';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import RecentlyViewed from '../../components/RecentlyViewed';
 import { useCart } from '../../lib/useCart';
 import { Ctx } from '../../lib/CtxProvider';
+import { useUser } from '../../components/User';
 
 const PRODUCT_QUERY = gql`
   query PRODUCT_QUERY($id: ID!) {
@@ -37,11 +38,19 @@ const PRODUCT_QUERY = gql`
   }
 `;
 export default function Product({ query }) {
+  const { user } = useUser();
+  console.log(user);
   const { data, error, loading } = useQuery(PRODUCT_QUERY, {
     variables: { id: query.productid },
   });
   const product = data?.Product;
+
   const [sizeDisabled, changeSizeDisabled] = useState(true);
+
+  useEffect(() => {
+    changeSizeDisabled(true);
+    return;
+  }, [loading]);
 
   function handleSizeSelected(e) {
     const { value } = e.target;
@@ -52,6 +61,7 @@ export default function Product({ query }) {
     changeSizeDisabled(false);
     e.target.blur();
   }
+
   const { setCartActive, setStopScrolling } = useContext(Ctx);
   const { addToCart } = useCart();
 
