@@ -3,14 +3,14 @@ import { integer, relationship, text } from '@keystone-next/fields';
 export const CartItem = list({
   ui: {
     listView: {
-      initialColumns: ['item', 'quantity', 'size', 'user'],
+      initialColumns: ['product', 'quantity', 'size', 'user'],
     },
   },
   fields: {
     quantity: integer(),
     size: text(),
     user: relationship({ ref: 'User.cartItem' }),
-    item: relationship({
+    product: relationship({
       ref: 'Product',
     }),
   },

@@ -16,6 +16,7 @@ import HeaderIcon from './HeaderIcon';
 import Cart from './Cart';
 import populateSubnavOptions from '../lib/populateSubnavOptions';
 import { AccountSection } from './AccountSection';
+import { useUser } from './User';
 
 export default function Header() {
   const {
@@ -53,6 +54,7 @@ export default function Header() {
 
   const subNavRef = useRef();
   const navRef = useRef();
+  const isLoggedIn = useUser();
 
   // fetches the Rect for nav & subnav and stores them to be used in onMouseEnter calculations.
   useEffect(() => {
@@ -97,9 +99,7 @@ export default function Header() {
           iconActive={accountActive}
           setIconActive={setAccountActive}
         />
-        {cartActive && (
-          <Cart cartActive={cartActive} setCartActive={setCartActive} />
-        )}
+        {cartActive && <Cart isLoggedIn={isLoggedIn} />}
         {accountActive && <AccountSection />}
         <HeaderIcon
           iconName="shopping_cart"

@@ -80,7 +80,7 @@ export default function SignUp({ type }) {
           name="password"
           value={inputs.password}
           onChange={handleChange}
-          autocomplete="off"
+          autoComplete="off"
         />
         <button>{type}</button>
         {error && <Error errorMessage={error.message} section="sign" />}

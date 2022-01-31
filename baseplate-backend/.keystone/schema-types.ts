@@ -650,8 +650,8 @@ export type CartItemWhereInput = {
   readonly size_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly user?: UserWhereInput | null;
   readonly user_is_null?: Scalars['Boolean'] | null;
-  readonly item?: ProductWhereInput | null;
-  readonly item_is_null?: Scalars['Boolean'] | null;
+  readonly product?: ProductWhereInput | null;
+  readonly product_is_null?: Scalars['Boolean'] | null;
 };
 
 export type CartItemWhereUniqueInput = {
@@ -667,14 +667,14 @@ export type SortCartItemsBy =
   | 'size_DESC'
   | 'user_ASC'
   | 'user_DESC'
-  | 'item_ASC'
-  | 'item_DESC';
+  | 'product_ASC'
+  | 'product_DESC';
 
 export type CartItemUpdateInput = {
   readonly quantity?: Scalars['Int'] | null;
   readonly size?: Scalars['String'] | null;
   readonly user?: UserRelateToOneInput | null;
-  readonly item?: ProductRelateToOneInput | null;
+  readonly product?: ProductRelateToOneInput | null;
 };
 
 export type CartItemsUpdateInput = {
@@ -686,7 +686,7 @@ export type CartItemCreateInput = {
   readonly quantity?: Scalars['Int'] | null;
   readonly size?: Scalars['String'] | null;
   readonly user?: UserRelateToOneInput | null;
-  readonly item?: ProductRelateToOneInput | null;
+  readonly product?: ProductRelateToOneInput | null;
 };
 
 export type CartItemsCreateInput = {
@@ -934,13 +934,13 @@ export type ProductTypeListFn = (
 
 export type CartItemListTypeInfo = {
   key: 'CartItem';
-  fields: 'id' | 'quantity' | 'size' | 'user' | 'item';
+  fields: 'id' | 'quantity' | 'size' | 'user' | 'product';
   backing: {
     readonly id: string;
     readonly quantity?: number | null;
     readonly size?: string | null;
     readonly user?: string | null;
-    readonly item?: string | null;
+    readonly product?: string | null;
   };
   inputs: {
     where: CartItemWhereInput;
