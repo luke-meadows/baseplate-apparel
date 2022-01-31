@@ -4,24 +4,11 @@ import Link from 'next/link';
 import { Ctx } from '../lib/CtxProvider';
 import { useCart } from '../lib/useCart';
 
-export default function Cart({ isLoggedIn }) {
+export default function Cart() {
   const { setCartActive, cartItems, setCartItems, setStopScrolling } =
     useContext(Ctx);
 
   const { removeCartItem, cartTotal } = useCart();
-
-  useEffect(() => {
-    if (isLoggedIn.user) {
-      setCartItems(isLoggedIn.user.cartItem);
-    } else {
-      const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
-      if (cartItemsInLocalStorage && !cartItems) {
-        // Only runs on page reload if cart items exist in local storage
-        setCartItems(cartItemsInLocalStorage);
-      }
-    }
-    // retrieves cart items from local storage if they are there
-  }, []);
 
   const totalCost = cartTotal(cartItems);
 
