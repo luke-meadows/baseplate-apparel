@@ -36,6 +36,9 @@ export default function Home() {
           ProductType: _allProductTypesMeta {
             count
           }
+          CartItem: _allCartItemsMeta {
+            count
+          }
         }
       `}
     />

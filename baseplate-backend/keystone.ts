@@ -15,6 +15,7 @@ import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { Brand } from './schemas/Brand';
 import { ProductType } from './schemas/ProductType';
+import { CartItem } from './schemas/CartItem';
 // Session methods
 import {
   withItemData,
@@ -52,6 +53,7 @@ export default withAuth(
       ProductImage,
       Brand,
       ProductType,
+      CartItem,
     }),
 
     ui: {
