@@ -3,20 +3,12 @@ import { useUser } from '../components/User';
 import { Ctx } from './CtxProvider';
 
 export function useCart() {
-  // on cart render upload items to cart from backend or local storage
   const { cartItems, setCartItems } = useContext(Ctx);
-  const isLoggedIn = useUser();
 
-  async function fetchCartItems() {
-    if (isLoggedIn.user) {
-      setCartItems(isLoggedIn.user.cartItem);
-    } else {
-      const cartItemsInLocalStorage = JSON.parse(localStorage.getItem('cart'));
-      if (cartItemsInLocalStorage && !cartItems) {
-        // Only runs on page reload if cart items exist in local storage
-        setCartItems(cartItemsInLocalStorage);
-      }
-    }
+  function fetchCartItems(user) {
+    const existingCartItems =
+      user?.cartItem || JSON.parse(localStorage.getItem('cart'));
+    setCartItems(existingCartItems);
   }
 
   function addToCart(e) {

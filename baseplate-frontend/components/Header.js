@@ -17,6 +17,7 @@ import Cart from './Cart';
 import populateSubnavOptions from '../lib/populateSubnavOptions';
 import { AccountSection } from './AccountSection';
 import { useCart } from '../lib/useCart';
+import { useUser } from './User';
 
 export default function Header() {
   const {
@@ -31,8 +32,6 @@ export default function Header() {
     setSubNavRect,
     setNavRect,
   } = useContext(Ctx);
-
-  const { fetchCartItems } = useCart();
 
   const NAV_DATA_QUERY = gql`
     query NAV_DATA_QUERY {
@@ -56,6 +55,8 @@ export default function Header() {
 
   const subNavRef = useRef();
   const navRef = useRef();
+  const { fetchCartItems } = useCart();
+  const { user, loading } = useUser();
 
   // fetches the Rect for nav & subnav and stores them to be used in onMouseEnter calculations.
   useEffect(() => {
@@ -70,6 +71,13 @@ export default function Header() {
   useEffect(() => {
     populateSubnavOptions(data, setNavCategories);
   }, [data]);
+
+  useEffect(() => {
+    console.log(loading);
+    if (loading) return;
+    console.log(user);
+    fetchCartItems(user);
+  }, [user]);
 
   return (
     <StyledHeader>

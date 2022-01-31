@@ -5,8 +5,7 @@ import { Ctx } from '../lib/CtxProvider';
 import { useCart } from '../lib/useCart';
 
 export default function Cart() {
-  const { setCartActive, cartItems, setCartItems, setStopScrolling } =
-    useContext(Ctx);
+  const { setCartActive, cartItems, setStopScrolling } = useContext(Ctx);
 
   const { removeCartItem, cartTotal } = useCart();
 
