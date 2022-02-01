@@ -32,7 +32,7 @@ export default function EmailForm({ placeholder, withLabel }) {
           Sign Up to our newsletter for 15% off your first order
         </label>
       )}
-      <div>
+      <InputContainer>
         <StyledInput
           onChange={(e) => setEmail({ email: e.target.value })}
           name="email"
@@ -40,14 +40,16 @@ export default function EmailForm({ placeholder, withLabel }) {
           type="email"
         />
         <button type="submit">Submit</button>
-      </div>
+      </InputContainer>
     </StyledForm>
   );
 }
 
-const StyledForm = styled.form`
+const InputContainer = styled.div`
   border: 1px solid #51515187;
-  /* padding: 1px; */
+`;
+
+const StyledForm = styled.form`
   div {
     display: flex;
     height: 4rem;

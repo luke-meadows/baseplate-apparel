@@ -49,14 +49,13 @@ const PaginationStyles = styled.div`
   color: rgba(0, 0, 0, 0.7);
   align-items: center;
   * {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   button {
     text-transform: capitalize;
     background: none;
     color: rgba(0, 0, 0, 0.7);
-    font-family: 'Lexend', sans-serif;
 
     &:hover,
     &:focus {

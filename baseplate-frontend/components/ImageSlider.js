@@ -11,6 +11,7 @@ import home1 from '../public/img/sliderimgs/homeSliderImg1L.jpg';
 import home2 from '../public/img/sliderimgs/homeSliderImg2L.jpg';
 import home3 from '../public/img/sliderimgs/homeSliderImg3L.jpg';
 import home4 from '../public/img/sliderimgs/homeSliderImg4L.jpg';
+import home5 from '../public/img/sliderimgs/homeSliderImg5L.jpg';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -79,6 +80,19 @@ export const ImageSlider = () => {
         <SwiperSlide>
           <div className="img-container" style={{ width: '100%' }}>
             <Image src={home4} />
+          </div>
+          <figcaption className="slide-heading-and-button">
+            <Link href="/products/brands">
+              <h2>All Brands</h2>
+            </Link>
+            <Link href="/products/brands">
+              <button type="button">Shop Now</button>
+            </Link>
+          </figcaption>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container" style={{ width: '100%' }}>
+            <Image src={home5} />
           </div>
           <figcaption className="slide-heading-and-button">
             <Link href="/products/brands">
