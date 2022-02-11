@@ -22,9 +22,6 @@ export default function Pagination({
   if (totalPages === 1 || totalPages === 0) return <></>;
   return (
     <PaginationStyles>
-      <Head>
-        <title>Baseplate | Page {currentPage}</title>
-      </Head>
       <button type="button" onClick={handlePrev} disabled={currentPage === 1}>
         &#8592; Prev
       </button>

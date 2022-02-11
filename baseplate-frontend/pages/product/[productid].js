@@ -39,7 +39,6 @@ const PRODUCT_QUERY = gql`
 `;
 export default function Product({ query }) {
   const { user } = useUser();
-  console.log(user);
   const { data, error, loading } = useQuery(PRODUCT_QUERY, {
     variables: { id: query.productid },
   });
@@ -66,7 +65,12 @@ export default function Product({ query }) {
   const { addToCart } = useCart();
 
   function handleSubmit(e) {
-    addToCart(e);
+    e.preventDefault();
+    if (user) {
+      console.log('user');
+    } else {
+      addToCart(e);
+    }
     setCartActive(true);
     setStopScrolling(true);
   }

@@ -15,7 +15,7 @@ export default function Cart() {
     setCartActive(false);
     setStopScrolling(false);
   }
-  if (!cartItems)
+  if (!cartItems.length > 0)
     return <NoCartItems>You have no items in your cart</NoCartItems>;
   return (
     <StyledCart>

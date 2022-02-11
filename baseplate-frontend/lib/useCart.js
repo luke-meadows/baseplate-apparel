@@ -12,7 +12,6 @@ export function useCart() {
   }
 
   function addToCart(e) {
-    e.preventDefault();
     const cartItem = {
       product: JSON.parse(e.target.dataset.product),
       size: e.target.size.value,

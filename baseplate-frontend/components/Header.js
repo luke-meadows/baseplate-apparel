@@ -115,7 +115,7 @@ export default function Header() {
           iconActive={cartActive}
           otherIconActive={searchActive}
           setIconActive={setCartActive}
-          quantity={cartItems}
+          quantity={cartItems?.length}
         />
       </IconContainer>
       {/* {to make the nav centered using the flex} */}

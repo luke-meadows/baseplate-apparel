@@ -26,9 +26,7 @@ export default function HeaderIcon({
       <span className={iconActive ? 'blue material-icons' : 'material-icons'}>
         {iconName}
       </span>
-      {quantity > 0 && (
-        <CartItemsQuantity>{`+${quantity.length}`}</CartItemsQuantity>
-      )}
+      {quantity > 0 && <CartItemsQuantity>{`+${quantity}`}</CartItemsQuantity>}
     </Icon>
   );
 }

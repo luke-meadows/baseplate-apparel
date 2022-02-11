@@ -7,6 +7,7 @@ import ScrollContainer from './ScrollContainer';
 import { useContext } from 'react';
 import { Ctx } from '../lib/CtxProvider';
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 export default function Page({ children }) {
   // stops displaying products filters if page is changed from products.
@@ -20,6 +21,9 @@ export default function Page({ children }) {
 
   return (
     <StyledPage>
+      <Head>
+        <title>Baseplate</title>
+      </Head>
       <GlobalStyles />
       <Header />
       <ScrollContainer>
