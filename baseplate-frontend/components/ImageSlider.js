@@ -17,10 +17,8 @@ import home5 from '../public/img/sliderimgs/homeSliderImg5L.jpg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import { useState } from 'react';
 
 export const ImageSlider = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <>
       <HomepageSlider
