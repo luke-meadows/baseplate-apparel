@@ -9,6 +9,8 @@ const sessionConfig = {
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { createAuth } from '@keystone-next/auth';
 
+// Custom mutations
+import { extendGraphqlSchema } from './mutations';
 // Lists
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
@@ -55,7 +57,7 @@ export default withAuth(
       ProductType,
       CartItem,
     }),
-
+    extendGraphqlSchema,
     ui: {
       // show the ui for only people who pass this test - check if they have a session and are logged in
       isAccessAllowed: ({ session }) => {
